@@ -6,6 +6,7 @@ import { ArrowRight, Fish, Award, Leaf, Users, ChevronRight, MapPin, Phone, Mail
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, EffectFade } from 'swiper/modules';
 import Layout from '../components/Layout';
+import whatsappLogo from '@/assets/whatsapp-logo.svg';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -405,16 +406,21 @@ const Index = () => {
                   </div>
                 </div>
 
-                {/* WhatsApp Button */}
-                <motion.button
-                  onClick={openWhatsApp}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="mt-8 w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-4 px-6 rounded-lg transition-colors duration-300 flex items-center justify-center gap-3"
-                >
-                  <MessageSquare className="h-5 w-5" />
-                  WhatsApp Kontakt
-                </motion.button>
+                {/* WhatsApp Contact */}
+                <div className="flex items-start gap-4">
+                  <div className="p-3 bg-primary/10 rounded-full">
+                    <img src={whatsappLogo} alt="WhatsApp" className="h-6 w-6" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-foreground mb-1">WhatsApp</h4>
+                    <button
+                      onClick={openWhatsApp}
+                      className="text-muted-foreground hover:text-primary transition-colors duration-200 underline"
+                    >
+                      +49 (0) 7444 123456
+                    </button>
+                  </div>
+                </div>
               </div>
             </motion.div>
 
