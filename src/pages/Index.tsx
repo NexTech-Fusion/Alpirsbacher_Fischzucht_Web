@@ -2,10 +2,35 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, Fish, Award, Leaf, Users } from 'lucide-react';
+import { ArrowRight, Fish, Award, Leaf, Users, ChevronRight } from 'lucide-react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, EffectFade } from 'swiper/modules';
 import Layout from '../components/Layout';
 
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/effect-fade';
+
 const Index = () => {
+  const heroImages = [
+    {
+      url: 'https://vibemedia.space/trout_farm_hero_001.png?prompt=pristine%20trout%20swimming%20in%20crystal%20clear%20mountain%20stream%20black%20forest%20germany%20natural%20habitat%20premium%20quality%20fish%20elegant%20lighting&key=BT4VR',
+      alt: 'Premium Forellen in natürlichem Habitat'
+    },
+    {
+      url: 'https://vibemedia.space/fish_farm_hero_002.png?prompt=modern%20sustainable%20fish%20farm%20facility%20black%20forest%20mountain%20setting%20clean%20water%20systems%20professional%20aquaculture%20elegant&key=BT4VR',
+      alt: 'Moderne Fischzuchtanlage'
+    },
+    {
+      url: 'https://vibemedia.space/fresh_trout_hero_003.png?prompt=fresh%20rainbow%20trout%20on%20ice%20premium%20quality%20fish%20market%20display%20professional%20presentation%20gourmet%20dining%20elegant&key=BT4VR',
+      alt: 'Frische Regenbogenforelle'
+    },
+    {
+      url: 'https://vibemedia.space/black_forest_hero_004.png?prompt=misty%20black%20forest%20mountain%20landscape%20pristine%20nature%20pine%20trees%20morning%20light%20serene%20atmosphere%20natural%20beauty&key=BT4VR',
+      alt: 'Schwarzwald Landschaft'
+    }
+  ];
+
   const sections = [
     {
       title: 'Fischzucht',
@@ -39,64 +64,110 @@ const Index = () => {
 
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: `url('https://vibemedia.space/hero_luxury_main_e5f4g3h2_005.png?prompt=pristine%20mountain%20lake%20black%20forest%20germany%20crystal%20clear%20water%20surrounded%20by%20dense%20pine%20forest%20misty%20morning%20luxury%20dark%20elegant%20atmosphere&key=BT4VR')`
-          }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-b from-deep-black/70 via-deep-black/40 to-deep-black/70"></div>
+      {/* Hero Section - Split Screen Design */}
+      <section className="min-h-screen flex flex-col lg:flex-row">
+        {/* Left Side - Image Swiper */}
+        <div className="lg:w-1/2 h-64 lg:h-screen relative overflow-hidden">
+          <Swiper
+            modules={[Autoplay, EffectFade]}
+            effect="fade"
+            autoplay={{
+              delay: 4000,
+              disableOnInteraction: false,
+            }}
+            loop={true}
+            className="w-full h-full"
+          >
+            {heroImages.map((image, index) => (
+              <SwiperSlide key={index}>
+                <div 
+                  className="w-full h-full bg-cover bg-center bg-no-repeat"
+                  style={{ backgroundImage: `url('${image.url}')` }}
+                >
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent to-background/20"></div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+          
+          {/* Overlay gradient for better text contrast */}
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-background/60 lg:to-background/20"></div>
         </div>
-        
-        <div className="relative z-10 text-center text-ivory-white max-w-4xl mx-auto px-4">
-          <motion.h1 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="font-serif text-5xl md:text-7xl font-bold mb-6"
-          >
-            Alpirsbach
-            <span className="block text-rich-gold animate-gold-shimmer bg-gold-gradient bg-clip-text text-transparent bg-[length:200%_100%]">
-              Fischzucht
-            </span>
-          </motion.h1>
-          
-          <motion.p 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-xl md:text-2xl mb-8 font-light text-ivory-white/90"
-          >
-            Premium Forellen aus dem Herzen des Schwarzwalds
-          </motion.p>
-          
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
-          >
-            <Link 
-              to="/shop"
-              className="bg-rich-gold hover:bg-rich-gold/90 text-deep-black px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-rich-gold/25 inline-flex items-center gap-2"
+
+        {/* Right Side - Content */}
+        <div className="lg:w-1/2 bg-background flex items-center justify-center min-h-screen p-8 lg:p-16">
+          <div className="max-w-xl w-full text-center lg:text-left">
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              className="space-y-8"
             >
-              Jetzt bestellen
-              <ArrowRight size={20} />
-            </Link>
-            <Link 
-              to="/fischzucht"
-              className="border-2 border-rich-gold hover:bg-rich-gold hover:text-deep-black text-rich-gold px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:scale-105"
-            >
-              Mehr erfahren
-            </Link>
-          </motion.div>
+              {/* Title */}
+              <div className="space-y-4">
+                <h1 className="font-serif text-4xl lg:text-6xl xl:text-7xl font-bold text-foreground leading-tight">
+                  Alpirsbacher
+                  <span className="block text-primary mt-2">
+                    Fischzucht
+                  </span>
+                </h1>
+                
+                {/* Subtitle */}
+                <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed max-w-md">
+                  Frische Forellen aus dem Herzen des Schwarzwalds
+                </p>
+              </div>
+
+              {/* Description */}
+              <p className="text-secondary text-sm lg:text-base leading-relaxed opacity-80 max-w-lg">
+                Drei Generationen Erfahrung in nachhaltiger Fischzucht. Premium Qualität aus kristallklaren Gebirgsbächen.
+              </p>
+
+              {/* Action Button */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+              >
+                <Link to="/shop">
+                  <motion.div 
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="inline-flex items-center justify-center w-32 h-32 lg:w-40 lg:h-40 border-2 border-primary rounded-full bg-background/80 backdrop-blur-sm hover:bg-primary hover:text-primary-foreground transition-all duration-300 group cursor-pointer"
+                  >
+                    <div className="text-center">
+                      <div className="text-sm lg:text-base font-medium mb-1">Unser</div>
+                      <div className="text-xs lg:text-sm font-light opacity-75">Shop</div>
+                      <ChevronRight className="w-4 h-4 lg:w-5 lg:h-5 mx-auto mt-2 group-hover:translate-x-1 transition-transform duration-300" />
+                    </div>
+                  </motion.div>
+                </Link>
+              </motion.div>
+
+              {/* Secondary Actions */}
+              <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                <Link 
+                  to="/fischzucht"
+                  className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-medium transition-all duration-300 group"
+                >
+                  Fischzucht entdecken
+                  <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-300" />
+                </Link>
+                <Link 
+                  to="/kontakt"
+                  className="inline-flex items-center gap-2 text-secondary hover:text-secondary/80 font-medium transition-all duration-300 group"
+                >
+                  Kontakt aufnehmen
+                  <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-300" />
+                </Link>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Sections Overview */}
-      <section className="py-20 bg-luxury-gradient">
+      <section className="py-20 bg-sage-gradient">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -104,10 +175,10 @@ const Index = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="font-serif text-4xl md:text-5xl font-bold text-ivory-white mb-6">
-              Tradition trifft <span className="text-rich-gold">Innovation</span>
+            <h2 className="font-serif text-4xl md:text-5xl font-bold text-foreground mb-6">
+              Tradition trifft <span className="text-primary">Innovation</span>
             </h2>
-            <p className="text-ivory-white/80 text-lg max-w-3xl mx-auto">
+            <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
               Seit drei Generationen züchten wir in den kristallklaren Gewässern des Schwarzwalds 
               Forellen von außergewöhnlicher Qualität. Entdecken Sie unsere Welt der nachhaltigen Fischzucht.
             </p>
@@ -120,7 +191,7 @@ const Index = () => {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
-                className="group bg-charcoal-gray/80 backdrop-blur-sm rounded-xl overflow-hidden shadow-2xl hover:shadow-rich-gold/10 transition-all duration-500 hover:scale-105 border border-rich-gold/10 hover:border-rich-gold/30"
+                className="group bg-card backdrop-blur-sm rounded-xl overflow-hidden shadow-2xl hover:shadow-primary/10 transition-all duration-500 hover:scale-105 border border-border hover:border-primary/30"
               >
                 <div className="aspect-video overflow-hidden">
                   <img 
@@ -131,17 +202,17 @@ const Index = () => {
                 </div>
                 <div className="p-6">
                   <div className="flex items-center gap-3 mb-4">
-                    <section.icon className="h-6 w-6 text-rich-gold" />
-                    <h3 className="font-serif text-2xl font-semibold text-ivory-white">
+                    <section.icon className="h-6 w-6 text-primary" />
+                    <h3 className="font-serif text-2xl font-semibold text-foreground">
                       {section.title}
                     </h3>
                   </div>
-                  <p className="text-ivory-white/70 mb-6 leading-relaxed">
+                  <p className="text-muted-foreground mb-6 leading-relaxed">
                     {section.description}
                   </p>
                   <Link 
                     to={section.path}
-                    className="inline-flex items-center gap-2 text-rich-gold hover:text-rich-gold/80 font-semibold transition-all duration-300 hover:gap-3"
+                    className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-semibold transition-all duration-300 hover:gap-3"
                   >
                     Mehr erfahren
                     <ArrowRight size={16} className="transition-transform duration-300" />
@@ -154,23 +225,23 @@ const Index = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-deep-black border-t border-rich-gold/20">
+      <section className="py-20 bg-card border-t border-border">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="font-serif text-3xl md:text-4xl font-bold mb-6 text-ivory-white">
-              Bereit für den Geschmack des <span className="text-rich-gold">Schwarzwalds</span>?
+            <h2 className="font-serif text-3xl md:text-4xl font-bold mb-6 text-foreground">
+              Bereit für den Geschmack des <span className="text-primary">Schwarzwalds</span>?
             </h2>
-            <p className="text-xl mb-8 text-ivory-white/80">
+            <p className="text-xl mb-8 text-muted-foreground">
               Bestellen Sie noch heute unsere frischen Premium-Forellen 
               und erleben Sie Qualität, die Sie schmecken können.
             </p>
             <Link 
               to="/shop"
-              className="bg-rich-gold hover:bg-rich-gold/90 text-deep-black px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-rich-gold/25 inline-flex items-center gap-2"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/25 inline-flex items-center gap-2"
             >
               Zum Shop
               <ArrowRight size={20} />
