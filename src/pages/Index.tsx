@@ -2,11 +2,11 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, Fish, Award, Leaf, Users, ChevronRight, MapPin, Phone, Mail, Clock, MessageSquare } from 'lucide-react';
+import { ArrowRight, Fish, Award, Leaf, Users, ChevronRight, MapPin, Phone, Mail, Clock } from 'lucide-react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, EffectFade } from 'swiper/modules';
 import Layout from '../components/Layout';
-import whatsappLogo from '@/assets/whatsapp-logo.svg';
+
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -42,9 +42,6 @@ const Index = () => {
     setFormData({ name: '', email: '', message: '' });
   };
 
-  const openWhatsApp = () => {
-    window.open('https://wa.me/491234567890', '_blank');
-  };
 
   const heroImages = [
     {
@@ -406,17 +403,7 @@ const Index = () => {
                   </div>
                 </div>
 
-                {/* WhatsApp Button */}
-                <motion.button
-                  onClick={openWhatsApp}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="mt-6 p-4 bg-[#25D366] hover:bg-[#20c55a] rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group"
-                  aria-label="WhatsApp Kontakt"
-                >
-                  <img src={whatsappLogo} alt="WhatsApp" className="h-8 w-8 filter brightness-0 invert" />
-                </motion.button>
-              </div>
+                </div>
             </motion.div>
 
             {/* Contact Form */}
