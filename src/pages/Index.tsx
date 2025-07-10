@@ -102,7 +102,7 @@ const Index = () => {
   return (
     <Layout>
       {/* Hero Section - Split Screen Design */}
-      <section className="min-h-[700px] lg:h-[900px] flex flex-col lg:flex-row">
+      <section className="min-h-[700px] lg:h-[900px] flex flex-col lg:flex-row pt-32 lg:pt-40">
         {/* Content Section - First on mobile, second on desktop */}
         <div className="lg:w-1/2 bg-background flex items-center justify-center min-h-[400px] lg:h-full p-6 lg:p-12 order-1 lg:order-2">
           <div className="max-w-xl w-full text-center lg:text-left">
