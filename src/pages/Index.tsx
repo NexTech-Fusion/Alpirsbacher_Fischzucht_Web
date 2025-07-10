@@ -102,65 +102,8 @@ const Index = () => {
   return (
     <Layout>
       {/* Hero Section - Split Screen Design */}
-      <section className="min-h-[700px] lg:h-[800px] flex flex-col-reverse lg:flex-row">
-        {/* Left Side - Image Swiper */}
-        <div className="lg:w-1/2 h-full relative overflow-hidden flex items-center justify-center order-2 lg:order-1">
-          <div className="w-full h-[400px] lg:h-[600px] relative overflow-hidden">
-          <Swiper
-            modules={[Autoplay, EffectFade]}
-            effect="fade"
-            autoplay={{
-              delay: 5000,
-              disableOnInteraction: false,
-            }}
-            loop={true}
-            speed={1200}
-            onSlideChange={(swiper) => setActiveSlide(swiper.realIndex)}
-            className="w-full h-full"
-          >
-            {heroImages.map((image, index) => (
-              <SwiperSlide key={index}>
-                <motion.div 
-                  className="w-full h-full bg-cover bg-center bg-no-repeat"
-                  style={{ backgroundImage: `url('${image.url}')` }}
-                  initial={{ scale: 1.1, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  transition={{ 
-                    duration: 1.5,
-                    ease: [0.25, 0.46, 0.45, 0.94]
-                  }}
-                >
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent to-background/30"></div>
-                </motion.div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-          
-          {/* Vertical Dot Indicators */}
-          <div className="absolute left-6 top-1/2 transform -translate-y-1/2 z-10 flex flex-col gap-3">
-            {heroImages.map((_, index) => (
-              <motion.div
-                key={index}
-                className={`w-3 h-3 rounded-full cursor-pointer transition-all duration-500 ${
-                  activeSlide === index 
-                    ? 'bg-primary shadow-lg shadow-primary/50 scale-125' 
-                    : 'bg-white/40 hover:bg-white/60'
-                }`}
-                whileHover={{ scale: 1.2 }}
-                whileTap={{ scale: 0.9 }}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: index * 0.1 + 0.5 }}
-              />
-            ))}
-           </div>
-          
-          {/* Overlay gradient for better text contrast */}
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-background/60 lg:to-background/30 pointer-events-none"></div>
-          </div>
-        </div>
-
-        {/* Right Side - Content */}
+      <section className="min-h-[700px] lg:h-[900px] flex flex-col lg:flex-row">
+        {/* Content Section - First on mobile, second on desktop */}
         <div className="lg:w-1/2 bg-background flex items-center justify-center min-h-[400px] lg:h-full p-6 lg:p-12 order-1 lg:order-2">
           <div className="max-w-xl w-full text-center lg:text-left">
             <motion.div
@@ -233,6 +176,63 @@ const Index = () => {
                 </button>
               </div>
             </motion.div>
+          </div>
+        </div>
+
+        {/* Image Gallery Section - Second on mobile, first on desktop */}
+        <div className="lg:w-1/2 h-full relative overflow-hidden flex items-center justify-center order-2 lg:order-1">
+          <div className="w-full h-[400px] lg:h-[700px] relative overflow-hidden">
+            <Swiper
+              modules={[Autoplay, EffectFade]}
+              effect="fade"
+              autoplay={{
+                delay: 5000,
+                disableOnInteraction: false,
+              }}
+              loop={true}
+              speed={1200}
+              onSlideChange={(swiper) => setActiveSlide(swiper.realIndex)}
+              className="w-full h-full"
+            >
+              {heroImages.map((image, index) => (
+                <SwiperSlide key={index}>
+                  <motion.div 
+                    className="w-full h-full bg-cover bg-center bg-no-repeat"
+                    style={{ backgroundImage: `url('${image.url}')` }}
+                    initial={{ scale: 1.1, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ 
+                      duration: 1.5,
+                      ease: [0.25, 0.46, 0.45, 0.94]
+                    }}
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent to-background/30"></div>
+                  </motion.div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+            
+            {/* Vertical Dot Indicators */}
+            <div className="absolute left-6 top-1/2 transform -translate-y-1/2 z-10 flex flex-col gap-3">
+              {heroImages.map((_, index) => (
+                <motion.div
+                  key={index}
+                  className={`w-3 h-3 rounded-full cursor-pointer transition-all duration-500 ${
+                    activeSlide === index 
+                      ? 'bg-primary shadow-lg shadow-primary/50 scale-125' 
+                      : 'bg-white/40 hover:bg-white/60'
+                  }`}
+                  whileHover={{ scale: 1.2 }}
+                  whileTap={{ scale: 0.9 }}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.1 + 0.5 }}
+                />
+              ))}
+            </div>
+            
+            {/* Overlay gradient for better text contrast */}
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-background/60 lg:to-background/30 pointer-events-none"></div>
           </div>
         </div>
       </section>
