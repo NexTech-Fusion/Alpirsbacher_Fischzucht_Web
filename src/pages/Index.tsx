@@ -406,21 +406,16 @@ const Index = () => {
                   </div>
                 </div>
 
-                {/* WhatsApp Contact */}
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-primary/10 rounded-full">
-                    <img src={whatsappLogo} alt="WhatsApp" className="h-6 w-6" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground mb-1">WhatsApp</h4>
-                    <button
-                      onClick={openWhatsApp}
-                      className="text-muted-foreground hover:text-primary transition-colors duration-200 underline"
-                    >
-                      +49 (0) 7444 123456
-                    </button>
-                  </div>
-                </div>
+                {/* WhatsApp Button */}
+                <motion.button
+                  onClick={openWhatsApp}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="mt-6 p-4 bg-[#25D366] hover:bg-[#20c55a] rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group"
+                  aria-label="WhatsApp Kontakt"
+                >
+                  <img src={whatsappLogo} alt="WhatsApp" className="h-8 w-8 filter brightness-0 invert" />
+                </motion.button>
               </div>
             </motion.div>
 
