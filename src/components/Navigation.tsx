@@ -42,50 +42,41 @@ const Navigation = () => {
           : 'bg-slate-900/95 backdrop-blur-md'
       }`}
     >
-      {/* Top Bar */}
-      <div className="border-b border-primary/20 bg-slate-800/80">
+      {/* Logo Section with Decorative Dividers */}
+      <div className="border-b border-primary/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-2 text-sm">
-            <div className="hidden md:flex items-center text-slate-300">
-              <span className="font-medium">Öffnungszeiten:</span>
-              <span className="ml-2 text-slate-400">Mo - Fr: 9:00 - 18:00</span>
+          <div className="flex items-center justify-center py-6">
+            {/* Left Decorative Divider */}
+            <div className="flex-1 flex items-center justify-end pr-8">
+              <div className="w-32 h-px bg-gradient-to-r from-transparent to-primary opacity-60"></div>
+              <div className="w-2 h-2 bg-primary rounded-full ml-2 opacity-80"></div>
             </div>
             
-            {/* Center Logo for smaller screens */}
-            <div className="md:hidden flex-1 text-center">
-              <Link to="/" className="inline-flex items-center space-x-2">
-                <Fish className="h-6 w-6 text-primary" />
-                <span className="font-serif text-lg font-bold text-white">
-                  Alpirsbacher Fischzucht
+            {/* Centered Logo */}
+            <Link to="/" className="flex items-center space-x-3 group">
+              <Fish className="h-12 w-12 text-primary group-hover:scale-110 transition-transform duration-300" />
+              <div className="flex flex-col text-center">
+                <span className="font-serif text-3xl font-bold text-white leading-tight group-hover:text-primary transition-colors duration-300">
+                  Alpirsbacher
                 </span>
-              </Link>
-            </div>
+                <span className="font-serif text-xl text-primary leading-tight opacity-90">
+                  Fischzucht
+                </span>
+              </div>
+            </Link>
             
-            <div className="hidden md:block text-slate-300">
-              <span className="text-slate-400">Frische Forellen aus dem Schwarzwald</span>
+            {/* Right Decorative Divider */}
+            <div className="flex-1 flex items-center justify-start pl-8">
+              <div className="w-2 h-2 bg-primary rounded-full mr-2 opacity-80"></div>
+              <div className="w-32 h-px bg-gradient-to-l from-transparent to-primary opacity-60"></div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Main Navigation */}
+      {/* Navigation Menu */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-4">
-          {/* Desktop Logo */}
-          <div className="hidden md:block">
-            <Link to="/" className="flex items-center space-x-3">
-              <Fish className="h-10 w-10 text-primary" />
-              <div className="flex flex-col">
-                <span className="font-serif text-2xl font-bold text-white leading-tight">
-                  Alpirsbacher
-                </span>
-                <span className="font-serif text-lg text-primary leading-tight">
-                  Fischzucht
-                </span>
-              </div>
-            </Link>
-          </div>
-
+        <div className="flex justify-center items-center py-4">
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-12">
             {navItems.map((item) => (
@@ -99,7 +90,7 @@ const Navigation = () => {
                       scrollToContact();
                     }
                   }}
-                  className="relative font-medium text-white hover:text-primary transition-all duration-300 py-2 px-1 group"
+                  className="relative font-medium text-white hover:text-primary transition-all duration-300 py-2 px-4 group"
                 >
                   {item.name}
                   <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></div>
@@ -108,7 +99,7 @@ const Navigation = () => {
                 <Link
                   key={item.name}
                   to={item.path}
-                  className={`relative font-medium transition-all duration-300 py-2 px-1 group ${
+                  className={`relative font-medium transition-all duration-300 py-2 px-4 group ${
                     location.pathname === item.path
                       ? 'text-primary'
                       : 'text-white hover:text-primary'
@@ -138,7 +129,7 @@ const Navigation = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-slate-800/95 backdrop-blur-md rounded-lg mt-2 p-4 border border-primary/20"
+            className="lg:hidden bg-slate-800/95 backdrop-blur-md rounded-lg mt-2 mb-4 p-4 border border-primary/20"
           >
             {navItems.map((item) => (
               item.action === 'contact' ? (
