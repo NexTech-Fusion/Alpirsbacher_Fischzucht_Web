@@ -20,11 +20,11 @@ export default {
 		},
 		extend: {
 			colors: {
-				// Earthy Luxury Palette
-				'forest-green': '#014421',
-				'brushed-brass': '#BFA36F',
-				'walnut-brown': '#5C3A21',
-				'stone-beige': '#D7CABD',
+				// Luxury Dark Palette
+				'deep-black': '#0B0B0B',
+				'rich-gold': '#D4AF37',
+				'ivory-white': '#F8F5F0',
+				'charcoal-gray': '#2E2E2E',
 				
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -32,24 +32,24 @@ export default {
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				primary: {
-					DEFAULT: '#014421',
-					foreground: '#D7CABD'
+					DEFAULT: '#0B0B0B',
+					foreground: '#F8F5F0'
 				},
 				secondary: {
-					DEFAULT: '#BFA36F',
-					foreground: '#5C3A21'
+					DEFAULT: '#D4AF37',
+					foreground: '#0B0B0B'
 				},
 				destructive: {
 					DEFAULT: 'hsl(var(--destructive))',
 					foreground: 'hsl(var(--destructive-foreground))'
 				},
 				muted: {
-					DEFAULT: '#D7CABD',
-					foreground: '#5C3A21'
+					DEFAULT: '#2E2E2E',
+					foreground: '#F8F5F0'
 				},
 				accent: {
-					DEFAULT: '#BFA36F',
-					foreground: '#014421'
+					DEFAULT: '#D4AF37',
+					foreground: '#0B0B0B'
 				},
 				popover: {
 					DEFAULT: 'hsl(var(--popover))',
@@ -111,17 +111,30 @@ export default {
 						opacity: '1',
 						transform: 'translateY(0)'
 					}
+				},
+				'gold-shimmer': {
+					'0%': {
+						backgroundPosition: '-200% center'
+					},
+					'100%': {
+						backgroundPosition: '200% center'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'fade-in': 'fade-in 0.6s ease-out',
-				'slide-up': 'slide-up 0.8s ease-out'
+				'slide-up': 'slide-up 0.8s ease-out',
+				'gold-shimmer': 'gold-shimmer 3s ease-in-out infinite'
 			},
 			fontFamily: {
 				'serif': ['Playfair Display', 'serif'],
 				'sans': ['Inter', 'sans-serif']
+			},
+			backgroundImage: {
+				'gold-gradient': 'linear-gradient(45deg, #D4AF37, #F4E17A, #D4AF37)',
+				'luxury-gradient': 'linear-gradient(135deg, #0B0B0B 0%, #2E2E2E 50%, #0B0B0B 100%)'
 			}
 		}
 	},

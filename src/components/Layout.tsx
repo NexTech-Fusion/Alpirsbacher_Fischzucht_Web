@@ -8,7 +8,7 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <div className="min-h-screen bg-stone-beige">
+    <div className="min-h-screen bg-deep-black">
       <Navigation />
       <main className="pt-20">
         {children}
