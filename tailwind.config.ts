@@ -20,15 +20,13 @@ export default {
 		},
 		extend: {
 			colors: {
-				// Earthy Professional Palette
-				'deep-charcoal': '#040707',
-				'light-gray': '#E4E4E4',
-				'sage-gray': '#B0B2AC',
-				'dark-brown': '#543421',
-				'neutral-gray': '#656560',
-				'terracotta': '#A4512F',
-				'steel-blue': '#5180AA',
-				'warm-gold': '#C1A157',
+				// Teal & Earth Palette
+				'pure-white': 'rgb(255, 255, 255)',
+				'warm-brown': 'rgb(181, 140, 103)', 
+				'dark-teal': 'rgb(16, 43, 42)',
+				'sage-teal': 'rgb(132, 161, 160)',
+				'deep-teal': 'rgb(26, 61, 59)',
+				'midnight-teal': 'rgb(12, 37, 36)',
 				
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -116,7 +114,7 @@ export default {
 						transform: 'translateY(0)'
 					}
 				},
-				'warm-shimmer': {
+				'brown-shimmer': {
 					'0%': {
 						backgroundPosition: '-200% center'
 					},
@@ -130,16 +128,16 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'fade-in': 'fade-in 0.6s ease-out',
 				'slide-up': 'slide-up 0.8s ease-out',
-				'warm-shimmer': 'warm-shimmer 3s ease-in-out infinite'
+				'brown-shimmer': 'brown-shimmer 3s ease-in-out infinite'
 			},
 			fontFamily: {
 				'serif': ['Playfair Display', 'serif'],
 				'sans': ['Inter', 'sans-serif']
 			},
 			backgroundImage: {
-				'warm-gradient': 'linear-gradient(45deg, #C1A157, #A4512F, #C1A157)',
-				'earthy-gradient': 'linear-gradient(135deg, #040707 0%, #543421 50%, #040707 100%)',
-				'sage-gradient': 'linear-gradient(180deg, #B0B2AC 0%, #656560 100%)'
+				'teal-gradient': 'linear-gradient(45deg, rgb(181, 140, 103), rgb(132, 161, 160), rgb(181, 140, 103))',
+				'nature-gradient': 'linear-gradient(135deg, rgb(16, 43, 42) 0%, rgb(26, 61, 59) 50%, rgb(12, 37, 36) 100%)',
+				'sage-gradient': 'linear-gradient(180deg, rgb(132, 161, 160) 0%, rgb(26, 61, 59) 100%)'
 			}
 		}
 	},
