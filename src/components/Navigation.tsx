@@ -9,12 +9,19 @@ const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
 
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const navItems = [
     { name: 'Home', path: '/' },
     { name: 'Fischzucht', path: '/fischzucht' },
     { name: 'Über uns', path: '/ueber-uns' },
     { name: 'Partner', path: '/partner' },
-    { name: 'Kontakt', path: '/kontakt' },
+    { name: 'Kontakt', action: 'contact' },
     { name: 'Shop', path: '/shop' }
   ];
 
@@ -49,23 +56,39 @@ const Navigation = () => {
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">
             {navItems.map((item) => (
-              <Link
-                key={item.name}
-                to={item.path}
-                className={`relative font-medium transition-all duration-300 hover:scale-105 ${
-                  location.pathname === item.path
-                    ? 'text-primary'
-                    : 'text-foreground hover:text-primary'
-                }`}
-              >
-                {item.name}
-                {location.pathname === item.path && (
-                  <motion.div
-                    layoutId="activeTab"
-                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary shadow-lg shadow-primary/50"
-                  />
-                )}
-              </Link>
+              item.action === 'contact' ? (
+                <button
+                  key={item.name}
+                  onClick={() => {
+                    if (location.pathname !== '/') {
+                      window.location.href = '/#contact';
+                    } else {
+                      scrollToContact();
+                    }
+                  }}
+                  className="relative font-medium transition-all duration-300 hover:scale-105 text-foreground hover:text-primary"
+                >
+                  {item.name}
+                </button>
+              ) : (
+                <Link
+                  key={item.name}
+                  to={item.path}
+                  className={`relative font-medium transition-all duration-300 hover:scale-105 ${
+                    location.pathname === item.path
+                      ? 'text-primary'
+                      : 'text-foreground hover:text-primary'
+                  }`}
+                >
+                  {item.name}
+                  {location.pathname === item.path && (
+                    <motion.div
+                      layoutId="activeTab"
+                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary shadow-lg shadow-primary/50"
+                    />
+                  )}
+                </Link>
+              )
             ))}
           </div>
 
@@ -87,18 +110,35 @@ const Navigation = () => {
             className="lg:hidden bg-card/95 backdrop-blur-md rounded-lg mt-2 p-4 border border-border"
           >
             {navItems.map((item) => (
-              <Link
-                key={item.name}
-                to={item.path}
-                className={`block py-3 font-medium transition-all duration-300 ${
-                  location.pathname === item.path
-                    ? 'text-primary border-l-4 border-primary pl-4'
-                    : 'text-foreground hover:text-primary hover:pl-2'
-                }`}
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {item.name}
-              </Link>
+              item.action === 'contact' ? (
+                <button
+                  key={item.name}
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    if (location.pathname !== '/') {
+                      window.location.href = '/#contact';
+                    } else {
+                      scrollToContact();
+                    }
+                  }}
+                  className="block py-3 font-medium transition-all duration-300 text-foreground hover:text-primary hover:pl-2 text-left w-full"
+                >
+                  {item.name}
+                </button>
+              ) : (
+                <Link
+                  key={item.name}
+                  to={item.path}
+                  className={`block py-3 font-medium transition-all duration-300 ${
+                    location.pathname === item.path
+                      ? 'text-primary border-l-4 border-primary pl-4'
+                      : 'text-foreground hover:text-primary hover:pl-2'
+                  }`}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {item.name}
+                </Link>
+              )
             ))}
           </motion.div>
         )}
