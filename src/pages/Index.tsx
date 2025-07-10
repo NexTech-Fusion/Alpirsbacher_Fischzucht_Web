@@ -73,7 +73,7 @@ const Index = () => {
       {/* Hero Section - Split Screen Design */}
       <section className="min-h-screen flex flex-col lg:flex-row">
         {/* Left Side - Image Swiper */}
-        <div className="lg:w-1/2 h-64 lg:h-screen relative overflow-hidden">
+        <div className="lg:w-1/2 h-48 lg:h-96 relative overflow-hidden">
           <Swiper
             modules={[Autoplay, EffectFade]}
             effect="fade"
