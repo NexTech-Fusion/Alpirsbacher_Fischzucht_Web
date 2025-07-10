@@ -20,11 +20,15 @@ export default {
 		},
 		extend: {
 			colors: {
-				// Luxury Dark Palette
-				'deep-black': '#0B0B0B',
-				'rich-gold': '#D4AF37',
-				'ivory-white': '#F8F5F0',
-				'charcoal-gray': '#2E2E2E',
+				// Earthy Professional Palette
+				'deep-charcoal': '#040707',
+				'light-gray': '#E4E4E4',
+				'sage-gray': '#B0B2AC',
+				'dark-brown': '#543421',
+				'neutral-gray': '#656560',
+				'terracotta': '#A4512F',
+				'steel-blue': '#5180AA',
+				'warm-gold': '#C1A157',
 				
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -32,24 +36,24 @@ export default {
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				primary: {
-					DEFAULT: '#0B0B0B',
-					foreground: '#F8F5F0'
+					DEFAULT: 'hsl(var(--primary))',
+					foreground: 'hsl(var(--primary-foreground))'
 				},
 				secondary: {
-					DEFAULT: '#D4AF37',
-					foreground: '#0B0B0B'
+					DEFAULT: 'hsl(var(--secondary))',
+					foreground: 'hsl(var(--secondary-foreground))'
 				},
 				destructive: {
 					DEFAULT: 'hsl(var(--destructive))',
 					foreground: 'hsl(var(--destructive-foreground))'
 				},
 				muted: {
-					DEFAULT: '#2E2E2E',
-					foreground: '#F8F5F0'
+					DEFAULT: 'hsl(var(--muted))',
+					foreground: 'hsl(var(--muted-foreground))'
 				},
 				accent: {
-					DEFAULT: '#D4AF37',
-					foreground: '#0B0B0B'
+					DEFAULT: 'hsl(var(--accent))',
+					foreground: 'hsl(var(--accent-foreground))'
 				},
 				popover: {
 					DEFAULT: 'hsl(var(--popover))',
@@ -112,7 +116,7 @@ export default {
 						transform: 'translateY(0)'
 					}
 				},
-				'gold-shimmer': {
+				'warm-shimmer': {
 					'0%': {
 						backgroundPosition: '-200% center'
 					},
@@ -126,15 +130,16 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'fade-in': 'fade-in 0.6s ease-out',
 				'slide-up': 'slide-up 0.8s ease-out',
-				'gold-shimmer': 'gold-shimmer 3s ease-in-out infinite'
+				'warm-shimmer': 'warm-shimmer 3s ease-in-out infinite'
 			},
 			fontFamily: {
 				'serif': ['Playfair Display', 'serif'],
 				'sans': ['Inter', 'sans-serif']
 			},
 			backgroundImage: {
-				'gold-gradient': 'linear-gradient(45deg, #D4AF37, #F4E17A, #D4AF37)',
-				'luxury-gradient': 'linear-gradient(135deg, #0B0B0B 0%, #2E2E2E 50%, #0B0B0B 100%)'
+				'warm-gradient': 'linear-gradient(45deg, #C1A157, #A4512F, #C1A157)',
+				'earthy-gradient': 'linear-gradient(135deg, #040707 0%, #543421 50%, #040707 100%)',
+				'sage-gradient': 'linear-gradient(180deg, #B0B2AC 0%, #656560 100%)'
 			}
 		}
 	},
