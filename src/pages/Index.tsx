@@ -237,6 +237,126 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Fresh Trout Section */}
+      <section className="py-20 bg-gradient-to-br from-background via-background to-muted/20">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
+              Frische Forellen direkt von der <span className="text-primary">Quelle</span>
+            </h2>
+            <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
+          </motion.div>
+
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Left Content */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="space-y-8"
+            >
+              {/* Main Description */}
+              <div className="bg-card/50 backdrop-blur-sm rounded-2xl p-8 border border-border/50">
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  Du suchst frischen Fisch aus nachhaltiger Zucht? Dann bist Du bei uns genau richtig. 
+                  Unsere Forellen stammen direkt aus eigener Zucht – regional, verantwortungsvoll und 
+                  mit viel Sorgfalt aufgezogen.
+                </p>
+              </div>
+
+              {/* How it works */}
+              <div className="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-2xl p-8 border border-primary/20">
+                <h3 className="font-serif text-2xl font-bold text-foreground mb-4 flex items-center gap-3">
+                  <Fish className="w-6 h-6 text-primary" />
+                  So funktioniert's
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Damit Du beste Qualität bekommst, bieten wir unsere Forellen nur auf Vorbestellung an. 
+                  Du holst Deinen frisch verarbeiteten Fisch nach Vereinbarung einfach bei uns vor Ort ab – 
+                  in unserem Wirtschaftsgebäude bei der Zuchtanlage.
+                </p>
+              </div>
+
+              {/* More than trout */}
+              <div className="bg-card/50 backdrop-blur-sm rounded-2xl p-8 border border-border/50">
+                <h3 className="font-serif text-2xl font-bold text-foreground mb-4 flex items-center gap-3">
+                  <Award className="w-6 h-6 text-secondary" />
+                  Mehr als nur Forelle
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Vor Ort findest Du auch eine Auswahl an hochwertigen Produkten, die perfekt zu unserem 
+                  Fisch passen – darunter ausgesuchte Weine und feine Gewürze.
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Right Content */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="space-y-8"
+            >
+              {/* Values */}
+              <div className="bg-gradient-to-br from-accent/20 to-muted/30 rounded-2xl p-8 border border-accent/30">
+                <h3 className="font-serif text-3xl font-bold text-foreground mb-6 text-center">
+                  Regional. Nachhaltig. Persönlich.
+                </h3>
+                <p className="text-muted-foreground leading-relaxed text-center">
+                  Bei uns steht der respektvolle Umgang mit Natur und Tier im Mittelpunkt. 
+                  Kurze Wege, ehrliche Produkte und direkter Kontakt mit Dir als Kundin oder Kunde – 
+                  dafür stehen wir.
+                </p>
+              </div>
+
+              {/* CTAs */}
+              <div className="text-center space-y-6">
+                <p className="font-serif text-xl text-foreground font-semibold">
+                  Wir freuen uns auf Deine Bestellung!
+                </p>
+                
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  {/* Contact CTA */}
+                  <motion.button
+                    onClick={() => {
+                      const contactSection = document.getElementById('contact');
+                      if (contactSection) {
+                        contactSection.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    }}
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="inline-flex items-center justify-center px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-primary/25 group"
+                  >
+                    Kontakt aufnehmen
+                    <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                  </motion.button>
+
+                  {/* Shop CTA */}
+                  <motion.div
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <Link
+                      to="/shop"
+                      className="inline-flex items-center justify-center px-8 py-4 bg-card border-2 border-primary text-primary rounded-full font-semibold hover:bg-primary hover:text-primary-foreground transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-primary/25 group"
+                    >
+                      Unser Shop
+                      <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                    </Link>
+                  </motion.div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* Sections Overview */}
       <section className="py-20 bg-sage-gradient">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
