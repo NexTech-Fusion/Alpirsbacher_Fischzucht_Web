@@ -102,10 +102,10 @@ const Index = () => {
   return (
     <Layout>
       {/* Hero Section - Split Screen Design */}
-      <section className="h-[700px] lg:h-[800px] flex flex-col lg:flex-row">
+      <section className="min-h-[700px] lg:h-[800px] flex flex-col-reverse lg:flex-row">
         {/* Left Side - Image Swiper */}
-        <div className="lg:w-1/2 h-full relative overflow-hidden flex items-center justify-center">
-          <div className="w-full h-96 lg:h-[500px] relative overflow-hidden">
+        <div className="lg:w-1/2 h-full relative overflow-hidden flex items-center justify-center order-2 lg:order-1">
+          <div className="w-full h-[400px] lg:h-[600px] relative overflow-hidden">
           <Swiper
             modules={[Autoplay, EffectFade]}
             effect="fade"
@@ -161,7 +161,7 @@ const Index = () => {
         </div>
 
         {/* Right Side - Content */}
-        <div className="lg:w-1/2 bg-background flex items-center justify-center h-full p-6 lg:p-12">
+        <div className="lg:w-1/2 bg-background flex items-center justify-center min-h-[400px] lg:h-full p-6 lg:p-12 order-1 lg:order-2">
           <div className="max-w-xl w-full text-center lg:text-left">
             <motion.div
               initial={{ opacity: 0, x: 50 }}
