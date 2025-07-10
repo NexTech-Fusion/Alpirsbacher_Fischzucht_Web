@@ -1,5 +1,5 @@
 import React from 'react';
-import { Separator } from '@/components/ui/separator';
+import { Fish } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -11,35 +11,24 @@ const Footer = () => {
       </div>
 
       <div className="relative">
-        {/* Logo Section with Decorative Dividers - Similar to Header */}
+        {/* Main Footer Content */}
         <div className="container mx-auto px-4 py-12">
-          <div className="flex items-center justify-center mb-12">
-            <div className="flex-1 h-px bg-gradient-to-r from-transparent via-[rgb(181,140,103)] to-[rgb(181,140,103)] max-w-xs"></div>
-            <div className="flex items-center space-x-3 mx-8">
-              <div className="w-12 h-12 bg-[rgb(181,140,103)] rounded-full flex items-center justify-center">
-                <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
-                  <div className="w-4 h-4 bg-[rgb(12,37,36)] rounded-full"></div>
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 mb-12">
+            {/* Logo Section - Left Side */}
+            <div className="lg:col-span-2 space-y-4">
+              <div className="flex items-center space-x-3 mb-4">
+                <Fish className="h-12 w-12 text-[rgb(181,140,103)]" />
+                <div className="flex flex-col">
+                  <span className="font-serif text-3xl font-bold text-white leading-tight">
+                    Alpirsbacher
+                  </span>
+                  <span className="font-serif text-xl text-[rgb(181,140,103)] leading-tight opacity-90">
+                    Fischzucht
+                  </span>
                 </div>
               </div>
-              <div className="text-center">
-                <h2 className="text-2xl lg:text-3xl font-bold text-white tracking-wide">
-                  Fischzucht
-                </h2>
-                <p className="text-[rgb(181,140,103)] text-lg font-medium tracking-wider">
-                  DUMMERSTORF
-                </p>
-              </div>
-            </div>
-            <div className="flex-1 h-px bg-gradient-to-l from-transparent via-[rgb(181,140,103)] to-[rgb(181,140,103)] max-w-xs"></div>
-          </div>
-
-          {/* Main Footer Content */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
-            {/* Company Description */}
-            <div className="md:col-span-2 space-y-4">
               <p className="text-[rgb(132,161,160)] leading-relaxed text-lg">
-                Ihr vertrauensvoller Partner für hochwertige Fischzucht und nachhaltige Aquakultur. 
-                Mit jahrzehntelanger Erfahrung und modernster Technik.
+                Frische Forellen aus dem Herzen des Schwarzwalds
               </p>
             </div>
 
@@ -77,27 +66,12 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Decorative Wave Separator */}
-        <div className="relative">
-          <svg 
-            className="w-full h-4 text-[rgb(181,140,103)]/20" 
-            preserveAspectRatio="none" 
-            viewBox="0 0 1200 120" 
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path 
-              d="M0,60 C300,120 900,0 1200,60 L1200,120 L0,120 Z" 
-              fill="currentColor"
-            />
-          </svg>
-        </div>
-
-        {/* Bottom Footer */}
-        <div className="bg-[rgb(26,61,59)]/50 backdrop-blur-sm">
+        {/* Bottom Footer - Same Background Color */}
+        <div className="bg-[rgb(12,37,36)] border-t border-[rgb(26,61,59)]">
           <div className="container mx-auto px-4 py-6">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
               <div className="text-[rgb(132,161,160)] text-sm flex items-center space-x-2">
-                <span>© {new Date().getFullYear()} Fischzucht Dummerstorf.</span>
+                <span>© {new Date().getFullYear()} Alpirsbacher Fischzucht.</span>
                 <span className="hidden md:inline">•</span>
                 <span>Alle Rechte vorbehalten.</span>
               </div>
