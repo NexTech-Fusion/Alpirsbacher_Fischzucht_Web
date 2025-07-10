@@ -154,8 +154,8 @@ const Index = () => {
               </div>
 
               {/* Description */}
-              <p className="text-secondary text-sm lg:text-base leading-relaxed opacity-80 max-w-lg">
-                Drei Generationen Erfahrung in nachhaltiger Fischzucht. Premium Qualität aus kristallklaren Gebirgsbächen.
+              <p className="text-primary text-sm lg:text-base leading-relaxed font-medium max-w-lg">
+                Regional. Nachhaltig. Persönlich.
               </p>
 
               {/* Action Button */}
