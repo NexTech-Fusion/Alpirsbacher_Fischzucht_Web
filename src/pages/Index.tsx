@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, Fish, Award, Leaf, Users, ChevronRight } from 'lucide-react';
@@ -14,22 +14,28 @@ import 'swiper/css/effect-fade';
 const Index = () => {
   const heroImages = [
     {
-      url: 'https://vibemedia.space/trout_farm_hero_001.png?prompt=pristine%20trout%20swimming%20in%20crystal%20clear%20mountain%20stream%20black%20forest%20germany%20natural%20habitat%20premium%20quality%20fish%20elegant%20lighting&key=BT4VR',
-      alt: 'Premium Forellen in natürlichem Habitat'
-    },
-    {
-      url: 'https://vibemedia.space/fish_farm_hero_002.png?prompt=modern%20sustainable%20fish%20farm%20facility%20black%20forest%20mountain%20setting%20clean%20water%20systems%20professional%20aquaculture%20elegant&key=BT4VR',
-      alt: 'Moderne Fischzuchtanlage'
-    },
-    {
-      url: 'https://vibemedia.space/fresh_trout_hero_003.png?prompt=fresh%20rainbow%20trout%20on%20ice%20premium%20quality%20fish%20market%20display%20professional%20presentation%20gourmet%20dining%20elegant&key=BT4VR',
-      alt: 'Frische Regenbogenforelle'
-    },
-    {
-      url: 'https://vibemedia.space/black_forest_hero_004.png?prompt=misty%20black%20forest%20mountain%20landscape%20pristine%20nature%20pine%20trees%20morning%20light%20serene%20atmosphere%20natural%20beauty&key=BT4VR',
+      url: 'https://vibemedia.space/black_forest_hero_004.png',
       alt: 'Schwarzwald Landschaft'
+    },
+    {
+      url: 'https://vibemedia.space/partners_luxury_c7d6e5f4_003.png',
+      alt: 'Premium Partner'
+    },
+    {
+      url: 'https://vibemedia.space/fresh_trout_m7n6o5p4_013.png',
+      alt: 'Frische Forelle'
+    },
+    {
+      url: 'https://vibemedia.space/fish_hero_1a2b3c4d.png',
+      alt: 'Fischzucht'
+    },
+    {
+      url: 'https://vibemedia.space/salmon_gourmet_2j3k4l5m.png',
+      alt: 'Gourmet Lachs'
     }
   ];
+
+  const [activeSlide, setActiveSlide] = useState(0);
 
   const sections = [
     {
@@ -72,26 +78,53 @@ const Index = () => {
             modules={[Autoplay, EffectFade]}
             effect="fade"
             autoplay={{
-              delay: 4000,
+              delay: 5000,
               disableOnInteraction: false,
             }}
             loop={true}
+            speed={1200}
+            onSlideChange={(swiper) => setActiveSlide(swiper.realIndex)}
             className="w-full h-full"
           >
             {heroImages.map((image, index) => (
               <SwiperSlide key={index}>
-                <div 
+                <motion.div 
                   className="w-full h-full bg-cover bg-center bg-no-repeat"
                   style={{ backgroundImage: `url('${image.url}')` }}
+                  initial={{ scale: 1.1, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ 
+                    duration: 1.5,
+                    ease: [0.25, 0.46, 0.45, 0.94]
+                  }}
                 >
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent to-background/20"></div>
-                </div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent to-background/30"></div>
+                </motion.div>
               </SwiperSlide>
             ))}
           </Swiper>
           
+          {/* Vertical Dot Indicators */}
+          <div className="absolute left-6 top-1/2 transform -translate-y-1/2 z-10 flex flex-col gap-3">
+            {heroImages.map((_, index) => (
+              <motion.div
+                key={index}
+                className={`w-3 h-3 rounded-full cursor-pointer transition-all duration-500 ${
+                  activeSlide === index 
+                    ? 'bg-primary shadow-lg shadow-primary/50 scale-125' 
+                    : 'bg-white/40 hover:bg-white/60'
+                }`}
+                whileHover={{ scale: 1.2 }}
+                whileTap={{ scale: 0.9 }}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: index * 0.1 + 0.5 }}
+              />
+            ))}
+          </div>
+          
           {/* Overlay gradient for better text contrast */}
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-background/60 lg:to-background/20"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-background/60 lg:to-background/30 pointer-events-none"></div>
         </div>
 
         {/* Right Side - Content */}
