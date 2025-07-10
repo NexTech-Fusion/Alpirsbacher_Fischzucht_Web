@@ -71,7 +71,7 @@ const Index = () => {
   return (
     <Layout>
       {/* Hero Section - Split Screen Design */}
-      <section className="h-[600px] lg:h-[700px] flex flex-col lg:flex-row">
+      <section className="h-[700px] lg:h-[800px] flex flex-col lg:flex-row">
         {/* Left Side - Image Swiper */}
         <div className="lg:w-1/2 h-full relative overflow-hidden flex items-center justify-center">
           <div className="w-full h-96 lg:h-[500px] relative overflow-hidden">
