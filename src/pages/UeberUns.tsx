@@ -309,7 +309,7 @@ const UeberUns = () => {
       </section>
 
       {/* Values Section */}
-      <section className="py-24 bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">
+      <section className="py-24 relative overflow-hidden" style={{ background: 'linear-gradient(180deg, rgb(26, 61, 59) 0%, rgb(16, 43, 42) 50%, rgb(12, 37, 36) 100%)' }}>
         {/* Subtle Background Pattern */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{
@@ -329,7 +329,7 @@ const UeberUns = () => {
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-6">
               Unsere Werte
             </h2>
-            <div className="w-24 h-0.5 bg-gradient-to-r from-transparent via-yellow-400 to-transparent mx-auto"></div>
+            <div className="w-24 h-0.5 mx-auto" style={{ background: 'linear-gradient(90deg, transparent, rgb(181, 140, 103), transparent)' }}></div>
           </motion.div>
 
           {/* Values Grid - Inspired by the reference image */}
@@ -374,17 +374,18 @@ const UeberUns = () => {
                 >
                   <div className="relative">
                     {/* Icon Background Circle */}
-                    <div className="w-24 h-24 border-2 border-yellow-400/30 rounded-full flex items-center justify-center group-hover:border-yellow-400/60 transition-colors duration-500">
+                    <div className="w-24 h-24 border-2 rounded-full flex items-center justify-center group-hover:border-opacity-80 transition-colors duration-500" style={{ borderColor: 'rgb(181, 140, 103)' }}>
                       <value.icon 
-                        className="w-10 h-10 text-yellow-400 group-hover:text-yellow-300 transition-colors duration-300" 
+                        className="w-10 h-10 group-hover:opacity-90 transition-colors duration-300" 
+                        style={{ color: 'rgb(181, 140, 103)' }}
                         strokeWidth={1.5}
                       />
                     </div>
                     {/* Decorative Corner Lines */}
-                    <div className="absolute -top-2 -left-2 w-4 h-4 border-l-2 border-t-2 border-yellow-400/40"></div>
-                    <div className="absolute -top-2 -right-2 w-4 h-4 border-r-2 border-t-2 border-yellow-400/40"></div>
-                    <div className="absolute -bottom-2 -left-2 w-4 h-4 border-l-2 border-b-2 border-yellow-400/40"></div>
-                    <div className="absolute -bottom-2 -right-2 w-4 h-4 border-r-2 border-b-2 border-yellow-400/40"></div>
+                    <div className="absolute -top-2 -left-2 w-4 h-4 border-l-2 border-t-2" style={{ borderColor: 'rgb(132, 161, 160)' }}></div>
+                    <div className="absolute -top-2 -right-2 w-4 h-4 border-r-2 border-t-2" style={{ borderColor: 'rgb(132, 161, 160)' }}></div>
+                    <div className="absolute -bottom-2 -left-2 w-4 h-4 border-l-2 border-b-2" style={{ borderColor: 'rgb(132, 161, 160)' }}></div>
+                    <div className="absolute -bottom-2 -right-2 w-4 h-4 border-r-2 border-b-2" style={{ borderColor: 'rgb(132, 161, 160)' }}></div>
                   </div>
                 </motion.div>
 
@@ -416,7 +417,8 @@ const UeberUns = () => {
                   whileInView={{ scaleX: 1 }}
                   transition={{ duration: 0.8, delay: 0.9 + index * 0.15 }}
                   viewport={{ once: true }}
-                  className="mt-8 w-16 h-0.5 bg-gradient-to-r from-transparent via-yellow-400/50 to-transparent mx-auto"
+                  className="mt-8 w-16 h-0.5 mx-auto" 
+                  style={{ background: 'linear-gradient(90deg, transparent, rgb(181, 140, 103), transparent)' }}
                 ></motion.div>
               </motion.div>
             ))}
@@ -430,7 +432,7 @@ const UeberUns = () => {
             viewport={{ once: true }}
             className="mt-20 mx-auto max-w-4xl"
           >
-            <div className="h-px bg-gradient-to-r from-transparent via-yellow-400/30 to-transparent"></div>
+            <div className="h-px" style={{ background: 'linear-gradient(90deg, transparent, rgb(132, 161, 160), transparent)' }}></div>
           </motion.div>
         </div>
       </section>
