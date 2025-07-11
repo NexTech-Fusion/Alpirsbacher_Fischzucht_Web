@@ -208,16 +208,6 @@ const UeberUns = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
                 
-                {/* Founders Badge */}
-                <div className="absolute bottom-6 left-6 right-6">
-                  <div className="bg-white/95 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                    <h3 className="font-bold text-foreground text-lg mb-2">Die Gründer</h3>
-                    <p className="text-muted-foreground text-sm">
-                      Tobias Semke & Thomas Betz<br/>
-                      <span className="text-primary font-medium">Seit 2022</span>
-                    </p>
-                  </div>
-                </div>
               </div>
               
               {/* Timeline Badges */}
@@ -243,7 +233,7 @@ const UeberUns = () => {
               >
                 <div className="text-center">
                   <div className="text-2xl font-bold">2022</div>
-                  <div className="text-sm text-muted-foreground">Neustart</div>
+                  <div className="text-sm text-muted-foreground">Neustart mit den Gründern Tobias Semke & Thomas Betz</div>
                 </div>
               </motion.div>
             </motion.div>
@@ -319,78 +309,147 @@ const UeberUns = () => {
       </section>
 
       {/* Values Section */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
+      <section className="py-20 bg-gradient-to-br from-primary/5 via-background to-muted/20 relative overflow-hidden">
+        {/* Background Decoration */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-20 left-10 w-32 h-32 bg-primary/20 rounded-full blur-xl"></div>
+          <div className="absolute top-60 right-20 w-24 h-24 bg-secondary/20 rounded-full blur-xl"></div>
+          <div className="absolute bottom-40 left-1/3 w-40 h-40 bg-accent/20 rounded-full blur-xl"></div>
+        </div>
+        
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-20"
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-foreground mb-6">
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-primary/10 mb-8 mx-auto"
+            >
+              <Fish className="w-10 h-10 text-primary" />
+            </motion.div>
+            
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold bg-gradient-to-r from-primary via-foreground to-primary bg-clip-text text-transparent mb-6">
               Unsere Werte
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            <div className="w-24 h-1 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto mb-6"></div>
+            <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto font-light">
               Was uns antreibt und unsere Arbeit täglich prägt
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {[
               {
                 icon: Heart,
                 title: "Leidenschaft",
-                description: "Mit Herzblut und persönlichem Engagement für beste Qualität",
-                color: "from-red-500/20 to-red-600/20",
-                iconColor: "text-red-500"
+                description: "Mit Herzblut und persönlichem Engagement schaffen wir täglich beste Qualität. Jede Forelle, die unsere Anlage verlässt, trägt unsere Hingabe in sich.",
+                gradient: "from-rose-500/20 via-pink-500/10 to-red-500/20",
+                iconBg: "from-rose-500/20 to-red-500/30",
+                iconColor: "text-rose-600",
+                borderColor: "border-rose-200/50"
               },
               {
                 icon: Leaf,
                 title: "Nachhaltigkeit", 
-                description: "Umweltbewusste und zukunftsfähige Fischzucht",
-                color: "from-green-500/20 to-green-600/20",
-                iconColor: "text-green-500"
+                description: "Umweltbewusste und zukunftsfähige Fischzucht im Einklang mit der Natur. Wir schützen, was uns täglich nährt – unsere heimischen Gewässer.",
+                gradient: "from-emerald-500/20 via-green-500/10 to-teal-500/20",
+                iconBg: "from-emerald-500/20 to-green-500/30",
+                iconColor: "text-emerald-600",
+                borderColor: "border-emerald-200/50"
               },
               {
                 icon: Mountain,
                 title: "Tradition",
-                description: "Verwurzelt im Schwarzwald, verbunden mit der Natur",
-                color: "from-blue-500/20 to-blue-600/20",
-                iconColor: "text-blue-500"
+                description: "Verwurzelt im Schwarzwald, verbunden mit der Natur. Seit Generationen überliefertes Wissen trifft auf moderne Technologie und Innovation.",
+                gradient: "from-blue-500/20 via-indigo-500/10 to-purple-500/20",
+                iconBg: "from-blue-500/20 to-indigo-500/30",
+                iconColor: "text-blue-600",
+                borderColor: "border-blue-200/50"
               },
               {
                 icon: Award,
                 title: "Qualität",
-                description: "Höchste Standards für unsere Forellen und Produkte",
-                color: "from-amber-500/20 to-amber-600/20",
-                iconColor: "text-amber-500"
+                description: "Höchste Standards für unsere Forellen und Produkte. Von der Aufzucht bis zur Verarbeitung – Exzellenz in jedem Schritt unserer Arbeit.",
+                gradient: "from-amber-500/20 via-yellow-500/10 to-orange-500/20",
+                iconBg: "from-amber-500/20 to-yellow-500/30",
+                iconColor: "text-amber-600",
+                borderColor: "border-amber-200/50"
               }
             ].map((value, index) => (
               <motion.div
                 key={value.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                initial={{ opacity: 0, y: 50, scale: 0.9 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ duration: 0.7, delay: index * 0.15 }}
                 viewport={{ once: true }}
-                className="group"
+                className="group relative"
               >
-                <div className={`bg-gradient-to-br ${value.color} backdrop-blur-sm rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-border/50`}>
-                  <div className={`w-16 h-16 bg-gradient-to-br ${value.color} rounded-full flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-300`}>
-                    <value.icon className={`h-8 w-8 ${value.iconColor}`} />
-                  </div>
+                <div className={`relative overflow-hidden bg-gradient-to-br ${value.gradient} backdrop-blur-sm rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border ${value.borderColor} h-full`}>
+                  {/* Floating Icon */}
+                  <motion.div
+                    initial={{ y: 20, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
+                    viewport={{ once: true }}
+                    className="relative"
+                  >
+                    <div className={`w-20 h-20 bg-gradient-to-br ${value.iconBg} rounded-2xl flex items-center justify-center mb-8 mx-auto group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-lg`}>
+                      <value.icon className={`h-10 w-10 ${value.iconColor}`} />
+                    </div>
+                  </motion.div>
                   
-                  <h3 className="text-xl font-bold text-foreground mb-4 text-center">
+                  <motion.h3
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
+                    viewport={{ once: true }}
+                    className="text-2xl font-bold text-foreground mb-6 text-center"
+                  >
                     {value.title}
-                  </h3>
+                  </motion.h3>
                   
-                  <p className="text-muted-foreground text-center leading-relaxed text-sm">
+                  <motion.p
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
+                    viewport={{ once: true }}
+                    className="text-muted-foreground text-center leading-relaxed"
+                  >
                     {value.description}
-                  </p>
+                  </motion.p>
+                  
+                  {/* Decorative Elements */}
+                  <div className="absolute top-4 right-4 w-3 h-3 bg-primary/20 rounded-full"></div>
+                  <div className="absolute bottom-4 left-4 w-2 h-2 bg-secondary/30 rounded-full"></div>
+                  
+                  {/* Hover Glow Effect */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/0 via-primary/0 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"></div>
                 </div>
               </motion.div>
             ))}
           </div>
+          
+          {/* Bottom Decoration */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.8 }}
+            viewport={{ once: true }}
+            className="flex justify-center mt-16"
+          >
+            <div className="flex items-center space-x-4">
+              <div className="w-12 h-1 bg-gradient-to-r from-transparent via-primary to-transparent rounded-full"></div>
+              <Fish className="w-8 h-8 text-primary" />
+              <div className="w-12 h-1 bg-gradient-to-r from-transparent via-primary to-transparent rounded-full"></div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
