@@ -1,134 +1,284 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Users, Clock, Heart, Star } from 'lucide-react';
-import Layout from '../components/Layout';
+import { Fish, Heart, Mountain, Leaf } from 'lucide-react';
+import Navigation from '@/components/Navigation';
+import Footer from '@/components/Footer';
+import familyTraditionImg from '@/assets/family-tradition.png';
+import processingFacilityImg from '@/assets/processing-facility.png';
 
 const UeberUns = () => {
-  const milestones = [
-    { year: '1952', event: 'Gründung der Fischzucht durch Heinrich Müller' },
-    { year: '1978', event: 'Übernahme durch Sohn Klaus Müller' },
-    { year: '1995', event: 'Modernisierung der Anlagen' },
-    { year: '2010', event: 'Einstieg der dritten Generation - Maria Müller' },
-    { year: '2020', event: 'Zertifizierung als Bio-Betrieb' }
-  ];
-
   return (
-    <Layout>
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: `url('https://vibemedia.space/about_hero_h2i1j0k9_008.png?prompt=traditional%20german%20family%20fish%20farm%20three%20generations%20black%20forest%20heritage%20authentic%20rural%20landscape%20sunset&key=BT4VR')`
-          }}
-        >
-          <div className="absolute inset-0 bg-walnut-brown/60"></div>
+    <div className="min-h-screen bg-background">
+      <Navigation />
+      
+      {/* Hero Section with Parallax Effect */}
+      <section className="relative h-screen overflow-hidden">
+        <div className="absolute inset-0">
+          <img 
+            src={familyTraditionImg} 
+            alt="Familienbetrieb Alpirsbacher Fischzucht" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60"></div>
         </div>
         
-        <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
-          <motion.h1 
+        <div className="relative h-full flex items-center justify-center text-center px-4">
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="font-serif text-5xl md:text-7xl font-bold mb-6"
+            transition={{ duration: 1, delay: 0.5 }}
+            className="max-w-4xl mx-auto"
           >
-            <span className="text-brushed-brass">Familie</span> Müller
-          </motion.h1>
-          
-          <motion.p 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-xl md:text-2xl font-light"
-          >
-            Drei Generationen. Eine Leidenschaft.
-          </motion.p>
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.7 }}
+              className="mb-8"
+            >
+              <Fish className="h-16 w-16 text-primary mx-auto mb-4" />
+            </motion.div>
+            
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.9 }}
+              className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-white mb-6 leading-tight"
+            >
+              Unsere Geschichte
+            </motion.h1>
+            
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1.1 }}
+              className="text-xl md:text-2xl text-white/90 font-light"
+            >
+              mit Herzblut zur modernen Forellenzucht
+            </motion.p>
+          </motion.div>
         </div>
+        
+        {/* Scroll Indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.5 }}
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        >
+          <motion.div
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 2, repeat: Infinity }}
+            className="w-1 h-16 bg-gradient-to-b from-transparent via-white to-transparent rounded-full"
+          />
+        </motion.div>
       </section>
 
       {/* Story Section */}
-      <section className="py-20 bg-stone-beige">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <section className="py-20 bg-gradient-to-b from-background to-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            {/* Text Content */}
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
+              initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="space-y-8"
             >
-              <h2 className="font-serif text-4xl font-bold text-forest-green mb-6">
-                Unsere Geschichte
-              </h2>
-              <div className="space-y-6 text-walnut-brown leading-relaxed">
-                <p>
-                  Was 1952 als kleiner Familienbetrieb im Herzen des Schwarzwalds begann, 
-                  ist heute eine der renommiertesten Forellenzuchten der Region. Heinrich Müller 
-                  legte den Grundstein für das, was heute in dritter Generation fortgeführt wird.
-                </p>
-                <p>
-                  Unser Erfolgsgeheimnis liegt in der perfekten Verbindung von traditionellem 
-                  Handwerk und modernen, nachhaltigen Methoden. Jede Generation hat ihre eigenen 
-                  Innovationen eingebracht, ohne dabei die Werte und Qualitätsstandards zu vergessen, 
-                  die uns seit jeher auszeichnen.
-                </p>
-                <p>
-                  Heute führt Maria Müller den Betrieb in dritter Generation und setzt dabei 
-                  auf Nachhaltigkeit, Qualität und den respektvollen Umgang mit der Natur.
-                </p>
+              <div className="space-y-6">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  viewport={{ once: true }}
+                  className="flex items-center space-x-3 mb-6"
+                >
+                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                    <Heart className="h-6 w-6 text-primary" />
+                  </div>
+                  <span className="text-primary font-semibold text-lg">Die Übernahme</span>
+                </motion.div>
+                
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.4 }}
+                  viewport={{ once: true }}
+                  className="text-lg leading-relaxed text-muted-foreground"
+                >
+                  Am 20. September 2022 wurde die im Jahr 1973 erbaute Forellenzucht von 
+                  <span className="font-semibold text-foreground"> Tobias Semke</span> und 
+                  <span className="font-semibold text-foreground"> Thomas Betz</span> übernommen. 
+                  In den darauffolgenden drei Jahren wurde die gesamte Anlage umfassend modernisiert 
+                  und komplett erneuert – mit viel Leidenschaft, Know-how und dem festen Willen, 
+                  eine nachhaltige, zukunftsfähige Fischzucht aufzubauen.
+                </motion.p>
+              </div>
+
+              <div className="space-y-6">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.6 }}
+                  viewport={{ once: true }}
+                  className="flex items-center space-x-3 mb-6"
+                >
+                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                    <Mountain className="h-6 w-6 text-primary" />
+                  </div>
+                  <span className="text-primary font-semibold text-lg">Die Lage</span>
+                </motion.div>
+                
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.8 }}
+                  viewport={{ once: true }}
+                  className="text-lg leading-relaxed text-muted-foreground"
+                >
+                  Die Anlage liegt idyllisch im kleinen, verträumten Dörfchen 
+                  <span className="font-semibold text-foreground"> Reinerzau</span>, 
+                  einem Ortsteil der Stadt Alpirsbach im Schwarzwald. Eingebettet in ein 
+                  malerisches Tal, umgeben von Bergen, Wiesen und dichten Wäldern, spürt 
+                  man hier unmittelbar die tiefe Verbundenheit zur Natur.
+                </motion.p>
+              </div>
+
+              <div className="space-y-6">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 1.0 }}
+                  viewport={{ once: true }}
+                  className="flex items-center space-x-3 mb-6"
+                >
+                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                    <Leaf className="h-6 w-6 text-primary" />
+                  </div>
+                  <span className="text-primary font-semibold text-lg">Das Familienunternehmen</span>
+                </motion.div>
+                
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 1.2 }}
+                  viewport={{ once: true }}
+                  className="text-lg leading-relaxed text-muted-foreground"
+                >
+                  Das inhabergeführte Familienunternehmen wurde von Tobias Semke und Thomas Betz 
+                  von Anfang an selbst aufgebaut – und wird bis heute mit großem persönlichem 
+                  Engagement geführt.
+                </motion.p>
               </div>
             </motion.div>
-            
+
+            {/* Image */}
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
+              initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
               className="relative"
             >
-              <img 
-                src="https://vibemedia.space/family_story_i1j0k9l8_009.png?prompt=three%20generations%20german%20family%20fish%20farmers%20portrait%20traditional%20black%20forest%20setting%20authentic%20heritage&key=BT4VR"
-                alt="Familie Müller"
-                className="w-full h-96 object-cover rounded-xl shadow-lg"
-              />
+              <div className="relative overflow-hidden rounded-2xl shadow-2xl">
+                <img 
+                  src={processingFacilityImg} 
+                  alt="Moderne Verarbeitungsanlage" 
+                  className="w-full h-[600px] object-cover transform hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+              </div>
+              
+              {/* Floating Badge */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: 1.0 }}
+                viewport={{ once: true }}
+                className="absolute -bottom-6 -left-6 bg-primary text-white px-6 py-4 rounded-xl shadow-lg"
+              >
+                <div className="text-center">
+                  <div className="text-2xl font-bold">1973</div>
+                  <div className="text-sm opacity-90">Gegründet</div>
+                </div>
+              </motion.div>
+              
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: 1.2 }}
+                viewport={{ once: true }}
+                className="absolute -top-6 -right-6 bg-white text-primary px-6 py-4 rounded-xl shadow-lg border-2 border-primary/20"
+              >
+                <div className="text-center">
+                  <div className="text-2xl font-bold">2022</div>
+                  <div className="text-sm text-muted-foreground">Übernommen</div>
+                </div>
+              </motion.div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Timeline Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Values Section */}
+      <section className="py-20 bg-muted/50">
+        <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="font-serif text-4xl font-bold text-forest-green mb-6">
-              Meilensteine unserer Geschichte
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-foreground mb-6">
+              Unsere Werte
             </h2>
-            <p className="text-walnut-brown text-lg">
-              Über 70 Jahre Erfahrung in der Fischzucht
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Was uns antreibt und unsere Arbeit täglich prägt
             </p>
           </motion.div>
 
-          <div className="space-y-8">
-            {milestones.map((milestone, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                icon: Heart,
+                title: "Leidenschaft",
+                description: "Mit Herzblut und persönlichem Engagement für beste Qualität",
+                color: "text-red-500"
+              },
+              {
+                icon: Leaf,
+                title: "Nachhaltigkeit", 
+                description: "Umweltbewusste und zukunftsfähige Fischzucht",
+                color: "text-green-500"
+              },
+              {
+                icon: Mountain,
+                title: "Tradition",
+                description: "Verwurzelt im Schwarzwald, verbunden mit der Natur",
+                color: "text-blue-500"
+              }
+            ].map((value, index) => (
               <motion.div
-                key={index}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                className={`flex items-center gap-8 ${index % 2 === 0 ? '' : 'flex-row-reverse'}`}
+                key={value.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                viewport={{ once: true }}
+                className="group"
               >
-                <div className="w-1/3 text-center">
-                  <div className="text-3xl font-bold text-brushed-brass font-serif">
-                    {milestone.year}
+                <div className="bg-card rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-border">
+                  <div className={`w-16 h-16 ${value.color} bg-opacity-10 rounded-full flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-300`}>
+                    <value.icon className={`h-8 w-8 ${value.color}`} />
                   </div>
-                </div>
-                <div className="w-8 h-8 bg-forest-green rounded-full flex-shrink-0"></div>
-                <div className="w-1/3">
-                  <p className="text-walnut-brown font-medium">
-                    {milestone.event}
+                  
+                  <h3 className="text-xl font-bold text-foreground mb-4 text-center">
+                    {value.title}
+                  </h3>
+                  
+                  <p className="text-muted-foreground text-center leading-relaxed">
+                    {value.description}
                   </p>
                 </div>
               </motion.div>
@@ -137,50 +287,8 @@ const UeberUns = () => {
         </div>
       </section>
 
-      {/* Values Section */}
-      <section className="py-20 bg-forest-green text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <h2 className="font-serif text-4xl font-bold mb-6">
-              Unsere Werte
-            </h2>
-            <p className="text-xl opacity-90 max-w-3xl mx-auto">
-              Was uns antreibt und leitet
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              { icon: Heart, title: 'Leidenschaft', description: 'Mit Herz und Seele für die beste Qualität' },
-              { icon: Users, title: 'Familie', description: 'Traditionelle Werte in einem familiären Umfeld' },
-              { icon: Star, title: 'Qualität', description: 'Kompromisslose Standards bei jedem Schritt' },
-              { icon: Clock, title: 'Tradition', description: 'Über 70 Jahre Erfahrung und Expertise' }
-            ].map((value, index) => (
-              <motion.div
-                key={value.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                className="text-center"
-              >
-                <value.icon className="h-16 w-16 text-brushed-brass mx-auto mb-4" />
-                <h3 className="font-serif text-xl font-semibold mb-3">
-                  {value.title}
-                </h3>
-                <p className="opacity-90 leading-relaxed">
-                  {value.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-    </Layout>
+      <Footer />
+    </div>
   );
 };
 
