@@ -6,6 +6,8 @@ import { Menu, X, Fish } from 'lucide-react';
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const location = useLocation();
 
   const scrollToContact = () => {
@@ -26,16 +28,36 @@ const Navigation = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      const currentScrollY = window.scrollY;
+      
+      // Set scrolled state
+      setIsScrolled(currentScrollY > 50);
+      
+      // Handle navigation visibility
+      if (currentScrollY < 100) {
+        // Always show at top
+        setIsVisible(true);
+      } else if (currentScrollY > lastScrollY && currentScrollY > 200) {
+        // Scrolling down - hide
+        setIsVisible(false);
+        setIsMobileMenuOpen(false); // Close mobile menu when hiding
+      } else if (currentScrollY < lastScrollY) {
+        // Scrolling up - show
+        setIsVisible(true);
+      }
+      
+      setLastScrollY(currentScrollY);
     };
-    window.addEventListener('scroll', handleScroll);
+    
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [lastScrollY]);
 
   return (
     <motion.nav
       initial={{ y: -100 }}
-      animate={{ y: 0 }}
+      animate={{ y: isVisible ? 0 : -100 }}
+      transition={{ duration: 0.3, ease: "easeInOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
           ? 'bg-background/95 backdrop-blur-md shadow-2xl border-b border-border/20' 
@@ -45,7 +67,7 @@ const Navigation = () => {
       {/* Logo Section with Decorative Dividers */}
       <div className="border-b border-primary/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-center py-6">
+          <div className="flex items-center justify-center py-3">
             {/* Left Decorative Divider */}
             <div className="flex-1 flex items-center justify-end pr-8">
               <div className="w-32 h-px bg-gradient-to-r from-transparent to-primary opacity-60"></div>
@@ -53,13 +75,13 @@ const Navigation = () => {
             </div>
             
             {/* Centered Logo */}
-            <Link to="/" className="flex items-center space-x-3 group">
-              <Fish className="h-12 w-12 text-primary group-hover:scale-110 transition-transform duration-300" />
+            <Link to="/" className="flex items-center space-x-2 group">
+              <Fish className="h-8 w-8 text-primary group-hover:scale-110 transition-transform duration-300" />
               <div className="flex flex-col text-center">
-                <span className="font-serif text-3xl font-bold text-white leading-tight group-hover:text-primary transition-colors duration-300">
+                <span className="font-serif text-2xl font-bold text-white leading-tight group-hover:text-primary transition-colors duration-300">
                   Alpirsbacher
                 </span>
-                <span className="font-serif text-xl text-primary leading-tight opacity-90">
+                <span className="font-serif text-sm text-primary leading-tight opacity-90">
                   Fischzucht
                 </span>
               </div>
@@ -76,7 +98,7 @@ const Navigation = () => {
 
       {/* Navigation Menu */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-center items-center py-4">
+        <div className="flex justify-center items-center py-2">
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-12">
             {navItems.map((item) => (
@@ -118,8 +140,9 @@ const Navigation = () => {
           <button
             className="lg:hidden p-2 text-white hover:text-primary transition-colors duration-300"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle menu"
           >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
 
