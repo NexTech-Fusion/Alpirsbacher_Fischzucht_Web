@@ -505,63 +505,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Sections Overview */}
-      <section className="py-20 bg-sage-gradient">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <h2 className="font-serif text-4xl md:text-5xl font-bold text-foreground mb-6">
-              Tradition trifft <span className="text-primary">Innovation</span>
-            </h2>
-            <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
-              Seit drei Generationen züchten wir in den kristallklaren Gewässern des Schwarzwalds 
-              Forellen von außergewöhnlicher Qualität. Entdecken Sie unsere Welt der nachhaltigen Fischzucht.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {sections.map((section, index) => (
-              <motion.div
-                key={section.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                className="group bg-card backdrop-blur-sm rounded-xl overflow-hidden shadow-2xl hover:shadow-primary/10 transition-all duration-500 hover:scale-105 border border-border hover:border-primary/30"
-              >
-                <div className="aspect-video overflow-hidden">
-                  <img 
-                    src={`https://vibemedia.space/${section.image}`}
-                    alt={section.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                  />
-                </div>
-                <div className="p-6">
-                  <div className="flex items-center gap-3 mb-4">
-                    <section.icon className="h-6 w-6 text-primary" />
-                    <h3 className="font-serif text-2xl font-semibold text-foreground">
-                      {section.title}
-                    </h3>
-                  </div>
-                  <p className="text-muted-foreground mb-6 leading-relaxed">
-                    {section.description}
-                  </p>
-                  <Link 
-                    to={section.path}
-                    className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-semibold transition-all duration-300 hover:gap-3"
-                  >
-                    Mehr erfahren
-                    <ArrowRight size={16} className="transition-transform duration-300" />
-                  </Link>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* CTA Section */}
       <section className="py-20 bg-card border-t border-border">
