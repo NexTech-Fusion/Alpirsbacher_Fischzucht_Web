@@ -1,411 +1,194 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Button } from '@/components/ui/button';
-import { 
-  Waves, 
-  Fish, 
-  Heart, 
-  Shield, 
-  Droplets, 
-  Leaf,
-  ChefHat,
-  Package,
-  Truck,
-  ShoppingCart,
-  Award,
-  Clock
-} from 'lucide-react';
-import { Link } from 'react-router-dom';
-import troutFarmHero from '@/assets/trout-farm-hero.png';
-import processingHero from '@/assets/processing-hero.png';
-import directMarketingHero from '@/assets/direct-marketing-hero.png';
+import { Droplets, Leaf, Award, Heart } from 'lucide-react';
+import Layout from '../components/Layout';
 
 const Fischzucht = () => {
-
   const features = [
     {
       icon: Droplets,
-      title: "Trinkwasserqualität",
-      description: "Frischwasser aus quellnahem Bach und zwei eigenen Quellen"
-    },
-    {
-      icon: Waves,
-      title: "Natürliche Strömung",
-      description: "Ständig durchströmtes System ohne geschlossene Kreisläufe"
-    },
-    {
-      icon: Shield,
-      title: "Ohne Medikamente",
-      description: "Komplett ohne Antibiotika und chemische Zusätze"
+      title: 'Kristallklares Quellwasser',
+      description: 'Unsere Forellen wachsen in den reinsten Quellen des Schwarzwalds auf, was ihnen ihren unverwechselbaren Geschmack verleiht.'
     },
     {
       icon: Leaf,
-      title: "Nachhaltiges Futter",
-      description: "Hochwertiges Bio Mar Futter für optimale Entwicklung"
-    }
-  ];
-
-  const processingFeatures = [
-    {
-      icon: Clock,
-      title: "Nur auf Bestellung",
-      description: "Frische Verarbeitung erst bei tatsächlichem Bedarf"
-    },
-    {
-      icon: ChefHat,
-      title: "Vielfältige Varianten",
-      description: "Ganz, als Filet, geräuchert oder mariniert"
+      title: 'Nachhaltige Zucht',
+      description: 'Wir setzen auf umweltschonende Methoden und arbeiten im Einklang mit der Natur für eine nachhaltige Fischzucht.'
     },
     {
       icon: Award,
-      title: "Höchste Hygiene",
-      description: "Gründliche Reinigung bei jedem Verarbeitungsschritt"
+      title: 'Premium Qualität',
+      description: 'Strenge Qualitätskontrollen und artgerechte Haltung garantieren Forellen von höchster Güte.'
     },
     {
-      icon: Package,
-      title: "Küchenfertig",
-      description: "Direkt verpackt ohne Zwischenlagerung"
+      icon: Heart,
+      title: 'Mit Leidenschaft',
+      description: 'Drei Generationen Erfahrung und Liebe zum Handwerk machen unsere Fischzucht zu etwas Besonderem.'
     }
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <Layout>
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ 
-            backgroundImage: `url(${troutFarmHero})`,
-            filter: 'brightness(0.4)'
+          style={{
+            backgroundImage: `url('https://vibemedia.space/fischzucht_luxury_hero_f4g3h2i1_006.png?prompt=trout%20fish%20farm%20ponds%20black%20forest%20germany%20aerial%20view%20crystal%20clear%20water%20surrounded%20by%20pine%20trees%20sustainable%20aquaculture%20luxury%20dark%20elegant&key=BT4VR')`
           }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/40 via-transparent to-primary/60" />
+        >
+          <div className="absolute inset-0 bg-gradient-to-b from-deep-black/80 via-deep-black/40 to-deep-black/80"></div>
+        </div>
         
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: [0.4, 0, 0.2, 1] }}
-          className="relative z-10 text-center text-white max-w-4xl mx-auto px-6"
-        >
-          <h1 className="text-5xl md:text-7xl font-bold mb-6">
-            <span className="text-secondary">Naturnahe</span><br />
-            Forellenzucht
-          </h1>
-          <p className="text-xl md:text-2xl mb-8 text-gray-200 max-w-2xl mx-auto">
-            Von der Quelle bis zum Teller – nachhaltige Aquakultur 
-            in einem ständig durchströmten System
-          </p>
-          <Button 
-            asChild
-            size="lg" 
-            className="bg-secondary hover:bg-secondary/90 text-primary font-semibold px-8 py-4 text-lg"
+        <div className="relative z-10 text-center text-ivory-white max-w-4xl mx-auto px-4">
+          <motion.h1 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="font-serif text-5xl md:text-7xl font-bold mb-6"
           >
-            <Link to="/shop">
-              <ShoppingCart className="mr-2 h-5 w-5" />
-              Jetzt bestellen
-            </Link>
-          </Button>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5, duration: 1 }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce"
-        >
-          <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-white rounded-full mt-2 animate-pulse" />
-          </div>
-        </motion.div>
-      </section>
-
-      {/* Zucht & Produktion Section */}
-      <section className="py-20 bg-background">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="space-y-8"
-            >
-              <div className="space-y-4">
-                <h2 className="text-4xl md:text-5xl font-bold text-primary">
-                  Zucht & Produktion
-                </h2>
-                <div className="w-24 h-1 bg-secondary rounded" />
-              </div>
-              
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Unsere Forellenzucht steht für eine naturnahe und nachhaltige Aquakultur. 
-                In einer Teichanlage, die einem natürlichen Bachlauf nachempfunden ist, 
-                wachsen unsere Fische in einem ständig durchströmten System auf – 
-                ganz ohne geschlossene Kreisläufe, Pumpen oder chemische Zusätze.
-              </p>
-
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Die Frischwasserversorgung erfolgt durch einen quellnahen Bach sowie 
-                zwei eigene Quellen mit Trinkwasserqualität. Die ständige Strömung 
-                fördert eine gesunde Entwicklung von Muskulatur und Knochen – 
-                ähnlich wie in freier Wildbahn.
-              </p>
-
-              <div className="grid sm:grid-cols-2 gap-6 mt-12">
-                {features.map((feature, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    className="flex items-start space-x-4 p-4 rounded-lg bg-card border border-border hover:shadow-lg transition-shadow"
-                  >
-                    <div className="flex-shrink-0 w-12 h-12 bg-secondary/20 rounded-xl flex items-center justify-center">
-                      <feature.icon className="w-6 h-6 text-secondary" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-primary mb-2">{feature.title}</h3>
-                      <p className="text-sm text-muted-foreground">{feature.description}</p>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-
-            <motion.div 
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="relative"
-            >
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                <img 
-                  src={troutFarmHero} 
-                  alt="Forellenzucht" 
-                  className="w-full h-[600px] object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent" />
-              </div>
-            </motion.div>
-          </div>
+            Unsere <span className="text-rich-gold">Fischzucht</span>
+          </motion.h1>
+          
+          <motion.p 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-xl md:text-2xl font-light text-ivory-white/90"
+          >
+            Wo Tradition auf Innovation trifft
+          </motion.p>
         </div>
       </section>
 
-      {/* Verarbeitung & Veredelung Section */}
-      <section className="py-20 bg-muted/20">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <motion.div 
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="relative lg:order-1"
-            >
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                <img 
-                  src={processingHero} 
-                  alt="Verarbeitung" 
-                  className="w-full h-[600px] object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-accent/30 to-transparent" />
-              </div>
-            </motion.div>
-
-            <motion.div 
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="space-y-8 lg:order-2"
-            >
-              <div className="space-y-4">
-                <h2 className="text-4xl md:text-5xl font-bold text-primary">
-                  Verarbeitung & Veredelung
-                </h2>
-                <div className="w-24 h-1 bg-secondary rounded" />
-              </div>
-              
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Bei uns kommt alles aus einer Hand: von der Aufzucht bis zur Verarbeitung. 
-                In unserem hofeigenen Verarbeitungsgebäude werden die Fische direkt nach 
-                der Bestellung frisch geschlachtet, hygienisch verarbeitet und küchenfertig verpackt.
-              </p>
-
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Ein zentraler Qualitätsvorteil: Bei uns wird nur auf Bestellung verarbeitet. 
-                Das bedeutet, der Fisch wird erst dann geschlachtet, wenn er tatsächlich 
-                gebraucht wird. So stellen wir sicher, dass unsere Kundinnen und Kunden 
-                ausschließlich absolut frische Ware erhalten.
-              </p>
-
-              <div className="grid sm:grid-cols-2 gap-6 mt-12">
-                {processingFeatures.map((feature, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    className="flex items-start space-x-4 p-4 rounded-lg bg-card border border-border hover:shadow-lg transition-shadow"
-                  >
-                    <div className="flex-shrink-0 w-12 h-12 bg-accent/20 rounded-xl flex items-center justify-center">
-                      <feature.icon className="w-6 h-6 text-accent" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-primary mb-2">{feature.title}</h3>
-                      <p className="text-sm text-muted-foreground">{feature.description}</p>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Direktvermarktung Section */}
-      <section className="py-20 bg-background">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="space-y-8"
-            >
-              <div className="space-y-4">
-                <h2 className="text-4xl md:text-5xl font-bold text-primary">
-                  Direktvermarktung
-                </h2>
-                <div className="w-24 h-1 bg-secondary rounded" />
-              </div>
-              
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Um unseren Kundinnen und Kunden größtmögliche Flexibilität zu bieten, 
-                stehen zwei komfortable Bezugsmöglichkeiten zur Auswahl. Zum einen kann 
-                der Fisch auf Vorbestellung direkt vor Ort abgeholt werden.
-              </p>
-
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Wer es lieber bequem mag, kann sich den Fisch auch ganz einfach nach 
-                Hause liefern lassen. Über die benutzerfreundliche myfishmeal.de-App 
-                oder den Online-Shop lassen sich unsere Produkte schnell und unkompliziert bestellen.
-              </p>
-
-              <div className="grid sm:grid-cols-2 gap-6 mt-12">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5 }}
-                  viewport={{ once: true }}
-                  className="p-6 rounded-lg bg-card border border-border hover:shadow-lg transition-shadow"
-                >
-                  <div className="w-12 h-12 bg-secondary/20 rounded-xl flex items-center justify-center mb-4">
-                    <Package className="w-6 h-6 text-secondary" />
-                  </div>
-                  <h3 className="font-semibold text-primary mb-2">Abholung vor Ort</h3>
-                  <p className="text-sm text-muted-foreground">
-                    Persönliche Abholung mit zusätzlichen Produkten wie Gewürze und Weine
-                  </p>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.1 }}
-                  viewport={{ once: true }}
-                  className="p-6 rounded-lg bg-card border border-border hover:shadow-lg transition-shadow"
-                >
-                  <div className="w-12 h-12 bg-secondary/20 rounded-xl flex items-center justify-center mb-4">
-                    <Truck className="w-6 h-6 text-secondary" />
-                  </div>
-                  <h3 className="font-semibold text-primary mb-2">Lieferung nach Hause</h3>
-                  <p className="text-sm text-muted-foreground">
-                    Express-Versand bis 12 Uhr am Folgetag – frisch, gekühlt und qualitätsgeprüft
-                  </p>
-                </motion.div>
-              </div>
-
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                viewport={{ once: true }}
-                className="pt-8"
-              >
-                <Button 
-                  asChild
-                  size="lg" 
-                  className="bg-secondary hover:bg-secondary/90 text-primary font-semibold px-8 py-4 text-lg w-full sm:w-auto"
-                >
-                  <Link to="/shop">
-                    <ShoppingCart className="mr-2 h-5 w-5" />
-                    Jetzt im Shop bestellen
-                  </Link>
-                </Button>
-              </motion.div>
-            </motion.div>
-
-            <motion.div 
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="relative"
-            >
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                <img 
-                  src={directMarketingHero} 
-                  alt="Direktvermarktung" 
-                  className="w-full h-[600px] object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent" />
-                
-                {/* Floating Badge */}
-                <div className="absolute top-6 right-6 bg-secondary text-primary px-4 py-2 rounded-full font-semibold shadow-lg">
-                  <Fish className="inline w-4 h-4 mr-2" />
-                  Frisch & Regional
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Bottom CTA Section */}
-      <section className="py-16 bg-primary text-white">
-        <div className="max-w-4xl mx-auto text-center px-6">
+      {/* Features Section */}
+      <section className="py-20 bg-luxury-gradient">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="space-y-6"
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold">
-              Bereit für frischen Fisch aus regionaler Zucht?
+            <h2 className="font-serif text-4xl md:text-5xl font-bold text-ivory-white mb-6">
+              Was uns <span className="text-rich-gold">auszeichnet</span>
             </h2>
-            <p className="text-xl text-gray-200">
-              Entdecken Sie unser vollständiges Sortiment und bestellen Sie noch heute.
+            <p className="text-ivory-white/80 text-lg max-w-3xl mx-auto">
+              Unsere Fischzucht vereint traditionelle Methoden mit modernster Technik 
+              für die Aufzucht der besten Forellen im Schwarzwald.
             </p>
-            <Button 
-              asChild
-              size="lg" 
-              className="bg-secondary hover:bg-secondary/90 text-primary font-semibold px-8 py-4 text-lg"
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {features.map((feature, index) => (
+              <motion.div
+                key={feature.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
+                className="bg-charcoal-gray/80 backdrop-blur-sm p-6 rounded-xl shadow-2xl hover:shadow-rich-gold/10 transition-all duration-300 hover:scale-105 text-center border border-rich-gold/10 hover:border-rich-gold/30"
+              >
+                <feature.icon className="h-16 w-16 text-rich-gold mx-auto mb-4" />
+                <h3 className="font-serif text-xl font-semibold text-ivory-white mb-3">
+                  {feature.title}
+                </h3>
+                <p className="text-ivory-white/70 leading-relaxed">
+                  {feature.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Process Section */}
+      <section className="py-20 bg-deep-black">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
             >
-              <Link to="/shop">
-                <ShoppingCart className="mr-2 h-5 w-5" />
-                Zum Shop
-              </Link>
-            </Button>
+              <h2 className="font-serif text-4xl font-bold text-ivory-white mb-6">
+                Von der Brut bis zum <span className="text-rich-gold">Speisefisch</span>
+              </h2>
+              <div className="space-y-6">
+                <div className="flex gap-4">
+                  <div className="w-8 h-8 bg-rich-gold rounded-full flex items-center justify-center text-deep-black font-bold">1</div>
+                  <div>
+                    <h3 className="font-semibold text-ivory-white mb-2">Brutaufzucht</h3>
+                    <p className="text-ivory-white/70">Sorgfältige Aufzucht der Jungfische in optimalen Bedingungen</p>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <div className="w-8 h-8 bg-rich-gold rounded-full flex items-center justify-center text-deep-black font-bold">2</div>
+                  <div>
+                    <h3 className="font-semibold text-ivory-white mb-2">Naturnahe Haltung</h3>
+                    <p className="text-ivory-white/70">Aufwachsen in natürlichen Teichen mit frischem Quellwasser</p>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <div className="w-8 h-8 bg-rich-gold rounded-full flex items-center justify-center text-deep-black font-bold">3</div>
+                  <div>
+                    <h3 className="font-semibold text-ivory-white mb-2">Qualitätskontrolle</h3>
+                    <p className="text-ivory-white/70">Regelmäßige Überwachung von Wasserqualität und Fischgesundheit</p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              className="relative"
+            >
+              <img 
+                src="https://vibemedia.space/process_luxury_g3h2i1j0_007.png?prompt=trout%20farming%20process%20from%20fry%20to%20adult%20fish%20natural%20ponds%20sustainable%20aquaculture%20black%20forest%20environment%20luxury%20dark%20elegant&key=BT4VR"
+                alt="Fischzucht Prozess"
+                className="w-full h-96 object-cover rounded-xl shadow-2xl border border-rich-gold/20"
+              />
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Environmental Section */}
+      <section className="py-20 bg-charcoal-gray border-t border-rich-gold/20">
+        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="font-serif text-3xl md:text-4xl font-bold mb-6 text-ivory-white">
+              Nachhaltigkeit im Einklang mit der <span className="text-rich-gold">Natur</span>
+            </h2>
+            <p className="text-xl mb-8 text-ivory-white/80">
+              Wir verstehen uns als Hüter der natürlichen Ressourcen des Schwarzwalds. 
+              Unsere Fischzucht arbeitet nachhaltig und umweltschonend, um auch zukünftigen 
+              Generationen diese einzigartige Naturlandschaft zu erhalten.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+              <div className="text-center">
+                <div className="text-3xl font-bold text-rich-gold mb-2">100%</div>
+                <div className="text-sm text-ivory-white/70">Natürliches Quellwasser</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-rich-gold mb-2">3</div>
+                <div className="text-sm text-ivory-white/70">Generationen Erfahrung</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-rich-gold mb-2">0</div>
+                <div className="text-sm text-ivory-white/70">Künstliche Zusätze</div>
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>
-    </div>
+    </Layout>
   );
 };
 
