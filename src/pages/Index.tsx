@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, Fish, Award, Leaf, Users, ChevronRight, MapPin, Phone, Mail, Clock } from 'lucide-react';
+import { ArrowRight, Fish, Award, Leaf, Users, ChevronRight, MapPin, Phone, Mail, Clock, Truck, Utensils, Wine } from 'lucide-react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, EffectFade } from 'swiper/modules';
 import Layout from '../components/Layout';
@@ -11,7 +11,11 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { useToast } from '@/hooks/use-toast';
+import goExpressLogo from '@/assets/go-express-logo.png';
+import culinaryLogo from '@/assets/culinarico-logo.png';
+import heinrichLogo from '@/assets/heinrich-weingut-logo.png';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -24,6 +28,37 @@ const Index = () => {
     message: ''
   });
   const { toast } = useToast();
+
+  const partners = [
+    {
+      id: 'go-express',
+      name: 'GO! Express & Logistics',
+      logo: goExpressLogo,
+      icon: Truck,
+      category: 'Versandpartner',
+      description: 'Für den schnellen und sicheren Versand unserer Boxen setzen wir auf einen starken regionalen Partner: GO! Express & Logistics mit Sitz in Ettlingen. Als Spezialist für Expressversand sorgt GO! dafür, dass jede Sendung termingerecht und zuverlässig bei unseren Kundinnen und Kunden ankommt – und das mit persönlichem Service und höchster Sorgfalt. Mit der regionalen Nähe und langjährigen Erfahrung ist GO! der perfekte Partner für unsere anspruchsvolle Logistik.',
+      location: 'Ettlingen'
+    },
+    {
+      id: 'culinarico',
+      name: 'Culinarico',
+      logo: culinaryLogo,
+      icon: Utensils,
+      category: 'Gewürzlieferant',
+      description: 'Für unsere Fischspezialitäten vertrauen wir auf die erlesenen Gewürzmischungen von Culinarico aus Karlsruhe. Ob klassisch, mediterran oder exotisch – hier findet sich das perfekte Aroma für jeden Geschmack. Qualität, die man schmeckt!',
+      location: 'Karlsruhe'
+    },
+    {
+      id: 'heinrich',
+      name: 'Weingut Heinrich',
+      logo: heinrichLogo,
+      icon: Wine,
+      category: 'Weinlieferant',
+      description: 'Seit 1545 steht das Weingut Heinrich aus Heilbronn für erstklassigen Weinbau mit Leidenschaft und Familienhandwerk. Mit jeder Flasche erleben wir die perfekte Verbindung aus Tradition, Qualität und Charakter – echte Weinkultur, die begeistert!',
+      location: 'Heilbronn',
+      since: '1545'
+    }
+  ];
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -82,13 +117,6 @@ const Index = () => {
       icon: Users,
       path: '/ueber-uns',
       image: 'about_us_luxury_b8e7d6c5_002.png?prompt=traditional%20german%20fish%20farm%20family%20business%20three%20generations%20black%20forest%20heritage%20luxury%20dark%20elegant%20gold%20details&key=BT4VR'
-    },
-    {
-      title: 'Partner',
-      description: 'Vertrauensvolle Zusammenarbeit mit den besten Restaurants und Händlern der Region.',
-      icon: Award,
-      path: '/partner',
-      image: 'partners_luxury_c7d6e5f4_003.png?prompt=premium%20restaurant%20partnership%20high%20end%20gastronomy%20fresh%20trout%20delivery%20luxury%20dark%20elegant%20professional%20collaboration&key=BT4VR'
     },
     {
       title: 'Shop',
@@ -354,6 +382,126 @@ const Index = () => {
               </div>
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* Partner Section */}
+      <section className="py-20 bg-gradient-to-br from-[rgb(26,61,59)] via-[rgb(16,43,42)] to-[rgb(12,37,36)]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <h2 className="font-serif text-4xl md:text-5xl font-bold text-white mb-6">
+              Unsere <span style={{ color: 'rgb(181,140,103)' }}>Partner</span>
+            </h2>
+            <p className="text-white/80 text-lg max-w-3xl mx-auto">
+              Vertrauen Sie auf starke Partnerschaften. Gemeinsam mit ausgewählten Experten 
+              bringen wir Ihnen Qualität vom Feinsten direkt nach Hause.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            {partners.map((partner, index) => (
+              <motion.div
+                key={partner.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="group"
+              >
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-8 hover:bg-white/15 transition-all duration-300 cursor-pointer hover:scale-105 hover:shadow-xl">
+                      <div className="text-center space-y-6">
+                        <div className="mx-auto w-32 h-32 bg-white rounded-lg p-4 flex items-center justify-center overflow-hidden">
+                          <img 
+                            src={partner.logo} 
+                            alt={partner.name}
+                            className="max-w-full max-h-full object-contain"
+                          />
+                        </div>
+                        
+                        <div className="space-y-2">
+                          <div className="flex items-center justify-center gap-2 mb-2">
+                            <partner.icon className="w-5 h-5" style={{ color: 'rgb(181,140,103)' }} />
+                            <span className="text-sm text-white/70 font-medium">
+                              {partner.category}
+                            </span>
+                          </div>
+                          <h3 className="font-serif text-xl font-bold text-white">
+                            {partner.name}
+                          </h3>
+                          <p className="text-white/60 text-sm">
+                            {partner.location}{partner.since && ` • Seit ${partner.since}`}
+                          </p>
+                        </div>
+                        
+                        <div className="pt-4">
+                          <span className="text-sm font-medium text-white/80 group-hover:text-white transition-colors duration-300">
+                            Mehr erfahren →
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </DialogTrigger>
+                  
+                  <DialogContent className="max-w-2xl bg-card border-border">
+                    <DialogHeader>
+                      <DialogTitle className="flex items-center gap-3 text-2xl">
+                        <partner.icon className="w-6 h-6 text-primary" />
+                        {partner.name}
+                      </DialogTitle>
+                    </DialogHeader>
+                    
+                    <div className="space-y-6">
+                      <div className="flex items-center justify-center p-6 bg-muted rounded-lg">
+                        <img 
+                          src={partner.logo} 
+                          alt={partner.name}
+                          className="max-w-48 max-h-24 object-contain"
+                        />
+                      </div>
+                      
+                      <div className="space-y-4">
+                        <div className="flex items-center gap-2">
+                          <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium">
+                            {partner.category}
+                          </span>
+                          <span className="text-muted-foreground text-sm">
+                            {partner.location}{partner.since && ` • Seit ${partner.since}`}
+                          </span>
+                        </div>
+                        
+                        <p className="text-muted-foreground leading-relaxed">
+                          {partner.description}
+                        </p>
+                      </div>
+                    </div>
+                  </DialogContent>
+                </Dialog>
+              </motion.div>
+            ))}
+          </div>
+          
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="text-center"
+          >
+            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-8 max-w-3xl mx-auto">
+              <h3 className="font-serif text-2xl font-bold text-white mb-4">
+                Gemeinsam für Qualität
+              </h3>
+              <p className="text-white/80 leading-relaxed">
+                Diese starken Partnerschaften ermöglichen es uns, Ihnen ein rundum perfektes Erlebnis 
+                zu bieten – von der Zucht bis zur Haustür, von der Würze bis zum Wein.
+              </p>
+            </div>
+          </motion.div>
         </div>
       </section>
 

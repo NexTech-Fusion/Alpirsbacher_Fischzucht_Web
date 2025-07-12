@@ -21,7 +21,6 @@ const Navigation = () => {
     { name: 'Home', path: '/' },
     { name: 'Fischzucht', path: '/fischzucht' },
     { name: 'Über uns', path: '/ueber-uns' },
-    { name: 'Partner', path: '/partner' },
     { name: 'Kontakt', action: 'contact' },
     { name: 'Shop', path: '/shop' }
   ];
