@@ -441,55 +441,8 @@ const UeberUns = () => {
       <section className="py-24 relative overflow-hidden" style={{ 
         background: 'linear-gradient(135deg, rgb(12, 37, 36) 0%, rgb(16, 43, 42) 30%, rgb(26, 61, 59) 70%, rgb(16, 43, 42) 100%)' 
       }}>
-        {/* Organic Background Pattern */}
+        {/* Subtle Grid Pattern */}
         <div className="absolute inset-0 overflow-hidden">
-          {/* Floating Organic Shapes */}
-          <motion.div
-            animate={{ 
-              y: [0, -30, 0],
-              rotate: [0, 10, 0],
-              scale: [1, 1.1, 1]
-            }}
-            transition={{ 
-              duration: 15,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-            className="absolute top-20 left-10 w-40 h-40 rounded-full opacity-10"
-            style={{ background: 'radial-gradient(circle, rgb(181, 140, 103), transparent 70%)' }}
-          />
-          <motion.div
-            animate={{ 
-              y: [0, 40, 0],
-              rotate: [0, -15, 0],
-              scale: [1, 0.9, 1]
-            }}
-            transition={{ 
-              duration: 20,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 5
-            }}
-            className="absolute bottom-20 right-20 w-60 h-60 rounded-full opacity-8"
-            style={{ background: 'radial-gradient(circle, rgb(132, 161, 160), transparent 60%)' }}
-          />
-          <motion.div
-            animate={{ 
-              x: [0, 25, 0],
-              y: [0, -20, 0],
-              rotate: [0, 8, 0]
-            }}
-            transition={{ 
-              duration: 18,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 10
-            }}
-            className="absolute top-1/2 right-1/3 w-32 h-32 rounded-full opacity-12"
-            style={{ background: 'radial-gradient(circle, rgb(181, 140, 103), transparent 80%)' }}
-          />
-          
-          {/* Subtle Grid Pattern */}
           <div className="absolute inset-0 opacity-5">
             <div className="absolute inset-0" style={{
               backgroundImage: `radial-gradient(circle at 30% 30%, rgb(132, 161, 160) 1px, transparent 1px)`,
@@ -515,20 +468,6 @@ const UeberUns = () => {
               viewport={{ once: true }}
               className="text-center mb-20"
             >
-              <motion.div
-                initial={{ scale: 0.8, opacity: 0 }}
-                whileInView={{ scale: 1, opacity: 1 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
-                className="inline-flex items-center justify-center w-24 h-24 rounded-full mb-8 border-2"
-                style={{ 
-                  borderColor: 'rgb(181, 140, 103)',
-                  background: 'linear-gradient(135deg, rgba(181, 140, 103, 0.1), rgba(132, 161, 160, 0.1))'
-                }}
-              >
-                <Mountain className="w-10 h-10" style={{ color: 'rgb(181, 140, 103)' }} />
-              </motion.div>
-              
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-6">
                 Unsere Vision
               </h2>
@@ -557,7 +496,7 @@ const UeberUns = () => {
                 }}></div>
                 
                 <div className="relative z-10 text-center">
-                  <p className="text-xl md:text-2xl lg:text-3xl text-white font-light leading-relaxed">
+                  <p className="text-lg md:text-xl text-white font-light leading-relaxed">
                     Wir glauben an eine neue Art von Wirtschaft – eine, in der{' '}
                     <span className="font-medium" style={{ color: 'rgb(181, 140, 103)' }}>
                       Transparenz
