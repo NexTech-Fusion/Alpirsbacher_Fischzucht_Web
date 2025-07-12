@@ -438,47 +438,64 @@ const UeberUns = () => {
       </section>
 
       {/* Vision Section */}
-      <section className="py-24 relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-        {/* Floating Elements Background */}
+      <section className="py-24 relative overflow-hidden" style={{ 
+        background: 'linear-gradient(135deg, rgb(12, 37, 36) 0%, rgb(16, 43, 42) 30%, rgb(26, 61, 59) 70%, rgb(16, 43, 42) 100%)' 
+      }}>
+        {/* Organic Background Pattern */}
         <div className="absolute inset-0 overflow-hidden">
+          {/* Floating Organic Shapes */}
           <motion.div
             animate={{ 
-              y: [0, -20, 0],
-              rotate: [0, 5, 0]
+              y: [0, -30, 0],
+              rotate: [0, 10, 0],
+              scale: [1, 1.1, 1]
             }}
             transition={{ 
-              duration: 8,
+              duration: 15,
               repeat: Infinity,
               ease: "easeInOut"
             }}
-            className="absolute top-20 left-10 w-32 h-32 bg-primary/5 rounded-full blur-xl"
+            className="absolute top-20 left-10 w-40 h-40 rounded-full opacity-10"
+            style={{ background: 'radial-gradient(circle, rgb(181, 140, 103), transparent 70%)' }}
           />
           <motion.div
             animate={{ 
-              y: [0, 30, 0],
-              rotate: [0, -5, 0]
+              y: [0, 40, 0],
+              rotate: [0, -15, 0],
+              scale: [1, 0.9, 1]
             }}
             transition={{ 
-              duration: 10,
+              duration: 20,
               repeat: Infinity,
               ease: "easeInOut",
-              delay: 2
+              delay: 5
             }}
-            className="absolute bottom-32 right-16 w-48 h-48 bg-primary/3 rounded-full blur-2xl"
+            className="absolute bottom-20 right-20 w-60 h-60 rounded-full opacity-8"
+            style={{ background: 'radial-gradient(circle, rgb(132, 161, 160), transparent 60%)' }}
           />
           <motion.div
             animate={{ 
-              x: [0, 20, 0],
-              y: [0, -15, 0]
+              x: [0, 25, 0],
+              y: [0, -20, 0],
+              rotate: [0, 8, 0]
             }}
             transition={{ 
-              duration: 12,
+              duration: 18,
               repeat: Infinity,
               ease: "easeInOut",
-              delay: 4
+              delay: 10
             }}
-            className="absolute top-1/2 right-1/4 w-24 h-24 bg-accent/4 rounded-full blur-xl"
+            className="absolute top-1/2 right-1/3 w-32 h-32 rounded-full opacity-12"
+            style={{ background: 'radial-gradient(circle, rgb(181, 140, 103), transparent 80%)' }}
           />
+          
+          {/* Subtle Grid Pattern */}
+          <div className="absolute inset-0 opacity-5">
+            <div className="absolute inset-0" style={{
+              backgroundImage: `radial-gradient(circle at 30% 30%, rgb(132, 161, 160) 1px, transparent 1px)`,
+              backgroundSize: '80px 80px'
+            }}></div>
+          </div>
         </div>
 
         {/* Main Content */}
@@ -488,7 +505,7 @@ const UeberUns = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
             viewport={{ once: true }}
-            className="max-w-4xl mx-auto text-center"
+            className="max-w-5xl mx-auto"
           >
             {/* Section Header */}
             <motion.div
@@ -496,147 +513,257 @@ const UeberUns = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="mb-16"
+              className="text-center mb-20"
             >
-              <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-primary/20 to-primary/10 rounded-full mb-8">
-                <Mountain className="w-8 h-8 text-primary" />
-              </div>
+              <motion.div
+                initial={{ scale: 0.8, opacity: 0 }}
+                whileInView={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+                className="inline-flex items-center justify-center w-24 h-24 rounded-full mb-8 border-2"
+                style={{ 
+                  borderColor: 'rgb(181, 140, 103)',
+                  background: 'linear-gradient(135deg, rgba(181, 140, 103, 0.1), rgba(132, 161, 160, 0.1))'
+                }}
+              >
+                <Mountain className="w-10 h-10" style={{ color: 'rgb(181, 140, 103)' }} />
+              </motion.div>
+              
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-6">
                 Unsere Vision
               </h2>
-              <div className="w-32 h-0.5 mx-auto bg-gradient-to-r from-transparent via-primary to-transparent"></div>
+              <div className="w-32 h-0.5 mx-auto" style={{ 
+                background: 'linear-gradient(90deg, transparent, rgb(181, 140, 103), transparent)' 
+              }}></div>
             </motion.div>
 
-            {/* Vision Content */}
+            {/* Opening Statement - Featured */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
               viewport={{ once: true }}
-              className="space-y-8"
+              className="mb-16"
             >
-              {/* Opening Statement */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.5 }}
-                viewport={{ once: true }}
-                className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 md:p-12"
+              <div 
+                className="relative overflow-hidden rounded-3xl p-8 md:p-12 border backdrop-blur-sm"
+                style={{ 
+                  background: 'linear-gradient(135deg, rgba(132, 161, 160, 0.15), rgba(181, 140, 103, 0.1))',
+                  borderColor: 'rgba(132, 161, 160, 0.3)'
+                }}
               >
-                <p className="text-xl md:text-2xl text-white font-light leading-relaxed">
-                  Wir glauben an eine neue Art von Wirtschaft – eine, in der 
-                  <span className="text-primary font-medium"> Transparenz</span> kein leeres Versprechen, 
-                  sondern <span className="text-primary font-medium">gelebte Realität</span> ist.
-                </p>
-              </motion.div>
+                <div className="absolute inset-0 opacity-20" style={{
+                  background: 'radial-gradient(circle at 80% 20%, rgba(181, 140, 103, 0.3), transparent 50%)'
+                }}></div>
+                
+                <div className="relative z-10 text-center">
+                  <p className="text-xl md:text-2xl lg:text-3xl text-white font-light leading-relaxed">
+                    Wir glauben an eine neue Art von Wirtschaft – eine, in der{' '}
+                    <span className="font-medium" style={{ color: 'rgb(181, 140, 103)' }}>
+                      Transparenz
+                    </span>{' '}
+                    kein leeres Versprechen, sondern{' '}
+                    <span className="font-medium" style={{ color: 'rgb(181, 140, 103)' }}>
+                      gelebte Realität
+                    </span>{' '}
+                    ist.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
 
-              {/* Core Vision Points */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-                <motion.div
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.7 }}
-                  viewport={{ once: true }}
-                  className="bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20 rounded-xl p-8"
+            {/* Vision Points Grid */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+              {/* Transparency Card */}
+              <motion.div
+                initial={{ opacity: 0, x: -40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+                viewport={{ once: true }}
+                className="group"
+              >
+                <div 
+                  className="h-full rounded-2xl p-8 border backdrop-blur-sm hover:scale-105 transition-all duration-500"
+                  style={{ 
+                    background: 'linear-gradient(135deg, rgba(26, 61, 59, 0.8), rgba(16, 43, 42, 0.6))',
+                    borderColor: 'rgba(181, 140, 103, 0.3)'
+                  }}
                 >
                   <div className="flex items-start space-x-4">
-                    <div className="flex-shrink-0 w-3 h-3 bg-primary rounded-full mt-3"></div>
-                    <div>
-                      <h3 className="text-white font-semibold text-lg mb-3">Volle Transparenz</h3>
-                      <p className="text-white/80 leading-relaxed">
-                        Bei uns wissen unsere Kunden nicht nur, was sie bekommen, sondern auch woher es kommt. 
+                    <div 
+                      className="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center"
+                      style={{ background: 'rgba(181, 140, 103, 0.2)' }}
+                    >
+                      <div 
+                        className="w-4 h-4 rounded-full"
+                        style={{ background: 'rgb(181, 140, 103)' }}
+                      ></div>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-white font-bold text-xl mb-4">Volle Transparenz</h3>
+                      <p className="text-white/85 leading-relaxed">
+                        Deshalb gehen wir bewusst einen anderen Weg als viele Unternehmen in unserer Branche: 
+                        Bei uns wissen unsere Kunden nicht nur, was sie bekommen, sondern auch woher es kommt.
+                      </p>
+                      <br />
+                      <p className="text-white/85 leading-relaxed">
                         Wir legen offen, mit welchen Partnern und Lieferanten wir zusammenarbeiten – 
                         ganz bewusst und mit voller Überzeugung.
                       </p>
                     </div>
                   </div>
-                </motion.div>
+                </div>
+              </motion.div>
 
-                <motion.div
-                  initial={{ opacity: 0, x: 30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.9 }}
-                  viewport={{ once: true }}
-                  className="bg-gradient-to-br from-accent/10 to-accent/5 border border-accent/20 rounded-xl p-8"
+              {/* Values Card */}
+              <motion.div
+                initial={{ opacity: 0, x: 40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.7 }}
+                viewport={{ once: true }}
+                className="group"
+              >
+                <div 
+                  className="h-full rounded-2xl p-8 border backdrop-blur-sm hover:scale-105 transition-all duration-500"
+                  style={{ 
+                    background: 'linear-gradient(135deg, rgba(16, 43, 42, 0.8), rgba(12, 37, 36, 0.6))',
+                    borderColor: 'rgba(132, 161, 160, 0.3)'
+                  }}
                 >
                   <div className="flex items-start space-x-4">
-                    <div className="flex-shrink-0 w-3 h-3 bg-accent rounded-full mt-3"></div>
-                    <div>
-                      <h3 className="text-white font-semibold text-lg mb-3">Menschen & Werte</h3>
-                      <p className="text-white/80 leading-relaxed">
+                    <div 
+                      className="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center"
+                      style={{ background: 'rgba(132, 161, 160, 0.2)' }}
+                    >
+                      <Heart className="w-6 h-6" style={{ color: 'rgb(132, 161, 160)' }} />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-white font-bold text-xl mb-4">Menschen & Werte</h3>
+                      <p className="text-white/85 leading-relaxed">
                         Denn hinter jedem Produkt und jeder Dienstleistung stehen Menschen und Werte, 
-                        für die wir einstehen. Echte Beziehungen auf Augenhöhe.
+                        für die wir einstehen. Echte Beziehungen auf Augenhöhe mit gegenseitigem Respekt.
                       </p>
                     </div>
                   </div>
-                </motion.div>
-              </div>
+                </div>
+              </motion.div>
+            </div>
 
-              {/* Regional Focus */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 1.1 }}
-                viewport={{ once: true }}
-                className="mt-12"
+            {/* Regional Focus - Highlight Section */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.9 }}
+              viewport={{ once: true }}
+              className="mb-16"
+            >
+              <div 
+                className="relative overflow-hidden rounded-3xl p-8 md:p-12 border"
+                style={{ 
+                  background: 'linear-gradient(135deg, rgba(181, 140, 103, 0.15), rgba(26, 61, 59, 0.3))',
+                  borderColor: 'rgba(181, 140, 103, 0.4)'
+                }}
               >
-                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 md:p-12 text-center">
+                {/* Background Pattern */}
+                <div className="absolute inset-0 opacity-10">
+                  <div className="absolute inset-0" style={{
+                    backgroundImage: `radial-gradient(circle at 25% 75%, rgba(181, 140, 103, 0.8) 2px, transparent 2px)`,
+                    backgroundSize: '60px 60px'
+                  }}></div>
+                </div>
+                
+                <div className="relative z-10 text-center">
                   <motion.div
-                    initial={{ scale: 0.8 }}
-                    whileInView={{ scale: 1 }}
-                    transition={{ duration: 0.5, delay: 1.3 }}
+                    initial={{ scale: 0.8, opacity: 0 }}
+                    whileInView={{ scale: 1, opacity: 1 }}
+                    transition={{ duration: 0.6, delay: 1.1 }}
                     viewport={{ once: true }}
-                    className="inline-flex items-center justify-center w-16 h-16 bg-primary/20 rounded-full mb-6"
+                    className="inline-flex items-center justify-center w-20 h-20 rounded-full mb-8 border-2"
+                    style={{ 
+                      borderColor: 'rgb(181, 140, 103)',
+                      background: 'rgba(181, 140, 103, 0.1)'
+                    }}
                   >
-                    <MapPin className="w-8 h-8 text-primary" />
+                    <MapPin className="w-8 h-8" style={{ color: 'rgb(181, 140, 103)' }} />
                   </motion.div>
-                  <h3 className="text-2xl font-serif font-bold text-white mb-6">
+                  
+                  <h3 className="text-3xl md:text-4xl font-serif font-bold text-white mb-6">
                     100% Baden-Württemberg
                   </h3>
-                  <p className="text-xl text-white/80 leading-relaxed max-w-3xl mx-auto">
+                  <p className="text-xl text-white/90 leading-relaxed max-w-3xl mx-auto mb-8">
                     Unsere Partner stammen ausschließlich aus Baden-Württemberg – aus unserer Region, 
                     aus unserem Umfeld. Wir glauben an kurze Wege, nachhaltiges Wirtschaften und 
-                    starke Geschäftsbeziehungen, die auf <span className="text-primary">Vertrauen</span>, 
-                    <span className="text-primary"> Qualität</span> und 
-                    <span className="text-primary"> gegenseitigem Respekt</span> basieren.
+                    starke Geschäftsbeziehungen, die auf{' '}
+                    <span className="font-medium" style={{ color: 'rgb(181, 140, 103)' }}>Vertrauen</span>,{' '}
+                    <span className="font-medium" style={{ color: 'rgb(181, 140, 103)' }}>Qualität</span> und{' '}
+                    <span className="font-medium" style={{ color: 'rgb(181, 140, 103)' }}>gegenseitigem Respekt</span> basieren.
                   </p>
                 </div>
-              </motion.div>
+              </div>
+            </motion.div>
 
-              {/* Future Goal */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 1.5 }}
-                viewport={{ once: true }}
-                className="mt-12"
+            {/* Future Goal - Final Statement */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1.3 }}
+              viewport={{ once: true }}
+            >
+              <div 
+                className="relative overflow-hidden rounded-3xl p-8 md:p-12 text-center border"
+                style={{ 
+                  background: 'linear-gradient(135deg, rgba(12, 37, 36, 0.9), rgba(26, 61, 59, 0.7))',
+                  borderColor: 'rgba(132, 161, 160, 0.3)'
+                }}
               >
-                <div className="relative overflow-hidden bg-gradient-to-r from-primary/20 via-primary/10 to-accent/20 border border-primary/30 rounded-2xl p-8 md:p-12">
-                  <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-accent/5 opacity-50"></div>
-                  <div className="relative z-10 text-center">
-                    <h3 className="text-2xl md:text-3xl font-serif font-bold text-white mb-6">
-                      Neue Maßstäbe setzen
-                    </h3>
-                    <p className="text-xl text-white/90 leading-relaxed max-w-3xl mx-auto">
-                      Unser Ziel ist es, durch echte Regionalität und maximale Transparenz neue Maßstäbe zu setzen – 
-                      für unsere Kunden, für unsere Partner und für eine <span className="text-primary font-medium">zukunftsfähige Wirtschaft</span>.
-                    </p>
-                  </div>
+                {/* Decorative Background */}
+                <div className="absolute inset-0 opacity-15">
+                  <div 
+                    className="absolute inset-0"
+                    style={{
+                      background: 'radial-gradient(ellipse at center, rgba(181, 140, 103, 0.3) 0%, transparent 70%)'
+                    }}
+                  ></div>
                 </div>
-              </motion.div>
+                
+                <div className="relative z-10">
+                  <Award className="w-12 h-12 mx-auto mb-6" style={{ color: 'rgb(181, 140, 103)' }} />
+                  <h3 className="text-2xl md:text-3xl font-serif font-bold text-white mb-6">
+                    Neue Maßstäbe setzen
+                  </h3>
+                  <p className="text-xl text-white/90 leading-relaxed max-w-3xl mx-auto">
+                    Unser Ziel ist es, durch echte Regionalität und maximale Transparenz neue Maßstäbe zu setzen – 
+                    für unsere Kunden, für unsere Partner und für eine{' '}
+                    <span className="font-medium" style={{ color: 'rgb(181, 140, 103)' }}>
+                      zukunftsfähige Wirtschaft
+                    </span>.
+                  </p>
+                </div>
+              </div>
             </motion.div>
           </motion.div>
         </div>
 
-        {/* Bottom Decorative Line */}
+        {/* Bottom Decorative Elements */}
         <motion.div
           initial={{ scaleX: 0 }}
           whileInView={{ scaleX: 1 }}
-          transition={{ duration: 1.5, delay: 1.8 }}
+          transition={{ duration: 1.5, delay: 1.6 }}
           viewport={{ once: true }}
-          className="mt-16 mx-auto max-w-4xl"
+          className="mt-20 mx-auto max-w-4xl px-4"
         >
-          <div className="h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
+          <div className="flex items-center justify-center space-x-4">
+            <div className="h-px flex-1" style={{ 
+              background: 'linear-gradient(90deg, transparent, rgba(132, 161, 160, 0.5), transparent)' 
+            }}></div>
+            <div 
+              className="w-3 h-3 rounded-full"
+              style={{ background: 'rgb(181, 140, 103)' }}
+            ></div>
+            <div className="h-px flex-1" style={{ 
+              background: 'linear-gradient(90deg, transparent, rgba(132, 161, 160, 0.5), transparent)' 
+            }}></div>
+          </div>
         </motion.div>
       </section>
 
