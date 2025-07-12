@@ -207,8 +207,8 @@ const Fischzucht = () => {
                     <feature.icon className="h-8 w-8" style={{ color: 'rgb(181, 140, 103)' }} />
                   </div>
                 </div>
-                <h3 className="text-xl font-semibold mb-3" style={{ color: 'rgb(16, 43, 42)' }}>{feature.title}</h3>
-                <p className="leading-relaxed" style={{ color: 'rgb(26, 61, 59)' }}>{feature.description}</p>
+                <h3 className="text-xl font-semibold mb-3 text-white">{feature.title}</h3>
+                <p className="leading-relaxed text-white/80">{feature.description}</p>
               </motion.div>
             ))}
           </div>
@@ -425,10 +425,10 @@ const Fischzucht = () => {
               borderColor: 'rgba(132, 161, 160, 0.3)'
             }}
           >
-            <h3 className="text-3xl md:text-4xl font-serif font-bold mb-6" style={{ color: 'rgb(16, 43, 42)' }}>
+            <h3 className="text-3xl md:text-4xl font-serif font-bold mb-6 text-white">
               Bereit für frischen <span style={{ color: 'rgb(181, 140, 103)' }}>Schwarzwald-Fisch</span>?
             </h3>
-            <p className="text-xl mb-8 max-w-2xl mx-auto" style={{ color: 'rgb(26, 61, 59)' }}>
+            <p className="text-xl mb-8 max-w-2xl mx-auto text-white/80">
               Entdecken Sie unsere Auswahl an frischen Forellen und weiteren Spezialitäten 
               aus nachhaltiger regionaler Zucht.
             </p>
