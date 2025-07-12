@@ -437,6 +437,209 @@ const UeberUns = () => {
         </div>
       </section>
 
+      {/* Vision Section */}
+      <section className="py-24 relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+        {/* Floating Elements Background */}
+        <div className="absolute inset-0 overflow-hidden">
+          <motion.div
+            animate={{ 
+              y: [0, -20, 0],
+              rotate: [0, 5, 0]
+            }}
+            transition={{ 
+              duration: 8,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+            className="absolute top-20 left-10 w-32 h-32 bg-primary/5 rounded-full blur-xl"
+          />
+          <motion.div
+            animate={{ 
+              y: [0, 30, 0],
+              rotate: [0, -5, 0]
+            }}
+            transition={{ 
+              duration: 10,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 2
+            }}
+            className="absolute bottom-32 right-16 w-48 h-48 bg-primary/3 rounded-full blur-2xl"
+          />
+          <motion.div
+            animate={{ 
+              x: [0, 20, 0],
+              y: [0, -15, 0]
+            }}
+            transition={{ 
+              duration: 12,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 4
+            }}
+            className="absolute top-1/2 right-1/4 w-24 h-24 bg-accent/4 rounded-full blur-xl"
+          />
+        </div>
+
+        {/* Main Content */}
+        <div className="container mx-auto px-4 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            viewport={{ once: true }}
+            className="max-w-4xl mx-auto text-center"
+          >
+            {/* Section Header */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="mb-16"
+            >
+              <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-primary/20 to-primary/10 rounded-full mb-8">
+                <Mountain className="w-8 h-8 text-primary" />
+              </div>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-6">
+                Unsere Vision
+              </h2>
+              <div className="w-32 h-0.5 mx-auto bg-gradient-to-r from-transparent via-primary to-transparent"></div>
+            </motion.div>
+
+            {/* Vision Content */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="space-y-8"
+            >
+              {/* Opening Statement */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+                viewport={{ once: true }}
+                className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 md:p-12"
+              >
+                <p className="text-xl md:text-2xl text-white font-light leading-relaxed">
+                  Wir glauben an eine neue Art von Wirtschaft – eine, in der 
+                  <span className="text-primary font-medium"> Transparenz</span> kein leeres Versprechen, 
+                  sondern <span className="text-primary font-medium">gelebte Realität</span> ist.
+                </p>
+              </motion.div>
+
+              {/* Core Vision Points */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+                <motion.div
+                  initial={{ opacity: 0, x: -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: 0.7 }}
+                  viewport={{ once: true }}
+                  className="bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20 rounded-xl p-8"
+                >
+                  <div className="flex items-start space-x-4">
+                    <div className="flex-shrink-0 w-3 h-3 bg-primary rounded-full mt-3"></div>
+                    <div>
+                      <h3 className="text-white font-semibold text-lg mb-3">Volle Transparenz</h3>
+                      <p className="text-white/80 leading-relaxed">
+                        Bei uns wissen unsere Kunden nicht nur, was sie bekommen, sondern auch woher es kommt. 
+                        Wir legen offen, mit welchen Partnern und Lieferanten wir zusammenarbeiten – 
+                        ganz bewusst und mit voller Überzeugung.
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, x: 30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: 0.9 }}
+                  viewport={{ once: true }}
+                  className="bg-gradient-to-br from-accent/10 to-accent/5 border border-accent/20 rounded-xl p-8"
+                >
+                  <div className="flex items-start space-x-4">
+                    <div className="flex-shrink-0 w-3 h-3 bg-accent rounded-full mt-3"></div>
+                    <div>
+                      <h3 className="text-white font-semibold text-lg mb-3">Menschen & Werte</h3>
+                      <p className="text-white/80 leading-relaxed">
+                        Denn hinter jedem Produkt und jeder Dienstleistung stehen Menschen und Werte, 
+                        für die wir einstehen. Echte Beziehungen auf Augenhöhe.
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
+
+              {/* Regional Focus */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 1.1 }}
+                viewport={{ once: true }}
+                className="mt-12"
+              >
+                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 md:p-12 text-center">
+                  <motion.div
+                    initial={{ scale: 0.8 }}
+                    whileInView={{ scale: 1 }}
+                    transition={{ duration: 0.5, delay: 1.3 }}
+                    viewport={{ once: true }}
+                    className="inline-flex items-center justify-center w-16 h-16 bg-primary/20 rounded-full mb-6"
+                  >
+                    <MapPin className="w-8 h-8 text-primary" />
+                  </motion.div>
+                  <h3 className="text-2xl font-serif font-bold text-white mb-6">
+                    100% Baden-Württemberg
+                  </h3>
+                  <p className="text-xl text-white/80 leading-relaxed max-w-3xl mx-auto">
+                    Unsere Partner stammen ausschließlich aus Baden-Württemberg – aus unserer Region, 
+                    aus unserem Umfeld. Wir glauben an kurze Wege, nachhaltiges Wirtschaften und 
+                    starke Geschäftsbeziehungen, die auf <span className="text-primary">Vertrauen</span>, 
+                    <span className="text-primary"> Qualität</span> und 
+                    <span className="text-primary"> gegenseitigem Respekt</span> basieren.
+                  </p>
+                </div>
+              </motion.div>
+
+              {/* Future Goal */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 1.5 }}
+                viewport={{ once: true }}
+                className="mt-12"
+              >
+                <div className="relative overflow-hidden bg-gradient-to-r from-primary/20 via-primary/10 to-accent/20 border border-primary/30 rounded-2xl p-8 md:p-12">
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-accent/5 opacity-50"></div>
+                  <div className="relative z-10 text-center">
+                    <h3 className="text-2xl md:text-3xl font-serif font-bold text-white mb-6">
+                      Neue Maßstäbe setzen
+                    </h3>
+                    <p className="text-xl text-white/90 leading-relaxed max-w-3xl mx-auto">
+                      Unser Ziel ist es, durch echte Regionalität und maximale Transparenz neue Maßstäbe zu setzen – 
+                      für unsere Kunden, für unsere Partner und für eine <span className="text-primary font-medium">zukunftsfähige Wirtschaft</span>.
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
+          </motion.div>
+        </div>
+
+        {/* Bottom Decorative Line */}
+        <motion.div
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          transition={{ duration: 1.5, delay: 1.8 }}
+          viewport={{ once: true }}
+          className="mt-16 mx-auto max-w-4xl"
+        >
+          <div className="h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
+        </motion.div>
+      </section>
+
       <Footer />
     </div>
   );
