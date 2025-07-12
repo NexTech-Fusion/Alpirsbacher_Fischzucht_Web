@@ -485,23 +485,6 @@ const Index = () => {
               </motion.div>
             ))}
           </div>
-          
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-center"
-          >
-            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-8 max-w-3xl mx-auto">
-              <h3 className="font-serif text-2xl font-bold text-white mb-4">
-                Gemeinsam für Qualität
-              </h3>
-              <p className="text-white/80 leading-relaxed">
-                Diese starken Partnerschaften ermöglichen es uns, Ihnen ein rundum perfektes Erlebnis 
-                zu bieten – von der Zucht bis zur Haustür, von der Würze bis zum Wein.
-              </p>
-            </div>
-          </motion.div>
         </div>
       </section>
 
