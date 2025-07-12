@@ -197,7 +197,7 @@ const Fischzucht = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
                 className="group text-center p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
-                style={{ backgroundColor: 'rgb(255, 255, 255)', border: '2px solid rgb(181, 140, 103)' }}
+                style={{ backgroundColor: 'rgb(132, 161, 160)' }}
               >
                 <div className="mb-6 flex justify-center">
                   <div className="w-16 h-16 rounded-full flex items-center justify-center transition-colors duration-300" style={{ backgroundColor: 'rgba(181, 140, 103, 0.2)' }}>
@@ -417,7 +417,7 @@ const Fischzucht = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
             className="text-center rounded-3xl shadow-xl p-12"
-            style={{ backgroundColor: 'rgb(255, 255, 255)', border: '3px solid rgb(181, 140, 103)' }}
+            style={{ backgroundColor: 'rgb(132, 161, 160)' }}
           >
             <h3 className="text-3xl md:text-4xl font-serif font-bold mb-6" style={{ color: 'rgb(16, 43, 42)' }}>
               Bereit für frischen <span style={{ color: 'rgb(181, 140, 103)' }}>Schwarzwald-Fisch</span>?
