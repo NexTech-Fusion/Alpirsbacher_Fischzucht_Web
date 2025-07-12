@@ -572,9 +572,9 @@ const UeberUns = () => {
                   <div className="flex items-start space-x-4">
                     <div 
                       className="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center"
-                      style={{ background: 'rgba(132, 161, 160, 0.2)' }}
+                      style={{ background: 'rgba(181, 140, 103, 0.2)' }}
                     >
-                      <Heart className="w-6 h-6" style={{ color: 'rgb(132, 161, 160)' }} />
+                      <Heart className="w-6 h-6" style={{ color: 'rgb(181, 140, 103)' }} />
                     </div>
                     <div className="flex-1">
                       <h3 className="text-white font-bold text-xl mb-4">Menschen & Werte</h3>
