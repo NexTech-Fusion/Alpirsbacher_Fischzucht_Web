@@ -196,8 +196,11 @@ const Fischzucht = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="group text-center p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
-                style={{ backgroundColor: 'rgb(132, 161, 160)' }}
+                className="group text-center p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border backdrop-blur-sm hover:scale-105 transition-all duration-500"
+                style={{ 
+                  background: 'linear-gradient(135deg, rgba(132, 161, 160, 0.15), rgba(181, 140, 103, 0.1))',
+                  borderColor: 'rgba(132, 161, 160, 0.3)'
+                }}
               >
                 <div className="mb-6 flex justify-center">
                   <div className="w-16 h-16 rounded-full flex items-center justify-center transition-colors duration-300" style={{ backgroundColor: 'rgba(181, 140, 103, 0.2)' }}>
@@ -416,8 +419,11 @@ const Fischzucht = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-center rounded-3xl shadow-xl p-12"
-            style={{ backgroundColor: 'rgb(132, 161, 160)' }}
+            className="text-center rounded-3xl shadow-xl p-12 border backdrop-blur-sm"
+            style={{ 
+              background: 'linear-gradient(135deg, rgba(132, 161, 160, 0.15), rgba(181, 140, 103, 0.1))',
+              borderColor: 'rgba(132, 161, 160, 0.3)'
+            }}
           >
             <h3 className="text-3xl md:text-4xl font-serif font-bold mb-6" style={{ color: 'rgb(16, 43, 42)' }}>
               Bereit für frischen <span style={{ color: 'rgb(181, 140, 103)' }}>Schwarzwald-Fisch</span>?
