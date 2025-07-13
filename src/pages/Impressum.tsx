@@ -35,19 +35,34 @@ const Impressum = () => {
               initial="initial"
               animate="animate"
             >
-              {/* Company Logo and Name - Matching Header Style */}
+              {/* Company Logo and Name - Matching Header Style with Decorative Elements */}
               <motion.div 
-                className="flex items-center justify-center space-x-2 mb-8"
+                className="flex items-center justify-center mb-8 w-full max-w-2xl mx-auto"
                 variants={fadeInUp}
               >
-                <Fish className="h-8 w-8 text-primary" />
-                <div className="flex flex-col text-center">
-                  <span className="font-serif text-2xl font-bold text-foreground leading-tight">
-                    Alpirsbacher
-                  </span>
-                  <span className="font-serif text-sm text-primary leading-tight opacity-90">
-                    Fischzucht
-                  </span>
+                {/* Left Decorative Divider */}
+                <div className="flex-1 flex items-center justify-end pr-8">
+                  <div className="w-32 h-px bg-gradient-to-r from-transparent to-primary opacity-60"></div>
+                  <div className="w-2 h-2 bg-primary rounded-full ml-2 opacity-80"></div>
+                </div>
+                
+                {/* Centered Logo */}
+                <div className="flex items-center space-x-2">
+                  <Fish className="h-10 w-10 text-primary" />
+                  <div className="flex flex-col text-center">
+                    <span className="font-serif text-3xl lg:text-4xl font-bold text-foreground leading-tight">
+                      Alpirsbacher
+                    </span>
+                    <span className="font-serif text-lg lg:text-xl text-primary leading-tight opacity-90">
+                      Fischzucht
+                    </span>
+                  </div>
+                </div>
+                
+                {/* Right Decorative Divider */}
+                <div className="flex-1 flex items-center justify-start pl-8">
+                  <div className="w-2 h-2 bg-primary rounded-full mr-2 opacity-80"></div>
+                  <div className="w-32 h-px bg-gradient-to-l from-transparent to-primary opacity-60"></div>
                 </div>
               </motion.div>
 
