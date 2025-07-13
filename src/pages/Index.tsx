@@ -346,17 +346,7 @@ const Index = () => {
               className="lg:col-span-4 relative"
             >
               <div className="relative h-[400px] lg:h-[500px]">
-                {/* Background Image - Large detailed trout */}
-                <div className="absolute top-8 right-0 w-[70%] h-[75%] overflow-hidden shadow-2xl transform rotate-2">
-                  <img 
-                    src="https://vibemedia.space/trout_detailed_8h9i0j1k.png" 
-                    alt="Detailed trout background" 
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-br from-black/10 via-transparent to-black/20"></div>
-                </div>
-                
-                {/* Foreground Image - Product presentation (overlapping) */}
+                {/* Foreground Image - Product presentation */}
                 <div className="absolute top-0 left-0 w-[60%] h-[70%] transform -rotate-1 z-10">
                   <div className="relative w-full h-full overflow-hidden shadow-2xl bg-white border-4 border-white">
                     <img 
@@ -366,6 +356,16 @@ const Index = () => {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/5 via-transparent to-transparent"></div>
                   </div>
+                </div>
+                
+                {/* Background Image - Large detailed trout */}
+                <div className="absolute top-8 right-0 w-[70%] h-[75%] overflow-hidden shadow-2xl transform rotate-2">
+                  <img 
+                    src="https://vibemedia.space/trout_detailed_8h9i0j1k.png" 
+                    alt="Detailed trout background" 
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-br from-black/10 via-transparent to-black/20"></div>
                 </div>
                 
                 
