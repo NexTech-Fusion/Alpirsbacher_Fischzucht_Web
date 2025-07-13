@@ -462,33 +462,6 @@ const Index = () => {
             </motion.div>
           </div>
 
-          {/* CTA Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center rounded-3xl shadow-xl p-12 border backdrop-blur-sm"
-            style={{ 
-              background: 'linear-gradient(135deg, rgba(132, 161, 160, 0.15), rgba(181, 140, 103, 0.1))',
-              borderColor: 'rgba(132, 161, 160, 0.3)'
-            }}
-          >
-            <h3 className="text-3xl md:text-4xl font-serif font-bold mb-6 text-foreground">
-              Bereit für frischen <span className="text-primary">Schwarzwald-Fisch</span>?
-            </h3>
-            <p className="text-xl mb-8 max-w-2xl mx-auto text-muted-foreground">
-              Entdecken Sie unsere Auswahl an frischen Forellen und weiteren Spezialitäten 
-              aus nachhaltiger regionaler Zucht.
-            </p>
-            <Link 
-              to="/shop"
-              className="inline-flex items-center gap-3 bg-primary text-primary-foreground px-10 py-5 rounded-xl text-xl font-semibold hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
-            >
-              <ShoppingCart className="h-6 w-6" />
-              Zum Shop
-            </Link>
-          </motion.div>
         </div>
       </section>
 
