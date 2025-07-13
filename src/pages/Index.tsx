@@ -286,7 +286,7 @@ const Index = () => {
             </h2>
             <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Naturnahe Aquakultur trifft auf handwerkliche Verarbeitung
+              Alles aus einer Hand: von der Aufzucht bis zur Verarbeitung
             </p>
           </motion.div>
 
