@@ -248,6 +248,13 @@ const Widerrufsrecht = () => {
                   <p className="text-muted-foreground leading-relaxed">
                     Für einen etwaigen Wertverlust der Waren müssen Sie nur aufkommen, wenn dieser auf einen zur Prüfung der Beschaffenheit, Eigenschaften und Funktionsweise der Waren nicht notwendigen Umgang mit ihnen zurückzuführen ist.
                   </p>
+                  
+                  <div className="bg-muted/30 rounded-lg p-4 border-l-4 border-primary mt-6">
+                    <p className="font-semibold text-foreground mb-2">Hinweis:</p>
+                    <p className="text-muted-foreground text-sm leading-relaxed">
+                      Dieser Text berücksichtigt die gesetzlichen Anforderungen nach §§ 355–357 BGB und die Ausnahme nach § 312g Abs. 2 Nr. 2 BGB für schnell verderbliche Lebensmittel.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
