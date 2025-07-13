@@ -265,7 +265,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Fresh Trout Product Section - Creative Collage Design */}
+      {/* Fresh Trout Product Section - Redesigned */}
       <section className="py-20 bg-gradient-to-br from-background via-accent/5 to-background relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5">
@@ -286,24 +286,72 @@ const Index = () => {
             </h2>
             <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Alles aus einer Hand: von der Aufzucht bis zur Verarbeitung
+              Naturnahe Aquakultur trifft auf handwerkliche Verarbeitung
             </p>
           </motion.div>
 
-          {/* Creative Collage Layout */}
-          <div className="grid grid-cols-12 grid-rows-8 gap-4 h-[800px]">
-            {/* Main Background Image - Large Panel */}
+          <div className="grid lg:grid-cols-12 gap-12 items-start">
+            {/* Left Side - Quality Features (4 columns) */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, delay: 0.2 }}
-              className="col-span-12 md:col-span-6 row-span-8 relative overflow-hidden rounded-3xl shadow-2xl group"
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              className="lg:col-span-4 space-y-6"
             >
-              <div 
-                className="w-full h-full bg-cover bg-center bg-no-repeat transition-transform duration-700 group-hover:scale-105"
-                style={{ backgroundImage: `url('https://vibemedia.space/trout_detailed_8h9i0j1k.png')` }}
-              >
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+              {/* Aquaculture Features */}
+              <div className="space-y-4">
+                <h3 className="font-serif text-2xl font-bold text-foreground mb-6">Premium Qualität</h3>
+                
+                <div className="space-y-4">
+                  <div className="flex items-start gap-4 p-4 rounded-xl bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/20">
+                    <Droplets className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
+                    <div>
+                      <h4 className="font-semibold text-foreground text-sm">Quellfrisches Wasser</h4>
+                      <p className="text-xs text-muted-foreground">Direktversorgung durch Bach und zwei eigene Quellen</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4 p-4 rounded-xl bg-gradient-to-r from-secondary/10 to-secondary/5 border border-secondary/20">
+                    <Fish className="w-6 h-6 text-secondary mt-1 flex-shrink-0" />
+                    <div>
+                      <h4 className="font-semibold text-foreground text-sm">Naturnahe Aquakultur</h4>
+                      <p className="text-xs text-muted-foreground">Durchströmtes System ohne Kreisläufe oder Chemie</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4 p-4 rounded-xl bg-gradient-to-r from-accent/10 to-accent/5 border border-accent/20">
+                    <Leaf className="w-6 h-6 text-accent mt-1 flex-shrink-0" />
+                    <div>
+                      <h4 className="font-semibold text-foreground text-sm">Artgerechte Haltung</h4>
+                      <p className="text-xs text-muted-foreground">Komplett ohne Medikamente vom Brutfisch an</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4 p-4 rounded-xl bg-gradient-to-r from-primary/10 to-secondary/5 border border-primary/20">
+                    <Award className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
+                    <div>
+                      <h4 className="font-semibold text-foreground text-sm">Premium Futter</h4>
+                      <p className="text-xs text-muted-foreground">Bio Mar Futter – proteinreich und nachhaltig</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Center - Product Image (4 columns) */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="lg:col-span-4 relative"
+            >
+              <div className="relative overflow-hidden rounded-3xl shadow-2xl bg-gradient-to-br from-background to-muted/20">
+                <img 
+                  src={productFishImg} 
+                  alt="Frische Forellen von der Alpirsbacher Fischzucht" 
+                  className="w-full h-auto object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
                 
                 {/* Floating Quality Badge */}
                 <div className="absolute top-6 left-6 bg-white/95 backdrop-blur-sm text-foreground px-4 py-2 rounded-full font-semibold text-sm shadow-xl border border-white/20">
@@ -312,116 +360,72 @@ const Index = () => {
                     Nur auf Bestellung
                   </div>
                 </div>
-
-                {/* Bottom Content */}
-                <div className="absolute bottom-6 left-6 right-6">
-                  <h3 className="font-serif text-2xl font-bold text-white mb-2">Premium Schwarzwald-Forellen</h3>
-                  <p className="text-white/90 text-sm">Frisch verarbeitet • Küchenfertig verpackt</p>
-                </div>
               </div>
             </motion.div>
 
-            {/* Quality Features - Top Right */}
+            {/* Right Side - Processing & Variants (4 columns) */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="col-span-12 md:col-span-6 row-span-4 grid grid-cols-2 gap-4"
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="lg:col-span-4 space-y-6"
             >
-              {/* Quellwasser */}
-              <div className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl p-6 border border-primary/20 shadow-lg backdrop-blur-sm">
-                <Droplets className="w-8 h-8 text-primary mb-3" />
-                <h4 className="font-semibold text-foreground mb-2">Quellfrisches Wasser</h4>
-                <p className="text-xs text-muted-foreground">Direktversorgung durch Bach und zwei eigene Quellen</p>
+              {/* Processing Information */}
+              <div className="bg-gradient-to-br from-card/80 to-muted/20 backdrop-blur-sm rounded-2xl p-6 border border-border/50 shadow-lg">
+                <h3 className="font-serif text-2xl font-bold text-foreground mb-4">Frische Verarbeitung</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                  Direkt nach Bestellung frisch geschlachtet und küchenfertig verpackt – 
+                  ohne Zwischenlagerung oder Tiefkühlung.
+                </p>
               </div>
 
-              {/* Naturnahe Aquakultur */}
-              <div className="bg-gradient-to-br from-secondary/10 to-secondary/5 rounded-2xl p-6 border border-secondary/20 shadow-lg backdrop-blur-sm">
-                <Fish className="w-8 h-8 text-secondary mb-3" />
-                <h4 className="font-semibold text-foreground mb-2">Naturnahe Aquakultur</h4>
-                <p className="text-xs text-muted-foreground">Durchströmtes System ohne Kreisläufe oder Chemie</p>
-              </div>
-
-              {/* Artgerechte Haltung */}
-              <div className="bg-gradient-to-br from-accent/10 to-accent/5 rounded-2xl p-6 border border-accent/20 shadow-lg backdrop-blur-sm">
-                <Leaf className="w-8 h-8 text-accent mb-3" />
-                <h4 className="font-semibold text-foreground mb-2">Artgerechte Haltung</h4>
-                <p className="text-xs text-muted-foreground">Komplett ohne Medikamente vom Brutfisch an</p>
-              </div>
-
-              {/* Premium Futter */}
-              <div className="bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl p-6 border border-primary/20 shadow-lg backdrop-blur-sm">
-                <Award className="w-8 h-8 text-primary mb-3" />
-                <h4 className="font-semibold text-foreground mb-2">Premium Futter</h4>
-                <p className="text-xs text-muted-foreground">Bio Mar Futter – proteinreich und nachhaltig</p>
-              </div>
-            </motion.div>
-
-            {/* Product Information Panel - Bottom Right */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-              className="col-span-12 md:col-span-6 row-span-4 bg-gradient-to-br from-card/90 to-muted/80 backdrop-blur-sm rounded-3xl p-8 border border-border/50 shadow-2xl"
-            >
-              <div className="h-full flex flex-col justify-between">
-                {/* Processing Info */}
-                <div>
-                  <h3 className="font-serif text-2xl font-bold text-foreground mb-4">Frische Verarbeitung</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-                    In unserem hofeigenen Verarbeitungsgebäude werden die Fische direkt nach Bestellung 
-                    frisch geschlachtet und küchenfertig verpackt – ohne Zwischenlagerung.
-                  </p>
-
-                  {/* Product Variants */}
-                  <div className="mb-6">
-                    <h4 className="font-semibold text-foreground mb-3 flex items-center gap-2">
-                      <Utensils className="w-4 h-4 text-primary" />
-                      Verfügbare Varianten
-                    </h4>
-                    <div className="grid grid-cols-2 gap-2">
-                      {[
-                        { name: 'Ganze Forelle', desc: 'Küchenfertig' },
-                        { name: 'Filet', desc: 'Grätenfrei' },
-                        { name: 'Geräuchert', desc: 'Am Stück' },
-                        { name: 'Räucherfilet', desc: 'Zart & fein' }
-                      ].map((variant, index) => (
-                        <div key={index} className="flex items-start gap-2 p-2 rounded-lg bg-white/50">
-                          <div className="w-1.5 h-1.5 bg-primary rounded-full mt-1.5 flex-shrink-0"></div>
-                          <div>
-                            <p className="text-xs font-medium text-foreground">{variant.name}</p>
-                            <p className="text-xs text-muted-foreground">{variant.desc}</p>
-                          </div>
-                        </div>
-                      ))}
+              {/* Product Variants */}
+              <div className="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-2xl p-6 border border-primary/20 shadow-lg">
+                <h4 className="font-semibold text-foreground mb-4 flex items-center gap-2">
+                  <Utensils className="w-5 h-5 text-primary" />
+                  Verfügbare Varianten
+                </h4>
+                <div className="grid grid-cols-2 gap-3">
+                  {[
+                    { name: 'Ganze Forelle', desc: 'Küchenfertig' },
+                    { name: 'Filet', desc: 'Grätenfrei' },
+                    { name: 'Geräuchert', desc: 'Am Stück' },
+                    { name: 'Räucherfilet', desc: 'Zart & fein' }
+                  ].map((variant, index) => (
+                    <div key={index} className="flex items-center gap-2 p-2 rounded-lg bg-white/50">
+                      <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
+                      <div>
+                        <p className="text-sm font-medium text-foreground">{variant.name}</p>
+                        <p className="text-xs text-muted-foreground">{variant.desc}</p>
+                      </div>
                     </div>
-                  </div>
+                  ))}
                 </div>
+              </div>
 
-                {/* Action Buttons */}
-                <div className="space-y-3">
-                  <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                    <Link
-                      to="/shop"
-                      className="w-full inline-flex items-center justify-center px-6 py-3 bg-primary text-primary-foreground rounded-xl font-semibold hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-primary/25 group text-sm"
-                    >
-                      <ShoppingCart className="w-4 h-4 mr-2" />
-                      Jetzt bestellen
-                      <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-                    </Link>
-                  </motion.div>
+              {/* Action Buttons */}
+              <div className="space-y-3">
+                <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                  <Link
+                    to="/shop"
+                    className="w-full inline-flex items-center justify-center px-6 py-4 bg-primary text-primary-foreground rounded-2xl font-semibold hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-primary/25 group"
+                  >
+                    <ShoppingCart className="w-5 h-5 mr-2" />
+                    Jetzt bestellen
+                    <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                  </Link>
+                </motion.div>
 
-                  <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                    <Link
-                      to="/fischzucht"
-                      className="w-full inline-flex items-center justify-center px-6 py-2.5 bg-secondary/10 text-secondary border border-secondary/20 rounded-xl font-medium hover:bg-secondary/20 transition-all duration-300 group text-sm"
-                    >
-                      <Fish className="w-4 h-4 mr-2" />
-                      Fischzucht entdecken
-                      <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-                    </Link>
-                  </motion.div>
-                </div>
+                <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                  <Link
+                    to="/fischzucht"
+                    className="w-full inline-flex items-center justify-center px-6 py-3 bg-secondary/10 text-secondary border border-secondary/20 rounded-2xl font-medium hover:bg-secondary/20 transition-all duration-300 group"
+                  >
+                    <Fish className="w-4 h-4 mr-2" />
+                    Fischzucht entdecken
+                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                  </Link>
+                </motion.div>
               </div>
             </motion.div>
           </div>
