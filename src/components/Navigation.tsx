@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Menu, X, Fish } from 'lucide-react';
 
@@ -7,11 +7,24 @@ const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   const scrollToContact = () => {
     const contactSection = document.getElementById('contact');
     if (contactSection) {
       contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleContactClick = () => {
+    if (location.pathname === '/') {
+      scrollToContact();
+    } else {
+      navigate('/', { replace: true });
+      // Use setTimeout to ensure navigation completes before scrolling
+      setTimeout(() => {
+        scrollToContact();
+      }, 100);
     }
   };
 
@@ -83,13 +96,7 @@ const Navigation = () => {
               item.action === 'contact' ? (
                 <button
                   key={item.name}
-                  onClick={() => {
-                    if (location.pathname !== '/') {
-                      window.location.href = '/#contact';
-                    } else {
-                      scrollToContact();
-                    }
-                  }}
+                  onClick={handleContactClick}
                   className="relative font-medium text-white hover:text-primary transition-all duration-300 py-2 px-4 group"
                 >
                   {item.name}
@@ -138,11 +145,7 @@ const Navigation = () => {
                   key={item.name}
                   onClick={() => {
                     setIsMobileMenuOpen(false);
-                    if (location.pathname !== '/') {
-                      window.location.href = '/#contact';
-                    } else {
-                      scrollToContact();
-                    }
+                    handleContactClick();
                   }}
                   className="block py-3 font-medium transition-all duration-300 text-white hover:text-primary hover:pl-2 text-left w-full"
                 >
