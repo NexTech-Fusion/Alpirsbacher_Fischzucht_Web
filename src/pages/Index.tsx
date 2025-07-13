@@ -347,7 +347,7 @@ const Index = () => {
             >
               <div className="relative h-[400px] lg:h-[500px]">
                 {/* Foreground Image - Product presentation */}
-                <div className="absolute top-0 left-0 w-[60%] h-[70%] transform -rotate-1">
+                <div className="absolute top-0 left-0 w-[60%] h-[calc(100%-2rem)] transform -rotate-1">
                   <div className="relative w-full h-full overflow-hidden shadow-2xl bg-white border-4 border-white">
                     <img 
                       src="https://vibemedia.space/trout_detailed_8h9i0j1k.png" 
