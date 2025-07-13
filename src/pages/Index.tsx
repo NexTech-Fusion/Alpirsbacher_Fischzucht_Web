@@ -368,11 +368,6 @@ const Index = () => {
                   </div>
                 </div>
                 
-                {/* Small accent image/element - bottom right */}
-                <div className="absolute bottom-0 right-4 w-[35%] h-[25%] transform rotate-3 z-5">
-                  <div className="w-full h-full bg-gradient-to-br from-primary/20 to-secondary/20 rounded-lg shadow-lg backdrop-blur-sm border border-white/30">
-                  </div>
-                </div>
                 
                 {/* Decorative floating elements */}
                 <div className="absolute top-1/2 left-1/2 w-8 h-8 bg-primary/20 rounded-full blur-sm transform -translate-x-1/2 -translate-y-1/2"></div>
