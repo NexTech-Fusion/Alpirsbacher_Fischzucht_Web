@@ -53,18 +53,14 @@ const Navigation = () => {
   }, [lastScrollY]);
 
   return (
-    <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: isVisible ? 0 : -100 }}
-      transition={{ duration: 0.3, ease: "easeInOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled 
-          ? 'bg-background/95 backdrop-blur-md shadow-2xl border-b border-border/20' 
-          : 'bg-[rgb(16,43,42)]/95 backdrop-blur-md'
-      }`}
-    >
+    <div className="fixed top-0 left-0 right-0 z-50">
       {/* Logo Section with Decorative Dividers */}
-      <div className="border-b border-primary/20">
+      <motion.div 
+        initial={{ y: 0 }}
+        animate={{ y: isScrolled ? -100 : 0 }}
+        transition={{ duration: 0.3, ease: "easeInOut" }}
+        className="bg-[rgb(16,43,42)]/95 backdrop-blur-md border-b border-primary/20"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-center py-3">
             {/* Left Decorative Divider */}
@@ -93,10 +89,20 @@ const Navigation = () => {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
 
-      {/* Navigation Menu */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Navigation Menu - Always Sticky */}
+      <motion.nav
+        initial={{ y: 0 }}
+        animate={{ y: isVisible ? 0 : -60 }}
+        transition={{ duration: 0.3, ease: "easeInOut" }}
+        className={`transition-all duration-300 ${
+          isScrolled 
+            ? 'bg-background/95 backdrop-blur-md shadow-2xl border-b border-border/20' 
+            : 'bg-[rgb(16,43,42)]/95 backdrop-blur-md'
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-center items-center py-2">
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-12">
@@ -186,8 +192,9 @@ const Navigation = () => {
             ))}
           </motion.div>
         )}
-      </div>
-    </motion.nav>
+        </div>
+      </motion.nav>
+    </div>
   );
 };
 
