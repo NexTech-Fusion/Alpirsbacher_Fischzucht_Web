@@ -180,7 +180,7 @@ const Index = () => {
               </motion.div>
 
               {/* Secondary Actions */}
-              <div className="flex flex-col sm:flex-row gap-4 pt-4">
+              <div className="flex flex-col sm:flex-row gap-4">
                 <Link 
                   to="/fischzucht"
                   className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-medium transition-all duration-300 group"
