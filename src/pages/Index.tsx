@@ -359,7 +359,7 @@ const Index = () => {
                 </div>
                 
                 {/* Background Image - Large detailed trout */}
-                <div className="absolute bottom-0 right-0 w-[70%] h-full overflow-hidden shadow-2xl transform rotate-2 z-10">
+                <div className="absolute top-8 right-0 w-[70%] h-full overflow-hidden shadow-2xl transform rotate-2 z-10">
                   <img 
                     src="https://vibemedia.space/salmon_gourmet_2j3k4l5m.png" 
                     alt="Gourmet Lachs von der Alpirsbacher Fischzucht" 
