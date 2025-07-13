@@ -149,7 +149,7 @@ const Index = () => {
                 
                 {/* Subtitle */}
                 <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed max-w-md">
-                  Frische Forellen aus dem Herzen des Schwarzwalds
+                  Frische Forellen direkt von der Quelle
                 </p>
               </div>
 

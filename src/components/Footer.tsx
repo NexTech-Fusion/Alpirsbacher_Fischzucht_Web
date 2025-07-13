@@ -29,7 +29,7 @@ const Footer = () => {
                 </div>
               </div>
               <p className="text-[rgb(132,161,160)] leading-relaxed text-lg">
-                Frische Forellen aus dem Herzen des Schwarzwalds
+                Frische Forellen direkt von der Quelle
               </p>
             </div>
 
