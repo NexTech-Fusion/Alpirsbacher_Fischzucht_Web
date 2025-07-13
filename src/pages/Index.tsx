@@ -371,7 +371,6 @@ const Index = () => {
                 {/* Small accent image/element - bottom right */}
                 <div className="absolute bottom-0 right-4 w-[35%] h-[25%] transform rotate-3 z-5">
                   <div className="w-full h-full bg-gradient-to-br from-primary/20 to-secondary/20 rounded-lg shadow-lg backdrop-blur-sm border border-white/30">
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent rounded-lg"></div>
                   </div>
                 </div>
                 
