@@ -413,7 +413,7 @@ const Shop = () => {
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       onError={(e) => {
                         const target = e.target as HTMLImageElement;
-                        target.src = `https://vibemedia.space/fallback_${product.name}.png?prompt=${encodeURIComponent(product.name + ' premium fish product black forest germany')}&key=NOGON`;
+                        target.src = 'https://vibemedia.space/fallback_Fischbr%C3%A4ter%2051,5%20x%2013%20x%201%20cm.png';
                       }}
                     />
                     {product.inStock === false && (
