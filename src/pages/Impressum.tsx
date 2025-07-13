@@ -35,20 +35,17 @@ const Impressum = () => {
               initial="initial"
               animate="animate"
             >
-              {/* Company Logo and Name */}
+              {/* Company Logo and Name - Matching Header Style */}
               <motion.div 
-                className="flex items-center justify-center space-x-4 mb-8"
+                className="flex items-center justify-center space-x-2 mb-8"
                 variants={fadeInUp}
               >
-                <div className="relative">
-                  <Fish className="h-16 w-16 text-primary" />
-                  <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-primary/20 rounded-full animate-pulse"></div>
-                </div>
-                <div className="flex flex-col text-left">
-                  <span className="font-serif text-4xl lg:text-5xl font-bold text-foreground leading-tight">
+                <Fish className="h-8 w-8 text-primary" />
+                <div className="flex flex-col text-center">
+                  <span className="font-serif text-2xl font-bold text-foreground leading-tight">
                     Alpirsbacher
                   </span>
-                  <span className="font-serif text-2xl lg:text-3xl text-primary leading-tight opacity-90">
+                  <span className="font-serif text-sm text-primary leading-tight opacity-90">
                     Fischzucht
                   </span>
                 </div>
