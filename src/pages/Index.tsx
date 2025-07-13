@@ -338,7 +338,7 @@ const Index = () => {
               </div>
             </motion.div>
 
-            {/* Center - Layered Product Images (4 columns) */}
+            {/* Center - Creative Collage Layout (4 columns) */}
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -347,38 +347,37 @@ const Index = () => {
             >
               <div className="relative h-[400px] lg:h-[500px]">
                 {/* Background Image - Large detailed trout */}
-                <div className="absolute inset-0 overflow-hidden rounded-2xl shadow-2xl">
+                <div className="absolute top-8 right-0 w-[70%] h-[75%] overflow-hidden rounded-2xl shadow-2xl transform rotate-2">
                   <img 
                     src="https://vibemedia.space/trout_detailed_8h9i0j1k.png" 
                     alt="Detailed trout background" 
-                    className="w-full h-full object-cover scale-110"
+                    className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-br from-black/20 via-transparent to-black/40"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-black/10 via-transparent to-black/20"></div>
                 </div>
                 
-                {/* Foreground Image - Product presentation */}
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[280px] h-[280px] lg:w-[320px] lg:h-[320px]">
-                  <div className="relative w-full h-full overflow-hidden rounded-xl shadow-xl bg-white/10 backdrop-blur-sm border border-white/20">
+                {/* Foreground Image - Product presentation (overlapping) */}
+                <div className="absolute top-0 left-0 w-[60%] h-[70%] transform -rotate-1 z-10">
+                  <div className="relative w-full h-full overflow-hidden rounded-xl shadow-2xl bg-white border-4 border-white">
                     <img 
                       src={productFishImg} 
                       alt="Frische Forellen von der Alpirsbacher Fischzucht" 
                       className="w-full h-full object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
-                    
-                    {/* Floating Quality Badge */}
-                    <div className="absolute -top-3 -right-3 bg-primary text-primary-foreground px-3 py-1 rounded-full font-semibold text-xs shadow-lg">
-                      <div className="flex items-center gap-1">
-                        <CheckCircle className="w-3 h-3" />
-                        Nur auf Bestellung
-                      </div>
-                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/5 via-transparent to-transparent"></div>
                   </div>
                 </div>
                 
-                {/* Decorative Elements */}
-                <div className="absolute top-4 right-4 w-16 h-16 bg-primary/10 rounded-full blur-xl"></div>
-                <div className="absolute bottom-6 left-6 w-12 h-12 bg-secondary/15 rounded-full blur-lg"></div>
+                {/* Small accent image/element - bottom right */}
+                <div className="absolute bottom-0 right-4 w-[35%] h-[25%] transform rotate-3 z-5">
+                  <div className="w-full h-full bg-gradient-to-br from-primary/20 to-secondary/20 rounded-lg shadow-lg backdrop-blur-sm border border-white/30">
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent rounded-lg"></div>
+                  </div>
+                </div>
+                
+                {/* Decorative floating elements */}
+                <div className="absolute top-1/2 left-1/2 w-8 h-8 bg-primary/20 rounded-full blur-sm transform -translate-x-1/2 -translate-y-1/2"></div>
+                <div className="absolute bottom-1/4 left-1/4 w-6 h-6 bg-secondary/15 rounded-full blur-md"></div>
               </div>
             </motion.div>
 
