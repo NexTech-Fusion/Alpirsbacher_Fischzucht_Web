@@ -14,14 +14,6 @@ const Widerrufsrecht = () => {
         </div>
 
         <div className="relative container mx-auto px-4 py-8 lg:py-16">
-          {/* Back Link */}
-          <Link 
-            to="/" 
-            className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-8 group"
-          >
-            <ArrowLeft className="h-4 w-4 group-hover:-translate-x-1 transition-transform" />
-            Zurück zur Startseite
-          </Link>
 
           {/* Header Section */}
           <div className="text-center mb-12 animate-fade-in">
