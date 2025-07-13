@@ -361,8 +361,8 @@ const Index = () => {
                 {/* Background Image - Large detailed trout */}
                 <div className="absolute top-8 right-0 w-[70%] h-[75%] overflow-hidden shadow-2xl transform rotate-2 z-10">
                   <img 
-                    src={productFishImg} 
-                    alt="Frische Forellen von der Alpirsbacher Fischzucht" 
+                    src="https://vibemedia.space/smoked_trout_3d6f2h8j.png" 
+                    alt="Geräucherte Forelle von der Alpirsbacher Fischzucht" 
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-br from-black/10 via-transparent to-black/20"></div>
