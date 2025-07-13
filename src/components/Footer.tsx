@@ -46,9 +46,9 @@ const Footer = () => {
                 <Link to="/agb" className="block text-[rgb(132,161,160)] hover:text-[rgb(181,140,103)] transition-all duration-300 hover:translate-x-1">
                   AGB
                 </Link>
-                <a href="/widerruf" className="block text-[rgb(132,161,160)] hover:text-[rgb(181,140,103)] transition-all duration-300 hover:translate-x-1">
+                <Link to="/widerrufsrecht" className="block text-[rgb(132,161,160)] hover:text-[rgb(181,140,103)] transition-all duration-300 hover:translate-x-1">
                   Widerrufsrecht
-                </a>
+                </Link>
               </div>
             </div>
 
