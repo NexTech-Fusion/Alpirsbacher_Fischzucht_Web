@@ -331,135 +331,191 @@ const Shop = () => {
         </div>
       </section>
 
-      {/* Search & Filter Toolbar */}
-      <section className="py-8 bg-gradient-to-b from-muted/30 to-background">
-        <div className="container mx-auto px-4">
-          <div className="bg-white rounded-2xl p-6 shadow-lg border border-white/20 backdrop-blur-sm">
-            <div className="flex flex-col lg:flex-row gap-4 items-center">
-              {/* Search */}
-              <div className="flex-1 max-w-md relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
-                <input
-                  type="text"
-                  placeholder="Produkte suchen..."
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary"
-                />
-              </div>
-
-              {/* Filters */}
-              <div className="flex flex-wrap items-center gap-3">
-                {/* Category */}
-                <div className="relative">
-                  <select
-                    value={selectedCategory}
-                    onChange={(e) => setSelectedCategory(e.target.value)}
-                    className="px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary bg-white min-w-[140px] appearance-none"
-                  >
-                    {getCategories().map(category => (
-                      <option key={category} value={category}>
-                        {category === 'all' ? 'Alle Kategorien' : category}
-                      </option>
-                    ))}
-                  </select>
-                  <Filter className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none" size={16} />
-                </div>
-
-                {/* Sort */}
-                <select
-                  value={sortBy}
-                  onChange={(e) => setSortBy(e.target.value as SortOption)}
-                  className="px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary bg-white min-w-[120px] appearance-none"
-                >
-                  <option value="name">Nach Name</option>
-                  <option value="price-low">Preis aufsteigend</option>
-                  <option value="price-high">Preis absteigend</option>
-                  <option value="rating">Nach Bewertung</option>
-                </select>
-
-                {/* Clear Filters */}
-                {(searchTerm || selectedCategory !== 'all' || sortBy !== 'name') && (
-                  <button
-                    onClick={() => {
-                      setSearchTerm('');
-                      setSelectedCategory('all');
-                      setSortBy('name');
-                    }}
-                    className="p-3 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-xl transition-colors"
-                    title="Filter zurücksetzen"
-                  >
-                    <X size={20} />
-                  </button>
-                )}
-
-                {/* View Mode Toggle */}
-                <div className="flex rounded-xl overflow-hidden" style={{ background: 'rgba(132, 161, 160, 0.1)' }}>
-                  <button
-                    onClick={() => setViewMode('grid')}
-                    className={`p-3 transition-colors ${
-                      viewMode === 'grid' 
-                        ? 'text-white' 
-                        : 'text-gray-600 hover:bg-gray-50'
-                    }`}
-                    style={viewMode === 'grid' ? { backgroundColor: 'rgb(132, 161, 160)' } : {}}
-                    title="Raster-Ansicht"
-                  >
-                    <Grid3X3 size={18} />
-                  </button>
-                  <button
-                    onClick={() => setViewMode('list')}
-                    className={`p-3 transition-colors ${
-                      viewMode === 'list' 
-                        ? 'text-white' 
-                        : 'text-gray-600 hover:bg-gray-50'
-                    }`}
-                    style={viewMode === 'list' ? { backgroundColor: 'rgb(132, 161, 160)' } : {}}
-                    title="Listen-Ansicht"
-                  >
-                    <List size={18} />
-                  </button>
-                </div>
-
-                {/* Shopify Settings */}
-                <button
-                  onClick={() => setShowShopifyConfig(true)}
-                  className="p-3 rounded-xl transition-colors text-white"
-                  style={{ backgroundColor: 'rgb(26, 61, 59)' }}
-                  title="Shopify Einstellungen"
-                >
-                  <Settings size={18} />
-                </button>
-              </div>
-            </div>
-
-            {/* Results Info */}
-            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mt-6 pt-6 border-t border-gray-100">
-              <div className="flex flex-wrap items-center gap-4">
-                <p className="text-gray-600">
-                  {loading ? 'Lade Produkte...' : `${filteredProducts.length} von ${products.length} Produkten`}
-                </p>
-                {shopifyConnected && (
-                  <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-sm text-white" style={{ backgroundColor: 'rgba(132, 161, 160, 0.9)' }}>
-                    <CheckCircle size={14} />
-                    Shopify
-                  </span>
-                )}
-              </div>
-              
-              {/* Quick info */}
-              <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500">
-                <span className="flex items-center gap-1">
-                  <Truck size={14} />
-                  Versandkostenfrei ab 50€
-                </span>
-                <span className="flex items-center gap-1">
-                  <Award size={14} />
-                  Premium Qualität
-                </span>
-              </div>
-            </div>
+      {/* Search & Filter Section */}
+      <section className="py-12 relative">
+        {/* Background with gradient */}
+        <div className="absolute inset-0" style={{ 
+          background: 'linear-gradient(135deg, rgb(26, 61, 59) 0%, rgb(16, 43, 42) 50%, rgb(12, 37, 36) 100%)' 
+        }}>
+          <div className="absolute inset-0 opacity-5">
+            <div className="absolute inset-0" style={{
+              backgroundImage: `radial-gradient(circle at 25% 25%, #ffffff 1px, transparent 1px)`,
+              backgroundSize: '40px 40px'
+            }}></div>
           </div>
+        </div>
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="backdrop-blur-xl rounded-3xl border border-white/10 overflow-hidden"
+            style={{ 
+              background: 'linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.05) 100%)' 
+            }}
+          >
+            {/* Header with decorative elements */}
+            <div className="p-6 pb-4 border-b border-white/10">
+              <div className="flex items-center justify-center mb-4">
+                <div className="flex-1 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent"></div>
+                <div className="px-4">
+                  <div className="w-2 h-2 bg-primary rounded-full mx-auto"></div>
+                </div>
+                <div className="flex-1 h-px bg-gradient-to-l from-transparent via-primary/40 to-transparent"></div>
+              </div>
+              <h3 className="text-center text-white/90 font-serif text-lg">Produkte entdecken</h3>
+            </div>
+
+            {/* Search and Filters */}
+            <div className="p-6">
+              <div className="space-y-6">
+                {/* Search Bar */}
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: 0.1 }}
+                  className="relative"
+                >
+                  <div className="relative group">
+                    <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white/60 group-focus-within:text-primary transition-colors" size={20} />
+                    <input
+                      type="text"
+                      placeholder="Nach Forellen-Spezialitäten suchen..."
+                      value={searchTerm}
+                      onChange={(e) => setSearchTerm(e.target.value)}
+                      className="w-full pl-12 pr-6 py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/40 transition-all"
+                    />
+                  </div>
+                </motion.div>
+
+                {/* Filter Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  {/* Category Filter */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                    className="relative"
+                  >
+                    <label className="block text-white/80 text-sm font-medium mb-2">Kategorie</label>
+                    <div className="relative">
+                      <select
+                        value={selectedCategory}
+                        onChange={(e) => setSelectedCategory(e.target.value)}
+                        className="w-full px-4 py-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/40 transition-all appearance-none cursor-pointer"
+                      >
+                        {getCategories().map(category => (
+                          <option key={category} value={category} className="bg-slate-800 text-white">
+                            {category === 'all' ? 'Alle Kategorien' : category}
+                          </option>
+                        ))}
+                      </select>
+                      <Filter className="absolute right-3 top-1/2 transform -translate-y-1/2 text-white/60 pointer-events-none" size={16} />
+                    </div>
+                  </motion.div>
+
+                  {/* Sort Filter */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.3 }}
+                    className="relative"
+                  >
+                    <label className="block text-white/80 text-sm font-medium mb-2">Sortierung</label>
+                    <select
+                      value={sortBy}
+                      onChange={(e) => setSortBy(e.target.value as SortOption)}
+                      className="w-full px-4 py-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/40 transition-all appearance-none cursor-pointer"
+                    >
+                      <option value="name" className="bg-slate-800 text-white">Nach Name</option>
+                      <option value="price-low" className="bg-slate-800 text-white">Preis aufsteigend</option>
+                      <option value="price-high" className="bg-slate-800 text-white">Preis absteigend</option>
+                      <option value="rating" className="bg-slate-800 text-white">Nach Bewertung</option>
+                    </select>
+                  </motion.div>
+
+                  {/* View Mode & Actions */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.4 }}
+                    className="relative"
+                  >
+                    <label className="block text-white/80 text-sm font-medium mb-2">Ansicht</label>
+                    <div className="flex items-center gap-2">
+                      {/* View Mode Toggle */}
+                      <div className="flex rounded-xl overflow-hidden bg-white/10 backdrop-blur-sm border border-white/20">
+                        <button
+                          onClick={() => setViewMode('grid')}
+                          className={`px-4 py-3 transition-all ${
+                            viewMode === 'grid' 
+                              ? 'bg-primary text-white shadow-lg' 
+                              : 'text-white/70 hover:text-white hover:bg-white/10'
+                          }`}
+                          title="Raster-Ansicht"
+                        >
+                          <Grid3X3 size={18} />
+                        </button>
+                        <button
+                          onClick={() => setViewMode('list')}
+                          className={`px-4 py-3 transition-all ${
+                            viewMode === 'list' 
+                              ? 'bg-primary text-white shadow-lg' 
+                              : 'text-white/70 hover:text-white hover:bg-white/10'
+                          }`}
+                          title="Listen-Ansicht"
+                        >
+                          <List size={18} />
+                        </button>
+                      </div>
+
+                      {/* Clear Filters */}
+                      {(searchTerm || selectedCategory !== 'all' || sortBy !== 'name') && (
+                        <button
+                          onClick={() => {
+                            setSearchTerm('');
+                            setSelectedCategory('all');
+                            setSortBy('name');
+                          }}
+                          className="px-4 py-3 text-white/70 hover:text-white hover:bg-white/10 rounded-xl transition-all border border-white/20 backdrop-blur-sm"
+                          title="Filter zurücksetzen"
+                        >
+                          <X size={18} />
+                        </button>
+                      )}
+                    </div>
+                  </motion.div>
+                </div>
+
+                {/* Results & Info Bar */}
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.6, delay: 0.5 }}
+                  className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pt-6 border-t border-white/10"
+                >
+                  <div className="flex items-center gap-4">
+                    <p className="text-white/80 font-medium">
+                      {loading ? 'Lade Produkte...' : `${filteredProducts.length} von ${products.length} Produkten gefunden`}
+                    </p>
+                  </div>
+                  
+                  {/* Quality Badges */}
+                  <div className="flex flex-wrap items-center gap-3 text-sm">
+                    <span className="flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-white/80 border border-white/20">
+                      <Truck size={14} />
+                      Versandkostenfrei ab 50€
+                    </span>
+                    <span className="flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-white/80 border border-white/20">
+                      <Award size={14} />
+                      Premium Qualität
+                    </span>
+                  </div>
+                </motion.div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
