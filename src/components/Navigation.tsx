@@ -6,8 +6,6 @@ import { Menu, X, Fish } from 'lucide-react';
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
   const location = useLocation();
 
   const scrollToContact = () => {
@@ -28,35 +26,16 @@ const Navigation = () => {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      
-      // Set scrolled state
+      // Only track if scrolled for background changes
       setIsScrolled(currentScrollY > 50);
-      
-      // Handle navigation visibility
-      if (currentScrollY < 100) {
-        // Always show at top
-        setIsVisible(true);
-      } else if (currentScrollY > lastScrollY && currentScrollY > 200) {
-        // Scrolling down - hide
-        setIsVisible(false);
-        setIsMobileMenuOpen(false); // Close mobile menu when hiding
-      } else if (currentScrollY < lastScrollY) {
-        // Scrolling up - show
-        setIsVisible(true);
-      }
-      
-      setLastScrollY(currentScrollY);
     };
     
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollY]);
+  }, []);
 
   return (
-    <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: isVisible ? 0 : -100 }}
-      transition={{ duration: 0.3, ease: "easeInOut" }}
+    <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
           ? 'bg-background/95 backdrop-blur-md shadow-2xl border-b border-border/20' 
@@ -187,7 +166,7 @@ const Navigation = () => {
           </motion.div>
         )}
       </div>
-    </motion.nav>
+    </nav>
   );
 };
 
