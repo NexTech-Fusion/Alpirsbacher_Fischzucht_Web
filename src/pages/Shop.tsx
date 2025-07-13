@@ -616,7 +616,7 @@ const Shop = () => {
                           {product.price.toFixed(2)}€
                         </span>
                         <span className="text-gray-500 text-sm ml-1">
-                          /{product.unit || product.weight || 'Stück'}
+                          /{product.unit && product.unit !== 'N/A' ? product.unit : (product.weight && product.weight !== 'N/A' ? product.weight : 'Stück')}
                         </span>
                       </div>
 
@@ -765,7 +765,7 @@ const Shop = () => {
                           />
                           <div className="flex-1">
                             <h4 className="font-semibold text-sm">{product.name}</h4>
-                            <p className="text-sm text-gray-500">{product.price.toFixed(2)}€ / {product.unit}</p>
+                            <p className="text-sm text-gray-500">{product.price.toFixed(2)}€ / {product.unit && product.unit !== 'N/A' ? product.unit : 'Stück'}</p>
                           </div>
                           <div className="flex items-center gap-2">
                             <button
