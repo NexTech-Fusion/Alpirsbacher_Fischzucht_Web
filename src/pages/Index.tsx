@@ -438,7 +438,7 @@ const Index = () => {
                         </div>
                         
                         <div className="pt-4">
-                          <span className="text-sm font-medium text-white/80 group-hover:text-white transition-colors duration-300">
+                          <span className="text-sm font-medium group-hover:text-white transition-colors duration-300" style={{ color: 'rgb(181,140,103)' }}>
                             Mehr erfahren →
                           </span>
                         </div>
