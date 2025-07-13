@@ -347,7 +347,7 @@ const Index = () => {
             >
               <div className="relative h-[400px] lg:h-[500px]">
                 {/* Background Image - Large detailed trout */}
-                <div className="absolute top-8 right-0 w-[70%] h-[75%] overflow-hidden rounded-2xl shadow-2xl transform rotate-2">
+                <div className="absolute top-8 right-0 w-[70%] h-[75%] overflow-hidden shadow-2xl transform rotate-2">
                   <img 
                     src="https://vibemedia.space/trout_detailed_8h9i0j1k.png" 
                     alt="Detailed trout background" 
@@ -358,7 +358,7 @@ const Index = () => {
                 
                 {/* Foreground Image - Product presentation (overlapping) */}
                 <div className="absolute top-0 left-0 w-[60%] h-[70%] transform -rotate-1 z-10">
-                  <div className="relative w-full h-full overflow-hidden rounded-xl shadow-2xl bg-white border-4 border-white">
+                  <div className="relative w-full h-full overflow-hidden shadow-2xl bg-white border-4 border-white">
                     <img 
                       src={productFishImg} 
                       alt="Frische Forellen von der Alpirsbacher Fischzucht" 
