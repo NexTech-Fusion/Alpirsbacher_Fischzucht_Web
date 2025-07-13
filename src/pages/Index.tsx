@@ -350,8 +350,8 @@ const Index = () => {
                 <div className="absolute top-0 left-0 w-[60%] h-[70%] transform -rotate-1">
                   <div className="relative w-full h-full overflow-hidden shadow-2xl bg-white border-4 border-white">
                     <img 
-                      src={productFishImg} 
-                      alt="Frische Forellen von der Alpirsbacher Fischzucht" 
+                      src="https://vibemedia.space/trout_detailed_8h9i0j1k.png" 
+                      alt="Detailed trout background" 
                       className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/5 via-transparent to-transparent"></div>
@@ -361,8 +361,8 @@ const Index = () => {
                 {/* Background Image - Large detailed trout */}
                 <div className="absolute top-8 right-0 w-[70%] h-[75%] overflow-hidden shadow-2xl transform rotate-2 z-10">
                   <img 
-                    src="https://vibemedia.space/trout_detailed_8h9i0j1k.png" 
-                    alt="Detailed trout background" 
+                    src={productFishImg} 
+                    alt="Frische Forellen von der Alpirsbacher Fischzucht" 
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-br from-black/10 via-transparent to-black/20"></div>
