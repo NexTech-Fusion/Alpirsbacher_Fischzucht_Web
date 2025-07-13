@@ -43,9 +43,9 @@ const Footer = () => {
                 <a href="/datenschutz" className="block text-[rgb(132,161,160)] hover:text-[rgb(181,140,103)] transition-all duration-300 hover:translate-x-1">
                   Datenschutzerklärung
                 </a>
-                <a href="/agb" className="block text-[rgb(132,161,160)] hover:text-[rgb(181,140,103)] transition-all duration-300 hover:translate-x-1">
+                <Link to="/agb" className="block text-[rgb(132,161,160)] hover:text-[rgb(181,140,103)] transition-all duration-300 hover:translate-x-1">
                   AGB
-                </a>
+                </Link>
                 <a href="/widerruf" className="block text-[rgb(132,161,160)] hover:text-[rgb(181,140,103)] transition-all duration-300 hover:translate-x-1">
                   Widerrufsrecht
                 </a>
