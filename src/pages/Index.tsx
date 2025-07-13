@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, Fish, Award, Leaf, Users, ChevronRight, MapPin, Phone, Mail, Clock, Truck, Utensils, Wine, ShoppingCart, ChefHat, Flame, Waves, Droplets, Heart } from 'lucide-react';
+import { ArrowRight, Fish, Award, Leaf, Users, ChevronRight, MapPin, Phone, Mail, Clock, Truck, Utensils, Wine, ShoppingCart } from 'lucide-react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, EffectFade } from 'swiper/modules';
 import Layout from '../components/Layout';
@@ -279,100 +279,108 @@ const Index = () => {
             <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
           </motion.div>
 
-          {/* Main Value Proposition */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-center mb-16"
-          >
-            <div className="bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10 rounded-3xl p-8 md:p-12 border border-primary/20 backdrop-blur-sm">
-              <h3 className="font-serif text-2xl md:text-3xl font-bold text-foreground mb-6">
-                Alles aus einer Hand – von der Aufzucht bis zur Verarbeitung
-              </h3>
-              <p className="text-lg text-muted-foreground leading-relaxed max-w-4xl mx-auto">
-                In unserem hofeigenen Verarbeitungsgebäude werden die Fische direkt nach der Bestellung frisch geschlachtet, 
-                hygienisch verarbeitet und küchenfertig verpackt. <strong className="text-primary">Nur auf Bestellung</strong> – 
-                ganz ohne Zwischenlagerung oder Tiefkühlung.
-              </p>
-            </div>
-          </motion.div>
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Left Content */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="space-y-8"
+            >
+              {/* Main Description */}
+              <div className="bg-card/50 backdrop-blur-sm rounded-2xl p-8 border border-border/50">
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  Du suchst frischen Fisch aus nachhaltiger Zucht? Dann bist Du bei uns genau richtig. 
+                  Unsere Forellen stammen direkt aus eigener Zucht – regional, verantwortungsvoll und 
+                  mit viel Sorgfalt aufgezogen.
+                </p>
+              </div>
 
-          {/* Product Variants */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="mb-16"
-          >
-            <h3 className="font-serif text-2xl md:text-3xl font-bold text-center text-foreground mb-8">
-              Unsere Produktvielfalt
-            </h3>
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="bg-card/60 backdrop-blur-sm rounded-2xl p-6 border border-border/50 text-center">
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Fish className="w-8 h-8 text-primary" />
-                </div>
-                <h4 className="font-semibold text-foreground mb-2">Ganze Forelle</h4>
-                <p className="text-sm text-muted-foreground">Küchenfertig vorbereitet</p>
+              {/* How it works */}
+              <div className="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-2xl p-8 border border-primary/20">
+                <h3 className="font-serif text-2xl font-bold text-foreground mb-4 flex items-center gap-3">
+                  <Fish className="w-6 h-6 text-primary" />
+                  So funktioniert's
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Damit Du beste Qualität bekommst, bieten wir unsere Forellen nur auf Vorbestellung an. 
+                  Du holst Deinen frisch verarbeiteten Fisch nach Vereinbarung einfach bei uns vor Ort ab – 
+                  in unserem Wirtschaftsgebäude bei der Zuchtanlage.
+                </p>
               </div>
-              <div className="bg-card/60 backdrop-blur-sm rounded-2xl p-6 border border-border/50 text-center">
-                <div className="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <ChefHat className="w-8 h-8 text-secondary" />
-                </div>
-                <h4 className="font-semibold text-foreground mb-2">Filets</h4>
-                <p className="text-sm text-muted-foreground">Sorgfältig filetiert</p>
-              </div>
-              <div className="bg-card/60 backdrop-blur-sm rounded-2xl p-6 border border-border/50 text-center">
-                <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Flame className="w-8 h-8 text-accent" />
-                </div>
-                <h4 className="font-semibold text-foreground mb-2">Geräuchert</h4>
-                <p className="text-sm text-muted-foreground">Am Stück oder als Filet</p>
-              </div>
-            </div>
-          </motion.div>
 
-          {/* Quality Features */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
-            <h3 className="font-serif text-2xl md:text-3xl font-bold text-center text-foreground mb-8">
-              Premium durch naturnahe Aquakultur
-            </h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="bg-card/60 backdrop-blur-sm rounded-2xl p-6 border border-border/50">
-                <div className="w-12 h-12 bg-blue-500/10 rounded-lg flex items-center justify-center mb-4">
-                  <Waves className="w-6 h-6 text-blue-500" />
-                </div>
-                <h4 className="font-semibold text-foreground mb-2">Natürliches System</h4>
-                <p className="text-sm text-muted-foreground">Ständig durchströmt, ohne Kreisläufe oder Chemie</p>
+              {/* More than trout */}
+              <div className="bg-card/50 backdrop-blur-sm rounded-2xl p-8 border border-border/50">
+                <h3 className="font-serif text-2xl font-bold text-foreground mb-4 flex items-center gap-3">
+                  <Award className="w-6 h-6 text-secondary" />
+                  Mehr als nur Forelle
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Vor Ort findest Du auch eine Auswahl an hochwertigen Produkten, die perfekt zu unserem 
+                  Fisch passen – darunter ausgesuchte Weine und feine Gewürze.
+                </p>
               </div>
-              <div className="bg-card/60 backdrop-blur-sm rounded-2xl p-6 border border-border/50">
-                <div className="w-12 h-12 bg-cyan-500/10 rounded-lg flex items-center justify-center mb-4">
-                  <Droplets className="w-6 h-6 text-cyan-500" />
-                </div>
-                <h4 className="font-semibold text-foreground mb-2">Quellfrisches Wasser</h4>
-                <p className="text-sm text-muted-foreground">Direkt aus Bach und zwei eigenen Quellen</p>
+            </motion.div>
+
+            {/* Right Content */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="space-y-8"
+            >
+              {/* Values */}
+              <div className="bg-gradient-to-br from-accent/20 to-muted/30 rounded-2xl p-8 border border-accent/30">
+                <h3 className="font-serif text-3xl font-bold text-foreground mb-6 text-center">
+                  Regional. Nachhaltig. Persönlich.
+                </h3>
+                <p className="text-muted-foreground leading-relaxed text-center">
+                  Bei uns steht der respektvolle Umgang mit Natur und Tier im Mittelpunkt. 
+                  Kurze Wege, ehrliche Produkte und direkter Kontakt mit Dir als Kundin oder Kunde – 
+                  dafür stehen wir.
+                </p>
               </div>
-              <div className="bg-card/60 backdrop-blur-sm rounded-2xl p-6 border border-border/50">
-                <div className="w-12 h-12 bg-green-500/10 rounded-lg flex items-center justify-center mb-4">
-                  <Heart className="w-6 h-6 text-green-500" />
+
+              {/* CTAs */}
+              <div className="text-center space-y-6">
+                <p className="font-serif text-xl text-foreground font-semibold">
+                  Wir freuen uns auf Deine Bestellung!
+                </p>
+                
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  {/* Contact CTA */}
+                  <motion.button
+                    onClick={() => {
+                      const contactSection = document.getElementById('contact');
+                      if (contactSection) {
+                        contactSection.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    }}
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="inline-flex items-center justify-center px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-primary/25 group"
+                  >
+                    Kontakt aufnehmen
+                    <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                  </motion.button>
+
+                  {/* Shop CTA */}
+                  <motion.div
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <Link
+                      to="/shop"
+                      className="inline-flex items-center justify-center px-8 py-4 bg-card border-2 border-primary text-primary rounded-full font-semibold hover:bg-primary hover:text-primary-foreground transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-primary/25 group"
+                    >
+                      Unser Shop
+                      <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                    </Link>
+                  </motion.div>
                 </div>
-                <h4 className="font-semibold text-foreground mb-2">Artgerechte Haltung</h4>
-                <p className="text-sm text-muted-foreground">Komplett ohne Medikamente</p>
               </div>
-              <div className="bg-card/60 backdrop-blur-sm rounded-2xl p-6 border border-border/50">
-                <div className="w-12 h-12 bg-orange-500/10 rounded-lg flex items-center justify-center mb-4">
-                  <Leaf className="w-6 h-6 text-orange-500" />
-                </div>
-                <h4 className="font-semibold text-foreground mb-2">Premium Futter</h4>
-                <p className="text-sm text-muted-foreground">Bio Mar Futter, proteinreich und nachhaltig</p>
-              </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
