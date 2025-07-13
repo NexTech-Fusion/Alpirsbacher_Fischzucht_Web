@@ -276,13 +276,37 @@ const Shop = () => {
               transition={{ duration: 1 }}
               className="text-center"
             >
+              {/* Logo Section with Decorative Dividers */}
               <motion.div
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
-                className="mb-6"
+                className="flex items-center justify-center mb-8"
               >
-                <Fish className="h-16 w-16 mx-auto mb-6" style={{ color: 'rgb(181, 140, 103)' }} />
+                {/* Left Decorative Divider */}
+                <div className="flex-1 flex items-center justify-end pr-8">
+                  <div className="w-32 h-px bg-gradient-to-r from-transparent to-primary opacity-60"></div>
+                  <div className="w-2 h-2 bg-primary rounded-full ml-2 opacity-80"></div>
+                </div>
+                
+                {/* Centered Logo */}
+                <div className="flex items-center space-x-2">
+                  <Fish className="h-12 w-12 text-primary" />
+                  <div className="flex flex-col text-center">
+                    <span className="font-serif text-3xl font-bold text-white leading-tight">
+                      Alpirsbacher
+                    </span>
+                    <span className="font-serif text-lg text-primary leading-tight opacity-90">
+                      Fischzucht
+                    </span>
+                  </div>
+                </div>
+                
+                {/* Right Decorative Divider */}
+                <div className="flex-1 flex items-center justify-start pl-8">
+                  <div className="w-2 h-2 bg-primary rounded-full mr-2 opacity-80"></div>
+                  <div className="w-32 h-px bg-gradient-to-l from-transparent to-primary opacity-60"></div>
+                </div>
               </motion.div>
               
               <motion.h1
@@ -496,11 +520,6 @@ const Shop = () => {
                       </div>
                     </div>
 
-                    {/* Rating */}
-                    <div className="absolute top-4 right-4 flex items-center gap-1 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-full">
-                      <Star className="w-3 h-3 fill-yellow-400 text-yellow-400" />
-                      <span className="text-xs font-semibold">{product.rating || 5}</span>
-                    </div>
                   </div>
 
                   {/* Product Info */}
@@ -529,10 +548,6 @@ const Shop = () => {
                         Frisch
                       </span>
                       <span className="flex items-center gap-1 text-xs text-gray-500">
-                        <Clock size={12} />
-                        Täglich
-                      </span>
-                      <span className="flex items-center gap-1 text-xs text-gray-500">
                         <Award size={12} />
                         Bio-Qualität
                       </span>
@@ -542,7 +557,7 @@ const Shop = () => {
                     <div className="flex items-center justify-between pt-4 border-t border-gray-100">
                       <div>
                         <span className="text-2xl font-bold" style={{ color: 'rgb(181, 140, 103)' }}>
-                          €{product.price.toFixed(2)}
+                          {product.price.toFixed(2)}€
                         </span>
                         <span className="text-gray-500 text-sm ml-1">
                           /{product.unit || product.weight || 'Stück'}
@@ -694,7 +709,7 @@ const Shop = () => {
                           />
                           <div className="flex-1">
                             <h4 className="font-semibold text-sm">{product.name}</h4>
-                            <p className="text-sm text-gray-500">€{product.price.toFixed(2)} / {product.unit}</p>
+                            <p className="text-sm text-gray-500">{product.price.toFixed(2)}€ / {product.unit}</p>
                           </div>
                           <div className="flex items-center gap-2">
                             <button
@@ -725,7 +740,7 @@ const Shop = () => {
                   <div className="flex justify-between items-center mb-4">
                     <span className="text-lg font-semibold">Gesamt:</span>
                     <span className="text-xl font-bold" style={{ color: 'rgb(181, 140, 103)' }}>
-                      €{getTotalPrice().toFixed(2)}
+                      {getTotalPrice().toFixed(2)}€
                     </span>
                   </div>
                   <button 
