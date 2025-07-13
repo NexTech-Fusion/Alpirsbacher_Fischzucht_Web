@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Fish } from 'lucide-react';
 
 const Footer = () => {
@@ -36,9 +37,9 @@ const Footer = () => {
             <div className="space-y-4">
               <h4 className="text-lg font-semibold text-[rgb(181,140,103)] mb-4">Rechtliches</h4>
               <div className="space-y-3">
-                <a href="/impressum" className="block text-[rgb(132,161,160)] hover:text-[rgb(181,140,103)] transition-all duration-300 hover:translate-x-1">
+                <Link to="/impressum" className="block text-[rgb(132,161,160)] hover:text-[rgb(181,140,103)] transition-all duration-300 hover:translate-x-1">
                   Impressum
-                </a>
+                </Link>
                 <a href="/datenschutz" className="block text-[rgb(132,161,160)] hover:text-[rgb(181,140,103)] transition-all duration-300 hover:translate-x-1">
                   Datenschutzerklärung
                 </a>
