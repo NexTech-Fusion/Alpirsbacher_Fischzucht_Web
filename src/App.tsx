@@ -11,6 +11,7 @@ import Shop from "./pages/Shop";
 import Impressum from "./pages/Impressum";
 import AGB from "./pages/AGB";
 import Widerrufsrecht from "./pages/Widerrufsrecht";
+import Versand from "./pages/Versand";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -29,6 +30,7 @@ const App = () => (
           <Route path="/impressum" element={<Impressum />} />
           <Route path="/agb" element={<AGB />} />
           <Route path="/widerrufsrecht" element={<Widerrufsrecht />} />
+          <Route path="/versand" element={<Versand />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

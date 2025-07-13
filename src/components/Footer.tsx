@@ -56,9 +56,9 @@ const Footer = () => {
             <div className="space-y-4">
               <h4 className="text-lg font-semibold text-[rgb(181,140,103)] mb-4">Service</h4>
               <div className="space-y-3">
-                <a href="/versand" className="block text-[rgb(132,161,160)] hover:text-[rgb(181,140,103)] transition-all duration-300 hover:translate-x-1">
+                <Link to="/versand" className="block text-[rgb(132,161,160)] hover:text-[rgb(181,140,103)] transition-all duration-300 hover:translate-x-1">
                   Versand
-                </a>
+                </Link>
                 <button className="text-[rgb(132,161,160)] hover:text-[rgb(181,140,103)] transition-all duration-300 hover:translate-x-1 text-left">
                   Cookie-Einstellungen
                 </button>
