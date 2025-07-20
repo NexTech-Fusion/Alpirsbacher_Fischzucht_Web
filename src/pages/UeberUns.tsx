@@ -42,18 +42,18 @@ const UeberUns = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      
+
       {/* Compact Hero Section */}
       <section className="relative h-[60vh] overflow-hidden">
         <div className="absolute inset-0">
-          <img 
-            src={heroSchwarzwaldImg} 
-            alt="Schwarzwald Landschaft" 
+          <img
+            src={heroSchwarzwaldImg}
+            alt="Schwarzwald Landschaft"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent"></div>
         </div>
-        
+
         <div className="relative h-full flex items-center px-4">
           <div className="container mx-auto">
             <motion.div
@@ -70,7 +70,7 @@ const UeberUns = () => {
               >
                 <Fish className="h-12 w-12 text-primary mb-4" />
               </motion.div>
-              
+
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -79,7 +79,7 @@ const UeberUns = () => {
               >
                 Unsere Geschichte
               </motion.h1>
-              
+
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -118,7 +118,7 @@ const UeberUns = () => {
                   </div>
                   <span className="text-primary font-semibold text-lg">Die Übernahme</span>
                 </motion.div>
-                
+
                 <motion.p
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -126,11 +126,11 @@ const UeberUns = () => {
                   viewport={{ once: true }}
                   className="text-lg leading-relaxed text-muted-foreground"
                 >
-                  Am 20. September 2022 wurde die im Jahr 1973 erbaute Forellenzucht von 
-                  <span className="font-semibold text-foreground"> Tobias Semke</span> und 
-                  <span className="font-semibold text-foreground"> Thomas Betz</span> übernommen. 
-                  In den darauffolgenden drei Jahren wurde die gesamte Anlage umfassend modernisiert 
-                  und komplett erneuert – mit viel Leidenschaft, Know-how und dem festen Willen, 
+                  Am 20. September 2022 wurde die im Jahr 1973 erbaute Forellenzucht von
+                  <span className="font-semibold text-foreground"> Tobias Semke</span> und
+                  <span className="font-semibold text-foreground"> Thomas Betz</span> übernommen.
+                  In den darauffolgenden drei Jahren wurde die gesamte Anlage umfassend modernisiert
+                  und komplett erneuert – mit viel Leidenschaft, Know-how und dem festen Willen,
                   eine nachhaltige, zukunftsfähige Fischzucht aufzubauen.
                 </motion.p>
               </div>
@@ -148,7 +148,7 @@ const UeberUns = () => {
                   </div>
                   <span className="text-primary font-semibold text-lg">Die Lage</span>
                 </motion.div>
-                
+
                 <motion.p
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -156,10 +156,10 @@ const UeberUns = () => {
                   viewport={{ once: true }}
                   className="text-lg leading-relaxed text-muted-foreground"
                 >
-                  Die Anlage liegt idyllisch im kleinen, verträumten Dörfchen 
-                  <span className="font-semibold text-foreground"> Reinerzau</span>, 
-                  einem Ortsteil der Stadt Alpirsbach im Schwarzwald. Eingebettet in ein 
-                  malerisches Tal, umgeben von Bergen, Wiesen und dichten Wäldern, spürt 
+                  Die Anlage liegt idyllisch im kleinen, verträumten Dörfchen
+                  <span className="font-semibold text-foreground"> Reinerzau</span>,
+                  einem Ortsteil der Stadt Alpirsbach im Schwarzwald. Eingebettet in ein
+                  malerisches Tal, umgeben von Bergen, Wiesen und dichten Wäldern, spürt
                   man hier unmittelbar die tiefe Verbundenheit zur Natur.
                 </motion.p>
               </div>
@@ -177,7 +177,7 @@ const UeberUns = () => {
                   </div>
                   <span className="text-primary font-semibold text-lg">Das Familienunternehmen</span>
                 </motion.div>
-                
+
                 <motion.p
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -185,8 +185,8 @@ const UeberUns = () => {
                   viewport={{ once: true }}
                   className="text-lg leading-relaxed text-muted-foreground"
                 >
-                  Das inhabergeführte Familienunternehmen wurde von Tobias Semke und Thomas Betz 
-                  von Anfang an selbst aufgebaut – und wird bis heute mit großem persönlichem 
+                  Das inhabergeführte Familienunternehmen wurde von Tobias Semke und Thomas Betz
+                  übernommen – und wird bis heute mit großem persönlichem
                   Engagement geführt.
                 </motion.p>
               </div>
@@ -201,15 +201,15 @@ const UeberUns = () => {
               className="relative"
             >
               <div className="relative overflow-hidden rounded-3xl shadow-2xl">
-                <img 
-                  src={familyTraditionImg} 
-                  alt="Gründer Tobias Semke und Thomas Betz" 
+                <img
+                  src={familyTraditionImg}
+                  alt="Gründer Tobias Semke und Thomas Betz"
                   className="w-full h-[500px] object-cover transform hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-                
+
               </div>
-              
+
               {/* Timeline Badges */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
@@ -223,7 +223,7 @@ const UeberUns = () => {
                   <div className="text-sm opacity-90">Gegründet</div>
                 </div>
               </motion.div>
-              
+
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
@@ -255,7 +255,7 @@ const UeberUns = () => {
               Unsere Reise
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Von der Übernahme 2022 bis zur modernen Forellenzucht heute – 
+              Von der Übernahme 2022 bis zur modernen Forellenzucht heute –
               ein Blick auf unseren Wandel
             </p>
           </motion.div>
@@ -272,14 +272,14 @@ const UeberUns = () => {
                 className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500"
               >
                 <div className="relative overflow-hidden">
-                  <img 
-                    src={image.src} 
+                  <img
+                    src={image.src}
                     alt={image.title}
                     className="w-full h-[300px] object-cover transform group-hover:scale-110 transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
                 </div>
-                
+
                 {/* Content Overlay */}
                 <div className="absolute bottom-0 left-0 right-0 p-6">
                   <div className="flex items-center justify-between mb-3">
@@ -290,7 +290,7 @@ const UeberUns = () => {
                   <h3 className="text-white font-bold text-xl mb-2">{image.title}</h3>
                   <p className="text-white/90 text-sm">{image.description}</p>
                 </div>
-                
+
                 {/* Hover Effect */}
                 <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors duration-300"></div>
               </motion.div>
@@ -317,7 +317,7 @@ const UeberUns = () => {
             backgroundSize: '60px 60px'
           }}></div>
         </div>
-        
+
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -338,11 +338,11 @@ const UeberUns = () => {
               {
                 icon: Heart,
                 title: "Leidenschaft",
-                description: "Mit Herzblut und persönlichem Engagement schaffen wir täglich beste Qualität für unsere Forellen."
+                description: "Mit Herzblut und persönlichem Engagement schaffen wir täglich beste Voraussetzungen für unsere Forellen."
               },
               {
                 icon: Leaf,
-                title: "Nachhaltigkeit", 
+                title: "Nachhaltigkeit",
                 description: "Umweltbewusste und zukunftsfähige Fischzucht im Einklang mit der Natur des Schwarzwalds."
               },
               {
@@ -375,17 +375,12 @@ const UeberUns = () => {
                   <div className="relative">
                     {/* Icon Background Circle */}
                     <div className="w-24 h-24 border-2 rounded-full flex items-center justify-center group-hover:border-opacity-80 transition-colors duration-500" style={{ borderColor: 'rgb(181, 140, 103)' }}>
-                      <value.icon 
-                        className="w-10 h-10 group-hover:opacity-90 transition-colors duration-300" 
+                      <value.icon
+                        className="w-10 h-10 group-hover:opacity-90 transition-colors duration-300"
                         style={{ color: 'rgb(181, 140, 103)' }}
                         strokeWidth={1.5}
                       />
                     </div>
-                    {/* Decorative Corner Lines */}
-                    <div className="absolute -top-2 -left-2 w-4 h-4 border-l-2 border-t-2" style={{ borderColor: 'rgb(132, 161, 160)' }}></div>
-                    <div className="absolute -top-2 -right-2 w-4 h-4 border-r-2 border-t-2" style={{ borderColor: 'rgb(132, 161, 160)' }}></div>
-                    <div className="absolute -bottom-2 -left-2 w-4 h-4 border-l-2 border-b-2" style={{ borderColor: 'rgb(132, 161, 160)' }}></div>
-                    <div className="absolute -bottom-2 -right-2 w-4 h-4 border-r-2 border-b-2" style={{ borderColor: 'rgb(132, 161, 160)' }}></div>
                   </div>
                 </motion.div>
 
@@ -417,7 +412,7 @@ const UeberUns = () => {
                   whileInView={{ scaleX: 1 }}
                   transition={{ duration: 0.8, delay: 0.9 + index * 0.15 }}
                   viewport={{ once: true }}
-                  className="mt-8 w-16 h-0.5 mx-auto" 
+                  className="mt-8 w-16 h-0.5 mx-auto"
                   style={{ background: 'linear-gradient(90deg, transparent, rgb(181, 140, 103), transparent)' }}
                 ></motion.div>
               </motion.div>
@@ -438,8 +433,8 @@ const UeberUns = () => {
       </section>
 
       {/* Vision Section */}
-      <section className="py-24 relative overflow-hidden" style={{ 
-        background: 'linear-gradient(135deg, rgb(12, 37, 36) 0%, rgb(16, 43, 42) 30%, rgb(26, 61, 59) 70%, rgb(16, 43, 42) 100%)' 
+      <section className="py-24 relative overflow-hidden" style={{
+        background: 'linear-gradient(135deg, rgb(12, 37, 36) 0%, rgb(16, 43, 42) 30%, rgb(26, 61, 59) 70%, rgb(16, 43, 42) 100%)'
       }}>
         {/* Subtle Grid Pattern */}
         <div className="absolute inset-0 overflow-hidden">
@@ -471,8 +466,8 @@ const UeberUns = () => {
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-6">
                 Unsere Vision
               </h2>
-              <div className="w-32 h-0.5 mx-auto" style={{ 
-                background: 'linear-gradient(90deg, transparent, rgb(181, 140, 103), transparent)' 
+              <div className="w-32 h-0.5 mx-auto" style={{
+                background: 'linear-gradient(90deg, transparent, rgb(181, 140, 103), transparent)'
               }}></div>
             </motion.div>
 
@@ -484,9 +479,9 @@ const UeberUns = () => {
               viewport={{ once: true }}
               className="mb-16"
             >
-              <div 
+              <div
                 className="relative overflow-hidden rounded-3xl p-8 md:p-12 border backdrop-blur-sm"
-                style={{ 
+                style={{
                   background: 'linear-gradient(135deg, rgba(132, 161, 160, 0.15), rgba(181, 140, 103, 0.1))',
                   borderColor: 'rgba(132, 161, 160, 0.3)'
                 }}
@@ -494,7 +489,7 @@ const UeberUns = () => {
                 <div className="absolute inset-0 opacity-20" style={{
                   background: 'radial-gradient(circle at 80% 20%, rgba(181, 140, 103, 0.3), transparent 50%)'
                 }}></div>
-                
+
                 <div className="relative z-10 text-center">
                   <p className="text-lg md:text-xl text-white font-light leading-relaxed">
                     Wir glauben an eine neue Art von Wirtschaft – eine, in der{' '}
@@ -521,19 +516,19 @@ const UeberUns = () => {
                 viewport={{ once: true }}
                 className="group"
               >
-                <div 
+                <div
                   className="h-full rounded-2xl p-8 border backdrop-blur-sm hover:scale-105 transition-all duration-500"
-                  style={{ 
+                  style={{
                     background: 'linear-gradient(135deg, rgba(26, 61, 59, 0.8), rgba(16, 43, 42, 0.6))',
                     borderColor: 'rgba(181, 140, 103, 0.3)'
                   }}
                 >
                   <div className="flex items-start space-x-4">
-                    <div 
+                    <div
                       className="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center"
                       style={{ background: 'rgba(181, 140, 103, 0.2)' }}
                     >
-                      <div 
+                      <div
                         className="w-4 h-4 rounded-full"
                         style={{ background: 'rgb(181, 140, 103)' }}
                       ></div>
@@ -541,12 +536,12 @@ const UeberUns = () => {
                     <div className="flex-1">
                       <h3 className="text-white font-bold text-xl mb-4">Volle Transparenz</h3>
                       <p className="text-white/85 leading-relaxed">
-                        Deshalb gehen wir bewusst einen anderen Weg als viele Unternehmen in unserer Branche: 
+                        Deshalb gehen wir bewusst einen anderen Weg als viele Unternehmen in unserer Branche:
                         Bei uns wissen unsere Kunden nicht nur, was sie bekommen, sondern auch woher es kommt.
                       </p>
                       <br />
                       <p className="text-white/85 leading-relaxed">
-                        Wir legen offen, mit welchen Partnern und Lieferanten wir zusammenarbeiten – 
+                        Wir legen offen, mit welchen Partnern und Lieferanten wir zusammenarbeiten –
                         ganz bewusst und mit voller Überzeugung.
                       </p>
                     </div>
@@ -562,15 +557,15 @@ const UeberUns = () => {
                 viewport={{ once: true }}
                 className="group"
               >
-                <div 
+                <div
                   className="h-full rounded-2xl p-8 border backdrop-blur-sm hover:scale-105 transition-all duration-500"
-                  style={{ 
+                  style={{
                     background: 'linear-gradient(135deg, rgba(16, 43, 42, 0.8), rgba(12, 37, 36, 0.6))',
                     borderColor: 'rgba(132, 161, 160, 0.3)'
                   }}
                 >
                   <div className="flex items-start space-x-4">
-                    <div 
+                    <div
                       className="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center"
                       style={{ background: 'rgba(181, 140, 103, 0.2)' }}
                     >
@@ -579,7 +574,7 @@ const UeberUns = () => {
                     <div className="flex-1">
                       <h3 className="text-white font-bold text-xl mb-4">Menschen & Werte</h3>
                       <p className="text-white/85 leading-relaxed">
-                        Denn hinter jedem Produkt und jeder Dienstleistung stehen Menschen und Werte, 
+                        Denn hinter jedem Produkt und jeder Dienstleistung stehen Menschen und Werte,
                         für die wir einstehen. Echte Beziehungen auf Augenhöhe mit gegenseitigem Respekt.
                       </p>
                     </div>
@@ -596,9 +591,9 @@ const UeberUns = () => {
               viewport={{ once: true }}
               className="mb-16"
             >
-              <div 
+              <div
                 className="relative overflow-hidden rounded-3xl p-8 md:p-12 border"
-                style={{ 
+                style={{
                   background: 'linear-gradient(135deg, rgba(181, 140, 103, 0.15), rgba(26, 61, 59, 0.3))',
                   borderColor: 'rgba(181, 140, 103, 0.4)'
                 }}
@@ -610,7 +605,7 @@ const UeberUns = () => {
                     backgroundSize: '60px 60px'
                   }}></div>
                 </div>
-                
+
                 <div className="relative z-10 text-center">
                   <motion.div
                     initial={{ scale: 0.8, opacity: 0 }}
@@ -618,20 +613,20 @@ const UeberUns = () => {
                     transition={{ duration: 0.6, delay: 1.1 }}
                     viewport={{ once: true }}
                     className="inline-flex items-center justify-center w-20 h-20 rounded-full mb-8 border-2"
-                    style={{ 
+                    style={{
                       borderColor: 'rgb(181, 140, 103)',
                       background: 'rgba(181, 140, 103, 0.1)'
                     }}
                   >
                     <MapPin className="w-8 h-8" style={{ color: 'rgb(181, 140, 103)' }} />
                   </motion.div>
-                  
+
                   <h3 className="text-3xl md:text-4xl font-serif font-bold text-white mb-6">
                     100% Baden-Württemberg
                   </h3>
                   <p className="text-xl text-white/90 leading-relaxed max-w-3xl mx-auto mb-8">
-                    Unsere Partner stammen ausschließlich aus Baden-Württemberg – aus unserer Region, 
-                    aus unserem Umfeld. Wir glauben an kurze Wege, nachhaltiges Wirtschaften und 
+                    Unsere Partner stammen ausschließlich aus Baden-Württemberg – aus unserer Region,
+                    aus unserem Umfeld. Wir glauben an kurze Wege, nachhaltiges Wirtschaften und
                     starke Geschäftsbeziehungen, die auf{' '}
                     <span className="font-medium" style={{ color: 'rgb(181, 140, 103)' }}>Vertrauen</span>,{' '}
                     <span className="font-medium" style={{ color: 'rgb(181, 140, 103)' }}>Qualität</span> und{' '}
@@ -648,30 +643,30 @@ const UeberUns = () => {
               transition={{ duration: 0.8, delay: 1.3 }}
               viewport={{ once: true }}
             >
-              <div 
+              <div
                 className="relative overflow-hidden rounded-3xl p-8 md:p-12 text-center border"
-                style={{ 
+                style={{
                   background: 'linear-gradient(135deg, rgba(12, 37, 36, 0.9), rgba(26, 61, 59, 0.7))',
                   borderColor: 'rgba(132, 161, 160, 0.3)'
                 }}
               >
                 {/* Decorative Background */}
                 <div className="absolute inset-0 opacity-15">
-                  <div 
+                  <div
                     className="absolute inset-0"
                     style={{
                       background: 'radial-gradient(ellipse at center, rgba(181, 140, 103, 0.3) 0%, transparent 70%)'
                     }}
                   ></div>
                 </div>
-                
+
                 <div className="relative z-10">
                   <Award className="w-12 h-12 mx-auto mb-6" style={{ color: 'rgb(181, 140, 103)' }} />
                   <h3 className="text-2xl md:text-3xl font-serif font-bold text-white mb-6">
                     Neue Maßstäbe setzen
                   </h3>
                   <p className="text-xl text-white/90 leading-relaxed max-w-3xl mx-auto">
-                    Unser Ziel ist es, durch echte Regionalität und maximale Transparenz neue Maßstäbe zu setzen – 
+                    Unser Ziel ist es, durch echte Regionalität und maximale Transparenz neue Maßstäbe zu setzen –
                     für unsere Kunden, für unsere Partner und für eine{' '}
                     <span className="font-medium" style={{ color: 'rgb(181, 140, 103)' }}>
                       zukunftsfähige Wirtschaft
@@ -692,15 +687,15 @@ const UeberUns = () => {
           className="mt-20 mx-auto max-w-4xl px-4"
         >
           <div className="flex items-center justify-center space-x-4">
-            <div className="h-px flex-1" style={{ 
-              background: 'linear-gradient(90deg, transparent, rgba(132, 161, 160, 0.5), transparent)' 
+            <div className="h-px flex-1" style={{
+              background: 'linear-gradient(90deg, transparent, rgba(132, 161, 160, 0.5), transparent)'
             }}></div>
-            <div 
+            <div
               className="w-3 h-3 rounded-full"
               style={{ background: 'rgb(181, 140, 103)' }}
             ></div>
-            <div className="h-px flex-1" style={{ 
-              background: 'linear-gradient(90deg, transparent, rgba(132, 161, 160, 0.5), transparent)' 
+            <div className="h-px flex-1" style={{
+              background: 'linear-gradient(90deg, transparent, rgba(132, 161, 160, 0.5), transparent)'
             }}></div>
           </div>
         </motion.div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Fish } from 'lucide-react';
+import logoVertical from '@/assets/logo_vertical.png';
 
 const Footer = () => {
   return (
@@ -17,20 +17,13 @@ const Footer = () => {
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 mb-12">
             {/* Logo Section - Left Side */}
             <div className="lg:col-span-2 space-y-4">
-              <div className="flex items-center space-x-3 mb-4">
-                <Fish className="h-12 w-12 text-[rgb(181,140,103)]" />
-                <div className="flex flex-col">
-                  <span className="font-serif text-3xl font-bold text-white leading-tight">
-                    Alpirsbacher
-                  </span>
-                  <span className="font-serif text-xl text-[rgb(181,140,103)] leading-tight opacity-90">
-                    Fischzucht
-                  </span>
-                </div>
+              <div className="flex items-center mb-4">
+                <img 
+                  src={logoVertical} 
+                  alt="Alpirsbacher Fischzucht" 
+                  className="h-48 w-auto"
+                />
               </div>
-              <p className="text-[rgb(132,161,160)] leading-relaxed text-lg">
-                Frische Forellen direkt von der Quelle
-              </p>
             </div>
 
             {/* Legal Links */}

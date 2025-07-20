@@ -54,18 +54,18 @@ const Fischzucht = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      
+
       {/* Hero Section */}
       <section className="relative h-[80vh] overflow-hidden">
         <div className="absolute inset-0">
-          <img 
-            src={troutFarmHeroImg} 
-            alt="Forellenzucht im Schwarzwald" 
+          <img
+            src={troutFarmHeroImg}
+            alt="Forellenzucht im Schwarzwald"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/20"></div>
         </div>
-        
+
         <div className="relative h-full flex items-center px-4">
           <div className="container mx-auto">
             <motion.div
@@ -82,7 +82,7 @@ const Fischzucht = () => {
               >
                 <Fish className="h-16 w-16 text-primary mb-6" />
               </motion.div>
-              
+
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -91,7 +91,7 @@ const Fischzucht = () => {
               >
                 Unsere <span className="text-primary">Fischzucht</span>
               </motion.h1>
-              
+
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -106,7 +106,7 @@ const Fischzucht = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.9 }}
               >
-                <Link 
+                <Link
                   to="/shop"
                   className="inline-flex items-center gap-3 bg-primary text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl"
                 >
@@ -133,8 +133,8 @@ const Fischzucht = () => {
               Zucht & <span className="text-primary">Produktion</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-4xl mx-auto">
-              Unsere Forellenzucht steht für eine naturnahe und nachhaltige Aquakultur. 
-              In einer Teichanlage, die einem natürlichen Bachlauf nachempfunden ist, 
+              Unsere Forellenzucht steht für eine naturnahe und nachhaltige Aquakultur.
+              In einer Teichanlage, die einem natürlichen Bachlauf nachempfunden ist,
               wachsen unsere Fische in einem ständig durchströmten System auf.
             </p>
           </motion.div>
@@ -149,22 +149,22 @@ const Fischzucht = () => {
             >
               <div className="space-y-6">
                 <p className="text-lg leading-relaxed text-muted-foreground">
-                  Ganz ohne geschlossene Kreisläufe, Pumpen oder chemische Zusätze. 
-                  Die Frischwasserversorgung erfolgt durch einen quellnahen Bach sowie 
+                  Ganz ohne geschlossene Kreisläufe, Pumpen oder chemische Zusätze.
+                  Die Frischwasserversorgung erfolgt durch einen quellnahen Bach sowie
                   zwei eigene Quellen mit Trinkwasserqualität.
                 </p>
-                
+
                 <p className="text-lg leading-relaxed text-muted-foreground">
-                  Die ständige Strömung fördert eine gesunde Entwicklung von Muskulatur 
-                  und Knochen – ähnlich wie in freier Wildbahn. Unterstützt wird die 
-                  Wasserqualität durch ein natürliches Vorfiltersystem aus Kieselsteinen 
+                  Die ständige Strömung fördert eine gesunde Entwicklung von Muskulatur
+                  und Knochen – ähnlich wie in freier Wildbahn. Unterstützt wird die
+                  Wasserqualität durch ein natürliches Vorfiltersystem aus Kieselsteinen
                   und Gestein, das das Wasser auf natürliche Weise mit Kalk anreichert.
                 </p>
 
                 <p className="text-lg leading-relaxed text-muted-foreground">
-                  Wir verzichten komplett auf Medikamente wie Antibiotika. Dabei züchten 
+                  Wir verzichten komplett auf Medikamente wie Antibiotika. Dabei züchten
                   wir verschiedene Salmonidenarten wie <span className="font-semibold text-foreground">
-                  Regenbogenforelle, Lachsforelle, Goldforelle und Saibling</span>.
+                    Regenbogenforelle, Lachsforelle, Goldene Lachsforelle und Saibling</span>.
                 </p>
               </div>
             </motion.div>
@@ -177,9 +177,9 @@ const Fischzucht = () => {
               className="relative"
             >
               <div className="relative overflow-hidden rounded-3xl shadow-2xl">
-                <img 
-                  src={troutFarmHeroImg} 
-                  alt="Natürliche Forellenzucht" 
+                <img
+                  src={troutFarmHeroImg}
+                  alt="Natürliche Forellenzucht"
                   className="w-full h-[400px] object-cover transform hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
@@ -197,7 +197,7 @@ const Fischzucht = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
                 className="group text-center p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border backdrop-blur-sm hover:scale-105 transition-all duration-500"
-                style={{ 
+                style={{
                   background: 'linear-gradient(135deg, rgba(132, 161, 160, 0.15), rgba(181, 140, 103, 0.1))',
                   borderColor: 'rgba(132, 161, 160, 0.3)'
                 }}
@@ -223,7 +223,7 @@ const Fischzucht = () => {
             backgroundSize: '60px 60px'
           }}></div>
         </div>
-        
+
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -237,7 +237,7 @@ const Fischzucht = () => {
             </h2>
             <div className="w-24 h-0.5 mx-auto mb-8" style={{ background: 'linear-gradient(90deg, transparent, rgb(181, 140, 103), transparent)' }}></div>
             <p className="text-xl text-white/80 max-w-4xl mx-auto">
-              Bei uns kommt alles aus einer Hand: von der Aufzucht bis zur Verarbeitung. 
+              Bei uns kommt alles aus einer Hand: von der Aufzucht bis zur Verarbeitung.
               So können wir eine gleichbleibend hohe Qualität garantieren.
             </p>
           </motion.div>
@@ -251,9 +251,9 @@ const Fischzucht = () => {
               className="relative order-2 lg:order-1"
             >
               <div className="relative overflow-hidden rounded-3xl shadow-2xl">
-                <img 
-                  src={processingHeroImg} 
-                  alt="Fischverarbeitung" 
+                <img
+                  src={processingHeroImg}
+                  alt="Fischverarbeitung"
                   className="w-full h-[400px] object-cover transform hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
@@ -268,26 +268,26 @@ const Fischzucht = () => {
               className="space-y-6 order-1 lg:order-2"
             >
               <p className="text-lg leading-relaxed text-white/90">
-                In unserem hofeigenen Verarbeitungsgebäude werden die Fische direkt 
-                nach der Bestellung frisch geschlachtet, hygienisch verarbeitet und 
+                In unserem hofeigenen Verarbeitungsgebäude werden die Fische direkt
+                nach der Bestellung frisch geschlachtet, hygienisch verarbeitet und
                 küchenfertig verpackt – ganz ohne Zwischenlagerung oder Tiefkühlung.
-              </p>
-              
-              <p className="text-lg leading-relaxed text-white/90">
-                Unsere Fischprodukte sind in vielfältigen Varianten erhältlich: 
-                <span className="font-semibold text-white"> küchenfertig im Ganzen, 
-                als Filet oder geräuchert</span> – wahlweise am Stück oder als feines Räucherfilet.
               </p>
 
               <p className="text-lg leading-relaxed text-white/90">
-                Für die Grillsaison bieten wir eine besondere Auswahl an vier verschiedenen 
+                Unsere Fischprodukte sind in vielfältigen Varianten erhältlich:
+                <span className="font-semibold text-white"> küchenfertig im Ganzen,
+                  als Filet oder geräuchert</span> – wahlweise am Stück oder als feines Räucherfilet.
+              </p>
+
+              <p className="text-lg leading-relaxed text-white/90">
+                Für die Grillsaison bieten wir eine besondere Auswahl an vier verschiedenen
                 Grillfischprodukten – bereits frisch mariniert und grillfertig.
               </p>
 
               <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/20">
                 <h4 className="text-xl font-semibold text-white mb-3">Unser Qualitätsversprechen</h4>
                 <p className="text-white/90">
-                  Bei uns wird nur auf Bestellung verarbeitet. Der Fisch wird erst dann 
+                  Bei uns wird nur auf Bestellung verarbeitet. Der Fisch wird erst dann
                   geschlachtet, wenn er tatsächlich gebraucht wird – für garantiert frische Ware.
                 </p>
               </div>
@@ -314,16 +314,12 @@ const Fischzucht = () => {
                 >
                   <div className="relative">
                     <div className="w-20 h-20 border-2 rounded-full flex items-center justify-center group-hover:border-opacity-80 transition-colors duration-500" style={{ borderColor: 'rgb(181, 140, 103)' }}>
-                      <feature.icon 
-                        className="w-8 h-8 group-hover:opacity-90 transition-colors duration-300" 
+                      <feature.icon
+                        className="w-8 h-8 group-hover:opacity-90 transition-colors duration-300"
                         style={{ color: 'rgb(181, 140, 103)' }}
                         strokeWidth={1.5}
                       />
                     </div>
-                    <div className="absolute -top-2 -left-2 w-4 h-4 border-l-2 border-t-2" style={{ borderColor: 'rgb(132, 161, 160)' }}></div>
-                    <div className="absolute -top-2 -right-2 w-4 h-4 border-r-2 border-t-2" style={{ borderColor: 'rgb(132, 161, 160)' }}></div>
-                    <div className="absolute -bottom-2 -left-2 w-4 h-4 border-l-2 border-b-2" style={{ borderColor: 'rgb(132, 161, 160)' }}></div>
-                    <div className="absolute -bottom-2 -right-2 w-4 h-4 border-r-2 border-b-2" style={{ borderColor: 'rgb(132, 161, 160)' }}></div>
                   </div>
                 </motion.div>
 
@@ -344,7 +340,7 @@ const Fischzucht = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
             className="text-center rounded-3xl shadow-xl p-12 border backdrop-blur-sm"
-            style={{ 
+            style={{
               background: 'linear-gradient(135deg, rgba(132, 161, 160, 0.15), rgba(181, 140, 103, 0.1))',
               borderColor: 'rgba(132, 161, 160, 0.3)'
             }}
@@ -353,10 +349,10 @@ const Fischzucht = () => {
               Bereit für frischen <span style={{ color: 'rgb(181, 140, 103)' }}>Fisch von der Quelle</span>?
             </h3>
             <p className="text-xl mb-8 max-w-2xl mx-auto text-white/80">
-              Entdecken Sie unsere Auswahl an frischen Forellen und weiteren Spezialitäten 
+              Entdecken Sie unsere Auswahl an frischen Forellen und weiteren Spezialitäten
               aus nachhaltiger regionaler Zucht.
             </p>
-            <Link 
+            <Link
               to="/shop"
               className="inline-flex items-center gap-3 bg-primary text-white px-10 py-5 rounded-xl text-xl font-semibold hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
             >
