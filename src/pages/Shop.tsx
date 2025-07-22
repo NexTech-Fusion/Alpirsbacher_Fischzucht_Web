@@ -18,7 +18,7 @@ import {
   Package,
   Fish
 } from 'lucide-react';
-import ShopLayout from '../components/ShopLayout';
+import ShopLayout from '../apps/shop/ShopLayout';
 import { Product } from '@/types/product';
 import { shopifyService } from '@/lib/shopify';
 
