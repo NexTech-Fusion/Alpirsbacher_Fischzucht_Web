@@ -18,7 +18,7 @@ import {
   Package,
   Fish
 } from 'lucide-react';
-import Layout from '../components/Layout';
+import ShopLayout from '../components/ShopLayout';
 import { Product } from '@/types/product';
 import { shopifyService } from '@/lib/shopify';
 
@@ -256,7 +256,7 @@ const Shop = () => {
   };
 
   return (
-    <Layout>
+    <ShopLayout>
       {/* Hero Section */}
       <section className="relative h-[50vh] overflow-hidden">
         <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgb(26, 61, 59) 0%, rgb(16, 43, 42) 50%, rgb(12, 37, 36) 100%)' }}>
@@ -899,7 +899,7 @@ const Shop = () => {
           </motion.div>
         )}
       </AnimatePresence>
-    </Layout>
+    </ShopLayout>
   );
 };
 

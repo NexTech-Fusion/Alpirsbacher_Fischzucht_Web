@@ -5,10 +5,14 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:shop": "vite --config vite.shop.config.ts",
     "build": "vite build",
+    "build:main": "vite build --config vite.config.ts",
+    "build:shop": "vite build --config vite.shop.config.ts", 
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "preview:shop": "vite preview --config vite.shop.config.ts --port 4174"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
