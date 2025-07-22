@@ -5,9 +5,9 @@ import { Fish, Droplets, Factory, ShoppingCart, Leaf, Heart, Award, Clock, Shiel
 import { Link } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
-import troutFarmHeroImg from '@/assets/trout-farm-hero.png';
+import troutFarmHeroImg from '@/assets/facility.webp';
 import processingHeroImg from '@/assets/processing-hero.png';
-import directMarketingHeroImg from '@/assets/direct-marketing-hero.png';
+import directMarketingHeroImg from '@/assets/black_forest.png';
 
 const Fischzucht = () => {
   const productionFeatures = [
@@ -59,7 +59,7 @@ const Fischzucht = () => {
       <section className="relative h-[80vh] overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src={troutFarmHeroImg}
+            src={directMarketingHeroImg}
             alt="Forellenzucht im Schwarzwald"
             className="w-full h-full object-cover"
           />

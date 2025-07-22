@@ -1,11 +1,12 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Fish, Heart, Mountain, Leaf, Calendar, MapPin, Users, Award } from 'lucide-react';
+import { Fish, Heart, Mountain, Leaf, Calendar, MapPin, Users, Award, ShoppingCart } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
-import heroSchwarzwaldImg from '@/assets/hero-schwarzwald.png';
-import familyTraditionImg from '@/assets/family-tradition.png';
+import heroSchwarzwaldImg from '@/assets/forest_river.png';
+import familyTraditionImg from '@/assets/founders.webp';
 import farmStoryImg from '@/assets/farm-story.png';
 import sustainabilityImg from '@/assets/sustainability.png';
 import mapLocationImg from '@/assets/map-location.png';
@@ -43,15 +44,15 @@ const UeberUns = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
 
-      {/* Compact Hero Section */}
-      <section className="relative h-[60vh] overflow-hidden">
+      {/* Hero Section */}
+      <section className="relative h-[80vh] overflow-hidden">
         <div className="absolute inset-0">
           <img
             src={heroSchwarzwaldImg}
             alt="Schwarzwald Landschaft"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/20"></div>
         </div>
 
         <div className="relative h-full flex items-center px-4">
@@ -60,7 +61,7 @@ const UeberUns = () => {
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1 }}
-              className="max-w-2xl"
+              className="max-w-3xl"
             >
               <motion.div
                 initial={{ scale: 0.8, opacity: 0 }}
@@ -68,33 +69,47 @@ const UeberUns = () => {
                 transition={{ duration: 0.8, delay: 0.3 }}
                 className="mb-6"
               >
-                <Fish className="h-12 w-12 text-primary mb-4" />
+                <Fish className="h-16 w-16 text-primary mb-6" />
               </motion.div>
 
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.5 }}
-                className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-4 leading-tight"
+                className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-white mb-6 leading-tight"
               >
-                Unsere Geschichte
+                Unsere <span className="text-primary">Geschichte</span>
               </motion.h1>
 
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.7 }}
-                className="text-xl md:text-2xl text-white/90 font-light"
+                className="text-xl md:text-2xl text-white/90 font-light mb-8"
               >
-                mit Herzblut zur modernen Forellenzucht
+                Mit Herzblut zur modernen Forellenzucht
               </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.9 }}
+              >
+                <Link
+                  to="/shop"
+                  className="inline-flex items-center gap-3 bg-primary text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl"
+                >
+                  <ShoppingCart className="h-5 w-5" />
+                  Jetzt bestellen
+                </Link>
+              </motion.div>
             </motion.div>
           </div>
         </div>
       </section>
 
       {/* Story Section with Founders */}
-      <section className="py-20 bg-gradient-to-b from-background to-muted/30">
+      <section id="story" className="py-20 bg-gradient-to-b from-background to-muted/30">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Story Text */}
