@@ -90,7 +90,6 @@ const ShopLayout = ({ children }: ShopLayoutProps) => {
                 <div className="space-y-2 text-[rgb(132,161,160)] text-sm">
                   <p>✓ Frisch aus dem Schwarzwald</p>
                   <p>✓ Nachhaltige Zucht</p>
-                  <p>✓ Premium Bio-Qualität</p>
                   <p>✓ Direkt vom Erzeuger</p>
                 </div>
               </div>

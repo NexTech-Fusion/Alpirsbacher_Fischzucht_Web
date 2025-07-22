@@ -94,6 +94,31 @@ interface ShopifyProductsResponse {
 }
 
 class ShopifyService {
+  // Generic collection handles that should not be used as primary categories
+  private readonly genericCollectionHandles = [
+    'fischangebot',
+    'produktubersicht', 
+    'all-products', 
+    'frontpage',
+    'home',
+    'alle-produkte'
+  ];
+
+  private selectPrimaryCategory(collections: any[], productType?: string): string {
+    if (!collections || collections.length === 0) {
+      return productType || 'General';
+    }
+
+    // Filter out generic collections
+    const specificCollections = collections.filter((col: any) => 
+      !this.genericCollectionHandles.includes(col.node.handle.toLowerCase())
+    );
+    
+    // Use the most specific collection as category, fallback to first collection or productType
+    const primaryCollection = specificCollections[0]?.node || collections[0]?.node;
+    return primaryCollection?.title || productType || 'General';
+  }
+
   private getCredentials(): StorefrontCredentials | null {
     const stored = localStorage.getItem('shopify_credentials');
     if (!stored) return null;
@@ -167,14 +192,29 @@ class ShopifyService {
                 title
                 description
                 productType
-                variants(first: 1) {
+                tags
+                collections(first: 10) {
                   edges {
                     node {
+                      id
+                      title
+                      handle
+                    }
+                  }
+                }
+                variants(first: 10) {
+                  edges {
+                    node {
+                      id
+                      title
                       price {
                         amount
                       }
                       weight
                       weightUnit
+                      availableForSale
+                      quantityAvailable
+                      sku
                     }
                   }
                 }
@@ -196,18 +236,40 @@ class ShopifyService {
       
       const products: Product[] = response.data.products.edges.map((edge: any) => {
         const product = edge.node;
-        const variant = product.variants.edges[0]?.node;
         const image = product.images.edges[0]?.node;
+        const collections = product.collections?.edges || [];
+        const category = this.selectPrimaryCategory(collections, product.productType);
+        
+        // Get all variants and calculate price range
+        const variants = product.variants.edges.map((v: any) => v.node);
+        const prices = variants.map((v: any) => parseFloat(v.price.amount || '0'));
+        const minPrice = Math.min(...prices);
+        const maxPrice = Math.max(...prices);
+        
+        // Find the first available variant or default to first variant
+        const availableVariant = variants.find((v: any) => v.availableForSale && v.quantityAvailable > 0) || variants[0];
         
         return {
-          id: extractIdFromGid(product.id), // Use numeric ID for routing
-          name: product.title,
-          price: parseFloat(variant?.price.amount || '0'),
+          id: extractIdFromGid(product.id), // Use base product ID
+          name: product.title, // Use base product title without variant suffix
+          price: availableVariant ? parseFloat(availableVariant.price.amount || '0') : minPrice,
           image: image?.url || 'https://via.placeholder.com/400x300?text=No+Image',
           description: product.description || 'No description available',
-          category: product.productType || 'General',
-          weight: variant?.weight ? `${variant.weight}${variant.weightUnit}` : 'N/A',
-          shopifyGid: product.id // Store the full GID for API calls
+          category: category,
+          weight: availableVariant?.weight ? `${availableVariant.weight}${availableVariant.weightUnit}` : 'N/A',
+          shopifyGid: product.id,
+          variantGid: availableVariant?.id,
+          sku: availableVariant?.sku || '',
+          inStock: variants.some((v: any) => v.availableForSale && v.quantityAvailable > 0),
+          quantityAvailable: variants.reduce((total: number, v: any) => total + (v.quantityAvailable || 0), 0),
+          tags: product.tags || [],
+          collections: collections.map((col: any) => ({
+            id: extractIdFromGid(col.node.id),
+            title: col.node.title,
+            handle: col.node.handle
+          })),
+          variantCount: variants.length,
+          priceRange: minPrice !== maxPrice ? { min: minPrice, max: maxPrice } : undefined
         };
       });
 
@@ -248,14 +310,29 @@ class ShopifyService {
             title
             description
             productType
-            variants(first: 1) {
+            tags
+            collections(first: 10) {
               edges {
                 node {
+                  id
+                  title
+                  handle
+                }
+              }
+            }
+            variants(first: 10) {
+              edges {
+                node {
+                  id
+                  title
                   price {
                     amount
                   }
                   weight
                   weightUnit
+                  availableForSale
+                  quantityAvailable
+                  sku
                 }
               }
             }
@@ -278,22 +355,203 @@ class ShopifyService {
       }
 
       const product = response.data.product;
-      const variant = product.variants.edges[0]?.node;
+      const variant = product.variants.edges[0]?.node; // Get first variant for single product view
       const image = product.images.edges[0]?.node;
+      const collections = product.collections?.edges || [];
+      
+      // Use smart category selection
+      const category = this.selectPrimaryCategory(collections, product.productType);
       
       return {
         id: extractIdFromGid(product.id), // Use numeric ID for routing
-        name: product.title,
+        name: variant?.title === 'Default Title' 
+          ? product.title 
+          : `${product.title} - ${variant?.title}`,
         price: parseFloat(variant?.price.amount || '0'),
         image: image?.url || 'https://via.placeholder.com/400x300?text=No+Image',
         description: product.description || 'No description available',
-        category: product.productType || 'General',
+        category: category,
         weight: variant?.weight ? `${variant.weight}${variant.weightUnit}` : 'N/A',
-        shopifyGid: product.id // Store the full GID for API calls
+        shopifyGid: product.id, // Store the full GID for API calls
+        variantGid: variant?.id,
+        sku: variant?.sku || '',
+        inStock: variant?.availableForSale && (variant?.quantityAvailable > 0),
+        quantityAvailable: variant?.quantityAvailable || 0,
+        tags: product.tags || [],
+        collections: collections.map((col: any) => ({
+          id: extractIdFromGid(col.node.id),
+          title: col.node.title,
+          handle: col.node.handle
+        }))
       };
     } catch (error) {
       console.error('Failed to fetch Shopify product:', error);
       return null;
+    }
+  }
+
+  public async getProductWithAllVariants(productId: string): Promise<{
+    product: Product;
+    variants: Array<{
+      id: string;
+      title: string;
+      price: number;
+      weight?: string;
+      sku?: string;
+      quantityAvailable: number;
+      availableForSale: boolean;
+      variantGid: string;
+    }>;
+  } | null> {
+    try {
+      // Check if the provided ID is numeric (from URL) or already a GID
+      const gid = productId.startsWith('gid://') ? productId : createGid('Product', productId);
+      
+      const query = `
+        query getProductWithVariants($id: ID!) {
+          product(id: $id) {
+            id
+            title
+            description
+            productType
+            tags
+            collections(first: 10) {
+              edges {
+                node {
+                  id
+                  title
+                  handle
+                }
+              }
+            }
+            variants(first: 20) {
+              edges {
+                node {
+                  id
+                  title
+                  price {
+                    amount
+                  }
+                  weight
+                  weightUnit
+                  availableForSale
+                  quantityAvailable
+                  sku
+                }
+              }
+            }
+            images(first: 1) {
+              edges {
+                node {
+                  url
+                  altText
+                }
+              }
+            }
+          }
+        }
+      `;
+
+      const response = await this.makeStorefrontRequest(query, { id: gid });
+      
+      if (!response.data.product) {
+        return null;
+      }
+
+      const product = response.data.product;
+      const image = product.images.edges[0]?.node;
+      const collections = product.collections?.edges || [];
+      
+      // Use smart category selection
+      const category = this.selectPrimaryCategory(collections, product.productType);
+      
+      // Create base product info
+      const baseProduct: Product = {
+        id: extractIdFromGid(product.id),
+        name: product.title,
+        price: 0, // Will be set by selected variant
+        image: image?.url || 'https://via.placeholder.com/400x300?text=No+Image',
+        description: product.description || 'No description available',
+        category: category,
+        shopifyGid: product.id,
+        tags: product.tags || [],
+        collections: collections.map((col: any) => ({
+          id: extractIdFromGid(col.node.id),
+          title: col.node.title,
+          handle: col.node.handle
+        }))
+      };
+
+      // Extract variants
+      const variants = product.variants.edges.map((edge: any) => {
+        const variant = edge.node;
+        return {
+          id: variant.id,
+          title: variant.title,
+          price: parseFloat(variant.price.amount || '0'),
+          weight: variant.weight ? `${variant.weight}${variant.weightUnit}` : undefined,
+          sku: variant.sku || undefined,
+          quantityAvailable: variant.quantityAvailable || 0,
+          availableForSale: variant.availableForSale || false,
+          variantGid: variant.id
+        };
+      });
+
+      return {
+        product: baseProduct,
+        variants: variants
+      };
+    } catch (error) {
+      console.error('Failed to fetch Shopify product with variants:', error);
+      return null;
+    }
+  }
+
+  public async fetchCollections(limit: number = 50): Promise<any[]> {
+    try {
+      const query = `
+        query getCollections($first: Int!) {
+          collections(first: $first) {
+            edges {
+              node {
+                id
+                title
+                handle
+                description
+                image {
+                  url
+                  altText
+                }
+                products(first: 1) {
+                  edges {
+                    node {
+                      id
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      `;
+
+      const response = await this.makeStorefrontRequest(query, { first: limit });
+      
+      return response.data.collections.edges.map((edge: any) => {
+        const collection = edge.node;
+        return {
+          id: extractIdFromGid(collection.id),
+          title: collection.title,
+          handle: collection.handle,
+          description: collection.description || '',
+          image: collection.image?.url || '',
+          productCount: collection.products.edges.length,
+          shopifyGid: collection.id
+        };
+      });
+    } catch (error) {
+      console.error('Failed to fetch Shopify collections:', error);
+      return [];
     }
   }
 }

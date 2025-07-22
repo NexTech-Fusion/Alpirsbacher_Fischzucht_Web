@@ -137,7 +137,7 @@ const Versand = () => {
                 <div>
                   <h2 className="text-2xl font-bold text-foreground mb-4">Mindestbestellwert</h2>
                   <div className="bg-muted/30 rounded-lg p-6 text-center border border-border/30">
-                    <p className="text-3xl font-bold text-primary mb-2">49 €</p>
+                    <p className="text-3xl font-bold text-primary mb-2">39 €</p>
                     <p className="text-muted-foreground">inkl. MwSt. (Warengesamtwert)</p>
                   </div>
                 </div>
