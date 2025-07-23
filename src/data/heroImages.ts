@@ -1,3 +1,8 @@
+import blackForestDustImg from '@/assets/black_forest_dust.png';
+import gourmetImg from '@/assets/gourmet.png';
+import fishesImg from '@/assets/forellen.jpg';
+import forelleCookedImg from '@/assets/forelle_cooked.jpg';
+
 export interface HeroImage {
   url: string;
   alt: string;
@@ -5,23 +10,19 @@ export interface HeroImage {
 
 export const heroImagesData: HeroImage[] = [
   {
-    url: 'https://vibemedia.space/black_forest_hero_004.png',
+    url: blackForestDustImg,
     alt: 'Schwarzwald Landschaft'
   },
   {
-    url: 'https://vibemedia.space/partners_luxury_c7d6e5f4_003.png',
-    alt: 'Premium Partner'
+    url: gourmetImg,
+    alt: 'Gourmet Spezialitäten'
   },
   {
-    url: 'https://vibemedia.space/fresh_trout_m7n6o5p4_013.png',
-    alt: 'Frische Forelle'
+    url: fishesImg,
+    alt: 'Frische Fische'
   },
   {
-    url: 'https://vibemedia.space/fish_hero_1a2b3c4d.png',
-    alt: 'Fischzucht'
-  },
-  {
-    url: 'https://vibemedia.space/salmon_gourmet_2j3k4l5m.png',
-    alt: 'Gourmet Lachs'
+    url: forelleCookedImg,
+    alt: 'Zubereitete Forelle'
   }
 ]; 

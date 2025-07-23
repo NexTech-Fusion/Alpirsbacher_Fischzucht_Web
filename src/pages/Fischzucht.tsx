@@ -6,7 +6,8 @@ import { Link } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import troutFarmHeroImg from '@/assets/facility.webp';
-import processingHeroImg from '@/assets/processing-hero.png';
+import fishLogoSvg from '@/assets/fish_logo.svg';
+import processingHeroImg from '@/assets/prepared_fish.jpg';
 import directMarketingHeroImg from '@/assets/black_forest.png';
 
 const Fischzucht = () => {
@@ -80,7 +81,7 @@ const Fischzucht = () => {
                 transition={{ duration: 0.8, delay: 0.3 }}
                 className="mb-6"
               >
-                <Fish className="h-16 w-16 text-primary mb-6" />
+                <img src={fishLogoSvg} alt="Fish Logo" className="h-24 w-24 mb-6" />
               </motion.div>
 
               <motion.h1
@@ -275,7 +276,7 @@ const Fischzucht = () => {
 
               <p className="text-lg leading-relaxed text-white/90">
                 Unsere Fischprodukte sind in vielfältigen Varianten erhältlich:
-                <span className="font-semibold text-white"> küchenfertig im Ganzen,
+                <span className="font-semibold" style={{ color: 'rgb(181,140,103)' }}> küchenfertig im Ganzen,
                   als Filet oder geräuchert</span> – wahlweise am Stück oder als feines Räucherfilet.
               </p>
 

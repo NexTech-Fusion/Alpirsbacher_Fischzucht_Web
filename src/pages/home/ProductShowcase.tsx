@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ShoppingCart, ArrowRight, Fish } from 'lucide-react';
 import { QualityFeatures } from '@/components/home/QualityFeatures';
+import premiumFiletImg from '@/assets/premium_filet.jpg';
 
 export const ProductShowcase: React.FC = () => {
   return (
@@ -43,7 +44,7 @@ export const ProductShowcase: React.FC = () => {
           >
             <div className="relative h-[400px] lg:h-[500px]">
               <img 
-                src="https://vibemedia.space/char_001_FBA2334.png" 
+                src={premiumFiletImg} 
                 alt="Frische Forelle von der Alpirsbacher Fischzucht" 
                 className="w-full h-full object-cover shadow-2xl"
               />

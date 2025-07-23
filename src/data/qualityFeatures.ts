@@ -38,7 +38,7 @@ export const qualityFeaturesData: QualityFeature[] = [
     icon: Award,
     title: 'Premium Futter',
     description: 'Bio Mar Futter – proteinreich und nachhaltig',
-    gradient: 'from-primary/10 to-secondary/5',
+    gradient: 'from-secondary/10 to-secondary/5',
     borderColor: 'border-primary/20',
     iconColor: 'text-primary'
   }

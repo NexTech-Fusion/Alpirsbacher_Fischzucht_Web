@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ShoppingCart, Truck } from 'lucide-react';
-import directMarketingHeroImg from '@/assets/direct-marketing-hero.png';
+import directMarketingHeroImg from '@/assets/direct_marketing.jpg';
 
 export const DirectMarketing: React.FC = () => {
   return (

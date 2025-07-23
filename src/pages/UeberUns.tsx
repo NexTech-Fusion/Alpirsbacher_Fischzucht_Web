@@ -7,6 +7,7 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import heroSchwarzwaldImg from '@/assets/forest_river.png';
 import familyTraditionImg from '@/assets/founders.webp';
+import fishLogoSvg from '@/assets/fish_logo.svg';
 import farmStoryImg from '@/assets/farm-story.png';
 import sustainabilityImg from '@/assets/sustainability.png';
 import mapLocationImg from '@/assets/map-location.png';
@@ -69,7 +70,7 @@ const UeberUns = () => {
                 transition={{ duration: 0.8, delay: 0.3 }}
                 className="mb-6"
               >
-                <Fish className="h-16 w-16 text-primary mb-6" />
+                <img src={fishLogoSvg} alt="Fish Logo" className="h-24 w-24 mb-6" />
               </motion.div>
 
               <motion.h1

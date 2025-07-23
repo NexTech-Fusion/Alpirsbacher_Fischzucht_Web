@@ -4,26 +4,18 @@ import logoVertical from '@/assets/logo_vertical.png';
 
 const Footer = () => {
   return (
-    <footer className="bg-[rgb(12,37,36)] text-white relative overflow-hidden">
-      {/* Decorative Background Elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-[rgb(181,140,103)]/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-[rgb(132,161,160)]/5 rounded-full blur-3xl"></div>
-      </div>
-
+    <footer className="bg-[rgb(14,33,34)] text-white relative overflow-hidden">
       <div className="relative">
         {/* Main Footer Content */}
         <div className="container mx-auto px-4 py-12">
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 mb-12">
             {/* Logo Section - Left Side */}
-            <div className="lg:col-span-2 space-y-4">
-              <div className="flex items-center mb-4">
-                <img 
-                  src={logoVertical} 
-                  alt="Alpirsbacher Fischzucht" 
-                  className="h-48 w-auto"
-                />
-              </div>
+            <div className="lg:col-span-2 flex items-center justify-center">
+              <img 
+                src={logoVertical} 
+                alt="Alpirsbacher Fischzucht" 
+                className="h-48 w-auto"
+              />
             </div>
 
             {/* Legal Links */}
@@ -61,7 +53,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Footer - Same Background Color */}
-        <div className="bg-[rgb(12,37,36)] border-t border-[rgb(26,61,59)]">
+        <div className="bg-[rgb(14,33,34)] border-t border-[rgb(26,61,59)]">
           <div className="container mx-auto px-4 py-6">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
               <div className="text-[rgb(132,161,160)] text-sm flex items-center space-x-2">

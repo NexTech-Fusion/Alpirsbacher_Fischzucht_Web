@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Menu, X, Fish } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
+import fishLogoSvg from '@/assets/fish_logo.svg';
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -67,7 +68,11 @@ const Navigation = () => {
             
             {/* Centered Logo */}
             <Link to="/" className="flex items-center space-x-2 group">
-              <Fish className="h-8 w-8 text-primary group-hover:scale-110 transition-transform duration-300" />
+              <img 
+                src={fishLogoSvg} 
+                alt="Fish Logo" 
+                className="h-12 w-12 group-hover:scale-110 transition-transform duration-300" 
+              />
               <div className="flex flex-col text-center">
                 <span className="font-serif text-2xl font-bold text-white leading-tight group-hover:text-primary transition-colors duration-300">
                   Alpirsbacher
