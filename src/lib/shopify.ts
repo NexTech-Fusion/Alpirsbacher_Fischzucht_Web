@@ -93,6 +93,37 @@ interface ShopifyProductsResponse {
   products: ShopifyProduct[];
 }
 
+interface CartLineItem {
+  merchandiseId: string;
+  quantity: number;
+}
+
+interface ShopifyCart {
+  id: string;
+  checkoutUrl: string;
+  cost: {
+    totalAmount: {
+      amount: string;
+      currencyCode: string;
+    };
+  };
+  lines: {
+    edges: Array<{
+      node: {
+        id: string;
+        quantity: number;
+        merchandise: {
+          id: string;
+          title: string;
+          price: {
+            amount: string;
+          };
+        };
+      };
+    }>;
+  };
+}
+
 class ShopifyService {
   // Generic collection handles that should not be used as primary categories
   private readonly genericCollectionHandles = [
@@ -554,7 +585,240 @@ class ShopifyService {
       return [];
     }
   }
+
+  /**
+   * Create a new cart with line items
+   */
+  public async createCart(lineItems: CartLineItem[]): Promise<ShopifyCart | null> {
+    try {
+      const cartInput = lineItems.map(item => ({
+        merchandiseId: item.merchandiseId,
+        quantity: item.quantity
+      }));
+
+      const query = `
+        mutation cartCreate($input: CartInput!) {
+          cartCreate(input: $input) {
+            cart {
+              id
+              checkoutUrl
+              cost {
+                totalAmount {
+                  amount
+                  currencyCode
+                }
+              }
+              lines(first: 250) {
+                edges {
+                  node {
+                    id
+                    quantity
+                    merchandise {
+                      ... on ProductVariant {
+                        id
+                        title
+                        price {
+                          amount
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            userErrors {
+              field
+              message
+            }
+          }
+        }
+      `;
+
+      const variables = {
+        input: {
+          lines: cartInput,
+          note: "Return URL: " + (typeof window !== 'undefined' ? window.location.origin + "/shop.html" : "https://yourdomain.com/shop.html"),
+          attributes: [
+            {
+              key: "return_url",
+              value: typeof window !== 'undefined' ? window.location.origin + "/shop.html" : "https://yourdomain.com/shop.html"
+            },
+            {
+              key: "continue_shopping_url", 
+              value: typeof window !== 'undefined' ? window.location.origin + "/shop.html" : "https://yourdomain.com/shop.html"
+            },
+            {
+              key: "checkout_return_page",
+              value: "shop"
+            }
+          ]
+        }
+      };
+
+      const response = await this.makeStorefrontRequest(query, variables);
+
+      if (response.data.cartCreate.userErrors.length > 0) {
+        throw new Error(response.data.cartCreate.userErrors[0].message);
+      }
+
+      return response.data.cartCreate.cart;
+    } catch (error) {
+      console.error('Failed to create Shopify cart:', error);
+      return null;
+    }
+  }
+
+  /**
+   * Update existing cart with new line items
+   */
+  public async updateCart(cartId: string, lineItems: CartLineItem[]): Promise<ShopifyCart | null> {
+    try {
+      const cartInput = lineItems.map(item => ({
+        merchandiseId: item.merchandiseId,
+        quantity: item.quantity
+      }));
+
+      const query = `
+        mutation cartLinesReplace($cartId: ID!, $lines: [CartLineInput!]!) {
+          cartLinesReplace(cartId: $cartId, lines: $lines) {
+            cart {
+              id
+              checkoutUrl
+              cost {
+                totalAmount {
+                  amount
+                  currencyCode
+                }
+              }
+              lines(first: 250) {
+                edges {
+                  node {
+                    id
+                    quantity
+                    merchandise {
+                      ... on ProductVariant {
+                        id
+                        title
+                        price {
+                          amount
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            userErrors {
+              field
+              message
+            }
+          }
+        }
+      `;
+
+      const variables = {
+        cartId,
+        lines: cartInput
+      };
+
+      const response = await this.makeStorefrontRequest(query, variables);
+
+      if (response.data.cartLinesReplace.userErrors.length > 0) {
+        throw new Error(response.data.cartLinesReplace.userErrors[0].message);
+      }
+
+      return response.data.cartLinesReplace.cart;
+    } catch (error) {
+      console.error('Failed to update Shopify cart:', error);
+      return null;
+    }
+  }
+
+  /**
+   * Process checkout - creates cart and redirects to Shopify's hosted checkout
+   */
+  public async processCheckout(cart: { [key: string]: number }, products: Product[]): Promise<string | null> {
+    try {
+      // Convert cart to line items
+      const lineItems: CartLineItem[] = Object.entries(cart).map(([cartKey, quantity]) => {
+        const product = products.find(p => p.variantGid === cartKey || p.id === cartKey);
+        if (!product) {
+          throw new Error(`Product not found for cart key: ${cartKey}`);
+        }
+        
+        // Use variantGid if available, otherwise create GID from product ID
+        const merchandiseId = product.variantGid || createGid('ProductVariant', product.id);
+        
+        return {
+          merchandiseId,
+          quantity
+        };
+      });
+
+      console.log('Creating cart with line items:', lineItems);
+
+      // Create cart
+      const shopifyCart = await this.createCart(lineItems);
+      
+      if (!shopifyCart) {
+        throw new Error('Failed to create cart');
+      }
+
+      console.log('Cart created successfully:', shopifyCart);
+
+      // Return the checkout URL for redirection
+      return shopifyCart.checkoutUrl;
+    } catch (error) {
+      console.error('Failed to process checkout:', error);
+      throw error;
+    }
+  }
+
+  /**
+   * Get cart by ID
+   */
+  public async getCart(cartId: string): Promise<ShopifyCart | null> {
+    try {
+      const query = `
+        query getCart($id: ID!) {
+          cart(id: $id) {
+            id
+            checkoutUrl
+            cost {
+              totalAmount {
+                amount
+                currencyCode
+              }
+            }
+            lines(first: 250) {
+              edges {
+                node {
+                  id
+                  quantity
+                  merchandise {
+                    ... on ProductVariant {
+                      id
+                      title
+                      price {
+                        amount
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      `;
+
+      const response = await this.makeStorefrontRequest(query, { id: cartId });
+      return response.data.cart;
+    } catch (error) {
+      console.error('Failed to get cart:', error);
+      return null;
+    }
+  }
 }
 
 export const shopifyService = new ShopifyService();
-export type { StorefrontCredentials };
+export type { StorefrontCredentials, CartLineItem, ShopifyCart };

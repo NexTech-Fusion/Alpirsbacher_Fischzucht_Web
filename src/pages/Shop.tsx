@@ -22,6 +22,7 @@ import ShopLayout from '../apps/shop/ShopLayout';
 import { Product } from '@/types/product';
 import { shopifyService } from '@/lib/shopify';
 import ProductDetailModal from '@/components/ProductDetailModal';
+import { useToast } from '@/hooks/use-toast';
 
 interface LocalProduct extends Product {
   unit: string;
@@ -55,6 +56,14 @@ const Shop = () => {
     shopDomain: 'fgrm5g-x8',
     storefrontToken: '46a26b4da210d901626ba1f855d1e407'
   });
+
+  // Checkout state
+  const [checkoutLoading, setCheckoutLoading] = useState(false);
+  const [checkoutError, setCheckoutError] = useState<string | null>(null);
+  const [isRedirecting, setIsRedirecting] = useState(false);
+
+  // Toast hook for notifications
+  const { toast } = useToast();
 
   // Category priority mapping based on collection handles
   const categoryPriority = {
@@ -207,7 +216,7 @@ const Shop = () => {
   };
 
   const getTotalItems = () => Object.values(cart).reduce((sum, count) => sum + count, 0);
-  
+
   const getTotalPrice = () => {
     return Object.entries(cart).reduce((sum, [cartKey, count]) => {
       // Find product by variant GID or product ID for backward compatibility
@@ -224,6 +233,82 @@ const Shop = () => {
     const categories = [...new Set(products.map(p => p.category))];
     const allCategories = ['all', ...categories];
     return sortCategoriesByPriority(allCategories);
+  };
+
+  // Clear cart function
+  const clearCart = () => {
+    setCart({});
+    toast({
+      title: "Warenkorb geleert",
+      description: "Alle Artikel wurden aus dem Warenkorb entfernt.",
+    });
+  };
+
+  // Add helper function to check if cart has items
+  const hasCartItems = () => Object.keys(cart).length > 0;
+
+  // Checkout function
+  const handleCheckout = async () => {
+    if (!shopifyConnected) {
+      toast({
+        title: "Shopify-Verbindung erforderlich",
+        description: "Bitte konfigurieren Sie Ihre Shopify-Verbindung für den Checkout.",
+        variant: "destructive",
+      });
+      setShowShopifyConfig(true);
+      return;
+    }
+
+    if (Object.keys(cart).length === 0) {
+      toast({
+        title: "Warenkorb ist leer",
+        description: "Fügen Sie Produkte zu Ihrem Warenkorb hinzu, bevor Sie zur Kasse gehen.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setCheckoutLoading(true);
+    setCheckoutError(null);
+    setIsRedirecting(false);
+
+    try {
+      console.log('Starting checkout process...', { cart, products: products.length });
+
+      // Process checkout and get redirect URL
+      const checkoutUrl = await shopifyService.processCheckout(cart, products);
+
+      if (!checkoutUrl) {
+        throw new Error('Checkout-URL konnte nicht erstellt werden');
+      }
+
+      console.log('Checkout URL created:', checkoutUrl);
+
+
+      // Switch to redirect state instead of showing success toast
+      setCheckoutLoading(false);
+      setIsRedirecting(true);
+      setCheckoutError(null);
+      window.location.href = checkoutUrl;
+
+      await new Promise(resolve => setTimeout(resolve, 3000));
+
+    } catch (error) {
+      console.error('Checkout failed:', error);
+      const errorMessage = error instanceof Error
+        ? error.message
+        : 'Checkout fehlgeschlagen. Bitte versuchen Sie es erneut.';
+
+      setCheckoutError(errorMessage);
+      setCheckoutLoading(false);
+      setIsRedirecting(false);
+
+      toast({
+        title: "Checkout fehlgeschlagen",
+        description: errorMessage,
+        variant: "destructive",
+      });
+    }
   };
 
   // Product detail modal functions
@@ -614,8 +699,8 @@ const Shop = () => {
                     <div className="flex items-center justify-between pt-4 border-t border-gray-100">
                       <div>
                         <span className="text-2xl font-bold" style={{ color: 'rgb(181, 140, 103)' }}>
-                          {product.priceRange ? 
-                            `ab ${product.priceRange.min.toFixed(2)}€` : 
+                          {product.priceRange ?
+                            `ab ${product.priceRange.min.toFixed(2)}€` :
                             `${product.price.toFixed(2)}€`
                           }
                         </span>
@@ -772,7 +857,7 @@ const Shop = () => {
               className="fixed inset-0 bg-black/50 z-50"
               onClick={() => setShowCart(false)}
             />
-            
+
             {/* Sidebar */}
             <motion.div
               initial={{ x: '100%' }}
@@ -796,16 +881,24 @@ const Shop = () => {
                     <X size={20} />
                   </button>
                 </div>
-                {Object.entries(cart).length > 0 && (
-                  <p className="text-sm text-gray-500 mt-2">
-                    {getTotalItems()} {getTotalItems() === 1 ? 'Artikel' : 'Artikel'} im Warenkorb
-                  </p>
+                {hasCartItems() && (
+                  <div className="flex justify-between items-center mt-2">
+                    <p className="text-sm text-gray-500">
+                      {getTotalItems()} {getTotalItems() === 1 ? 'Artikel' : 'Artikel'} im Warenkorb
+                    </p>
+                    <button
+                      onClick={clearCart}
+                      className="text-xs text-red-600 hover:text-red-800 hover:underline transition-colors"
+                    >
+                      Warenkorb leeren
+                    </button>
+                  </div>
                 )}
               </div>
 
               {/* Cart Content */}
               <div className="flex-1 overflow-y-auto p-6">
-                {Object.entries(cart).length === 0 ? (
+                {!hasCartItems() ? (
                   <div className="flex flex-col items-center justify-center h-full text-center">
                     <ShoppingCart size={64} className="text-gray-300 mb-4" />
                     <h4 className="text-lg font-semibold text-gray-600 mb-2">Ihr Warenkorb ist leer</h4>
@@ -820,69 +913,69 @@ const Shop = () => {
                   </div>
                 ) : (
                   <div className="space-y-4">
-                                         {Object.entries(cart).map(([cartKey, count]) => {
-                       const product = getProductByCartKey(cartKey);
-                       if (!product) return null;
+                    {Object.entries(cart).map(([cartKey, count]) => {
+                      const product = getProductByCartKey(cartKey);
+                      if (!product) return null;
 
-                       return (
-                         <motion.div
-                           key={cartKey}
-                           initial={{ opacity: 0, y: 20 }}
-                           animate={{ opacity: 1, y: 0 }}
-                           className="flex items-center gap-4 p-4 border border-gray-100 rounded-xl hover:shadow-sm transition-shadow"
-                         >
-                           <img
-                             src={product.image}
-                             alt={product.name}
-                             className="w-16 h-16 object-cover rounded-lg flex-shrink-0"
-                             onError={(e) => {
-                               const target = e.target as HTMLImageElement;
-                               target.src = 'https://vibemedia.space/fallback_Fischbr%C3%A4ter%2051,5%20x%2013%20x%201%20cm.png';
-                             }}
-                           />
-                           <div className="flex-1 min-w-0">
-                             <h4 className="font-semibold text-sm truncate">{product.name}</h4>
-                             <p className="text-sm text-gray-500">
-                               {product.price.toFixed(2)}€ / {product.unit && product.unit !== 'N/A' ? product.unit : 'Stück'}
-                             </p>
-                             <p className="text-sm font-semibold mt-1" style={{ color: 'rgb(181, 140, 103)' }}>
-                               Zwischensumme: {(product.price * count).toFixed(2)}€
-                             </p>
-                           </div>
-                           <div className="flex flex-col items-center gap-2 flex-shrink-0">
-                             <div className="flex items-center gap-2">
-                               <button
-                                 onClick={(e) => {
-                                   e.stopPropagation();
-                                   removeFromCart(cartKey);
-                                 }}
-                                 className="w-8 h-8 rounded-lg flex items-center justify-center text-white hover:opacity-80 transition-opacity"
-                                 style={{ backgroundColor: 'rgb(132, 161, 160)' }}
-                               >
-                                 <Minus size={14} />
-                               </button>
-                               <span className="w-8 text-center font-semibold text-gray-900">{count}</span>
-                               <button
-                                 onClick={(e) => {
-                                   e.stopPropagation();
-                                   addToCart(cartKey);
-                                 }}
-                                 className="w-8 h-8 rounded-lg flex items-center justify-center text-white hover:opacity-80 transition-opacity"
-                                 style={{ backgroundColor: 'rgb(181, 140, 103)' }}
-                               >
-                                 <Plus size={14} />
-                               </button>
-                             </div>
-                           </div>
-                         </motion.div>
-                       );
-                     })}
+                      return (
+                        <motion.div
+                          key={cartKey}
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          className="flex items-center gap-4 p-4 border border-gray-100 rounded-xl hover:shadow-sm transition-shadow"
+                        >
+                          <img
+                            src={product.image}
+                            alt={product.name}
+                            className="w-16 h-16 object-cover rounded-lg flex-shrink-0"
+                            onError={(e) => {
+                              const target = e.target as HTMLImageElement;
+                              target.src = 'https://vibemedia.space/fallback_Fischbr%C3%A4ter%2051,5%20x%2013%20x%201%20cm.png';
+                            }}
+                          />
+                          <div className="flex-1 min-w-0">
+                            <h4 className="font-semibold text-sm truncate">{product.name}</h4>
+                            <p className="text-sm text-gray-500">
+                              {product.price.toFixed(2)}€ / {product.unit && product.unit !== 'N/A' ? product.unit : 'Stück'}
+                            </p>
+                            <p className="text-sm font-semibold mt-1" style={{ color: 'rgb(181, 140, 103)' }}>
+                              Zwischensumme: {(product.price * count).toFixed(2)}€
+                            </p>
+                          </div>
+                          <div className="flex flex-col items-center gap-2 flex-shrink-0">
+                            <div className="flex items-center gap-2">
+                              <button
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  removeFromCart(cartKey);
+                                }}
+                                className="w-8 h-8 rounded-lg flex items-center justify-center text-white hover:opacity-80 transition-opacity"
+                                style={{ backgroundColor: 'rgb(132, 161, 160)' }}
+                              >
+                                <Minus size={14} />
+                              </button>
+                              <span className="w-8 text-center font-semibold text-gray-900">{count}</span>
+                              <button
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  addToCart(cartKey);
+                                }}
+                                className="w-8 h-8 rounded-lg flex items-center justify-center text-white hover:opacity-80 transition-opacity"
+                                style={{ backgroundColor: 'rgb(181, 140, 103)' }}
+                              >
+                                <Plus size={14} />
+                              </button>
+                            </div>
+                          </div>
+                        </motion.div>
+                      );
+                    })}
                   </div>
                 )}
               </div>
 
               {/* Footer - Checkout Section */}
-              {Object.entries(cart).length > 0 && (
+              {hasCartItems() && (
                 <div className="p-6 border-t border-gray-100 bg-gray-50 flex-shrink-0">
                   <div className="space-y-4">
                     {/* Summary */}
@@ -904,7 +997,7 @@ const Shop = () => {
                         </div>
                       </div>
                     </div>
-                    
+
                     {/* Shipping Info */}
                     {getTotalPrice() >= 149 && (
                       <div className="flex items-center gap-2 text-sm text-green-600 bg-green-50 px-3 py-2 rounded-lg">
@@ -912,15 +1005,64 @@ const Shop = () => {
                         <span>Versandkostenfrei ab 149€ erreicht!</span>
                       </div>
                     )}
-                    
+
                     {/* Action Buttons */}
                     <div className="space-y-3">
                       <button
-                        className="w-full py-4 rounded-xl font-semibold text-white transition-all hover:shadow-lg"
+                        onClick={handleCheckout}
+                        disabled={checkoutLoading || isRedirecting || !shopifyConnected}
+                        className={`w-full py-4 rounded-xl font-semibold text-white transition-all hover:shadow-lg flex items-center justify-center gap-2 ${checkoutLoading || isRedirecting || !shopifyConnected
+                          ? 'opacity-60 cursor-not-allowed'
+                          : 'hover:shadow-lg'
+                          }`}
                         style={{ backgroundColor: 'rgb(181, 140, 103)' }}
                       >
-                        Zur Kasse ({getTotalItems()} Artikel)
+                        {checkoutLoading ? (
+                          <>
+                            <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                            Checkout wird erstellt...
+                          </>
+                        ) : isRedirecting ? (
+                          <>
+                            <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                            Weiterleitung zur Kasse...
+                          </>
+                        ) : (
+                          <>
+                            <ShoppingCart size={16} />
+                            Zur Kasse ({getTotalItems()} Artikel)
+                          </>
+                        )}
                       </button>
+
+                      {/* Error Display */}
+                      {checkoutError && (
+                        <div className="p-3 bg-red-50 border border-red-200 rounded-lg">
+                          <p className="text-red-800 text-sm">{checkoutError}</p>
+                          <button
+                            onClick={() => setCheckoutError(null)}
+                            className="text-red-600 text-xs mt-1 hover:underline"
+                          >
+                            Schließen
+                          </button>
+                        </div>
+                      )}
+
+                      {/* Shopify Connection Warning */}
+                      {!shopifyConnected && (
+                        <div className="p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
+                          <p className="text-yellow-800 text-sm">
+                            ⚠️ Shopify-Verbindung erforderlich für den Checkout
+                          </p>
+                          <button
+                            onClick={() => setShowShopifyConfig(true)}
+                            className="text-yellow-600 text-xs mt-1 hover:underline"
+                          >
+                            Jetzt konfigurieren
+                          </button>
+                        </div>
+                      )}
+
                       <button
                         onClick={() => setShowCart(false)}
                         className="w-full py-3 rounded-xl font-semibold text-gray-700 bg-white border border-gray-300 hover:bg-gray-50 transition-colors"
