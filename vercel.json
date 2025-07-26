@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "build": {
+    "env": {
+      "NPM_FLAGS": "--no-optional"
+    }
+  },
+  "buildCommand": "npm ci --no-optional && npm run build",
+  "outputDirectory": "dist",
+  "installCommand": "npm ci --no-optional",
+  "framework": "vite",
+  "functions": {
+    "app/api/**/*.js": {
+      "runtime": "nodejs20.x"
+    }
+  }
+} 
