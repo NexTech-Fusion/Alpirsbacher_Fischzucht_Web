@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logoVertical from '@/assets/logo_vertical.png';
+import logoVertical from '@/assets/logo_vertical.webp';
 
 const Footer = () => {
   return (

@@ -5,7 +5,7 @@ import { Fish, Heart, Mountain, Leaf, Calendar, MapPin, Users, Award, ShoppingCa
 import { Link } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
-import heroSchwarzwaldImg from '@/assets/forest_river.png';
+import heroSchwarzwaldImg from '@/assets/forest_river.webp';
 import familyTraditionImg from '@/assets/founders.webp';
 import fishLogoSvg from '@/assets/fish_logo.svg';
 import farmStoryImg from '@/assets/gallery_2022.webp';

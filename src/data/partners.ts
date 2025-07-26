@@ -1,7 +1,7 @@
 import { LucideIcon, Truck, Utensils, Wine } from 'lucide-react';
-import goExpressLogo from '@/assets/go-express-logo.png';
-import culinaryLogo from '@/assets/culinarico-logo.avif';
-import heinrichLogo from '@/assets/heinrich-weingut-logo.png';
+import goExpressLogo from '@/assets/go-express-logo.webp';
+import culinaryLogo from '@/assets/culinarico-logo.webp';
+import heinrichLogo from '@/assets/heinrich-weingut-logo.webp';
 
 export interface Partner {
   id: string;

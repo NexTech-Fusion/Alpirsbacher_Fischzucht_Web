@@ -7,8 +7,8 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import troutFarmHeroImg from '@/assets/gallery_2025.webp';
 import fishLogoSvg from '@/assets/fish_logo.svg';
-import processingHeroImg from '@/assets/prepared_fish.jpg';
-import directMarketingHeroImg from '@/assets/black_forest.png';
+import processingHeroImg from '@/assets/prepared_fish.webp';
+import directMarketingHeroImg from '@/assets/black_forest.webp';
 
 const Fischzucht = () => {
   const productionFeatures = [

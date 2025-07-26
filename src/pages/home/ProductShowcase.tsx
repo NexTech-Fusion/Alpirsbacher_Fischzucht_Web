@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ShoppingCart, ArrowRight, Fish } from 'lucide-react';
 import { QualityFeatures } from '@/components/home/QualityFeatures';
-import premiumFiletImg from '@/assets/premium_filet.jpg';
+import premiumFiletImg from '@/assets/premium_filet.webp';
 
 export const ProductShowcase: React.FC = () => {
   return (

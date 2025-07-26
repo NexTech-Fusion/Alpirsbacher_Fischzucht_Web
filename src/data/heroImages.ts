@@ -1,7 +1,7 @@
-import blackForestDustImg from '@/assets/black_forest_dust.png';
-import gourmetImg from '@/assets/gourmet.png';
-import fishesImg from '@/assets/forellen.jpg';
-import forelleCookedImg from '@/assets/forelle_cooked.jpg';
+import blackForestDustImg from '@/assets/black_forest_dust.webp';
+import gourmetImg from '@/assets/gourmet.webp';
+import fishesImg from '@/assets/forellen.webp';
+import forelleCookedImg from '@/assets/forelle_cooked.webp';
 
 export interface HeroImage {
   url: string;
