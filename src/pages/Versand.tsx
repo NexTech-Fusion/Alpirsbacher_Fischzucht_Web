@@ -15,23 +15,6 @@ const Versand = () => {
         <div className="relative container mx-auto px-4 py-8 lg:py-16">
           {/* Header Section */}
           <div className="text-center mb-12 animate-fade-in">
-            {/* Company Logo with Decorative Lines */}
-            <div className="flex items-center justify-center mb-8">
-              <div className="hidden md:block h-px bg-gradient-to-r from-transparent via-border to-border flex-1 max-w-24"></div>
-              <div className="flex items-center space-x-3 mx-4">
-                <Fish className="h-10 w-10 text-primary" />
-                <div className="flex flex-col">
-                  <span className="font-serif text-3xl lg:text-4xl font-bold text-foreground leading-tight">
-                    Alpirsbacher
-                  </span>
-                  <span className="font-serif text-lg lg:text-xl text-primary leading-tight opacity-90">
-                    Fischzucht
-                  </span>
-                </div>
-              </div>
-              <div className="hidden md:block h-px bg-gradient-to-l from-transparent via-border to-border flex-1 max-w-24"></div>
-            </div>
-
             <h1 className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-primary via-primary to-accent bg-clip-text text-transparent mb-4">
               Versand
             </h1>
@@ -80,7 +63,7 @@ const Versand = () => {
                   <p className="text-muted-foreground leading-relaxed mb-4">
                     Lieferungen erfolgen von Dienstag bis Samstag. Montags erfolgt keine Zustellung, da eine frische Anlieferung am Wochenbeginn nicht gewährleistet werden kann.
                   </p>
-                  
+
                   <div className="bg-muted/30 rounded-lg p-4 border-l-4 border-primary">
                     <h3 className="font-semibold text-foreground mb-3 flex items-center gap-2">
                       <Clock className="h-5 w-5 text-primary" />

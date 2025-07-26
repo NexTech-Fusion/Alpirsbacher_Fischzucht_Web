@@ -8,10 +8,10 @@ import Footer from '@/components/Footer';
 import heroSchwarzwaldImg from '@/assets/forest_river.png';
 import familyTraditionImg from '@/assets/founders.webp';
 import fishLogoSvg from '@/assets/fish_logo.svg';
-import farmStoryImg from '@/assets/farm-story.png';
-import sustainabilityImg from '@/assets/sustainability.png';
-import mapLocationImg from '@/assets/map-location.png';
-import harvestTimeImg from '@/assets/harvest-time.png';
+import farmStoryImg from '@/assets/gallery_2022.webp';
+import sustainabilityImg from '@/assets/gallery_2023.webp';
+import mapLocationImg from '@/assets/gallery_2024.webp';
+import harvestTimeImg from '@/assets/gallery_2025.webp';
 
 const UeberUns = () => {
   const galleryImages = [
@@ -23,21 +23,21 @@ const UeberUns = () => {
     },
     {
       src: sustainabilityImg,
-      title: "Nachhaltigkeit",
+      title: "Ausbau",
       year: "2023",
-      description: "Umweltfreundliche Technologien implementiert"
+      description: "Umbau und Erweiterung der Teichanlage"
     },
     {
       src: mapLocationImg,
-      title: "Unser Standort",
+      title: "Abschluss Bauarbeiten",
       year: "2024",
-      description: "Perfekte Lage im Herzen des Schwarzwalds"
+      description: "Anbindung der natürlichen Frischwasserquelle"
     },
     {
       src: harvestTimeImg,
       title: "Erste Ernte",
       year: "2025",
-      description: "Qualitätsforellen aus modernster Zucht"
+      description: "Qualitätsforellen aus natürlicher Zucht"
     }
   ];
 
@@ -249,7 +249,7 @@ const UeberUns = () => {
               >
                 <div className="text-center">
                   <div className="text-2xl font-bold">2022</div>
-                  <div className="text-sm text-muted-foreground">Neustart mit den Gründern Tobias Semke & Thomas Betz</div>
+                  <div className="text-sm text-muted-foreground">Neustart mit den Gründern Thomas Betz & Tobias Semke</div>
                 </div>
               </motion.div>
             </motion.div>

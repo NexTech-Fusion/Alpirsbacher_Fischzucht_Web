@@ -63,9 +63,14 @@ const Footer = () => {
               </div>
               <div className="text-[rgb(132,161,160)] text-sm flex items-center space-x-2">
                 <span>Built by</span>
-                <span className="text-[rgb(181,140,103)] font-semibold hover:text-white transition-colors duration-200 cursor-pointer">
+                <a 
+                  href="https://www.nextech-fusion.com/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-[rgb(181,140,103)] font-semibold hover:text-white transition-colors duration-200 cursor-pointer"
+                >
                   NexTech Fusion
-                </span>
+                </a>
               </div>
             </div>
           </div>

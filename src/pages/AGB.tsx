@@ -115,45 +115,14 @@ Zur Teilnahme an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtun
             <div className="absolute top-20 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
             <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-secondary/5 rounded-full blur-3xl"></div>
           </div>
-          
+
           <div className="relative container mx-auto px-4">
-            <motion.div 
+            <motion.div
               className="max-w-4xl mx-auto text-center"
               variants={staggerContainer}
               initial="initial"
               animate="animate"
             >
-              {/* Company Logo and Name - Matching Header Style with Decorative Elements */}
-              <motion.div 
-                className="flex items-center justify-center mb-8 w-full max-w-2xl mx-auto"
-                variants={fadeInUp}
-              >
-                {/* Left Decorative Divider */}
-                <div className="flex-1 flex items-center justify-end pr-8">
-                  <div className="w-32 h-px bg-gradient-to-r from-transparent to-primary opacity-60"></div>
-                  <div className="w-2 h-2 bg-primary rounded-full ml-2 opacity-80"></div>
-                </div>
-                
-                {/* Centered Logo */}
-                <div className="flex items-center space-x-2">
-                  <Fish className="h-10 w-10 text-primary" />
-                  <div className="flex flex-col text-center">
-                    <span className="font-serif text-3xl lg:text-4xl font-bold text-foreground leading-tight">
-                      Alpirsbacher
-                    </span>
-                    <span className="font-serif text-lg lg:text-xl text-primary leading-tight opacity-90">
-                      Fischzucht
-                    </span>
-                  </div>
-                </div>
-                
-                {/* Right Decorative Divider */}
-                <div className="flex-1 flex items-center justify-start pl-8">
-                  <div className="w-2 h-2 bg-primary rounded-full mr-2 opacity-80"></div>
-                  <div className="w-32 h-px bg-gradient-to-l from-transparent to-primary opacity-60"></div>
-                </div>
-              </motion.div>
-
               <motion.div variants={fadeInUp} className="space-y-4">
                 <h1 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
                   Allgemeine Geschäftsbedingungen
@@ -164,7 +133,7 @@ Zur Teilnahme an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtun
               </motion.div>
 
               {/* Company Information Header */}
-              <motion.div 
+              <motion.div
                 className="mt-8 bg-card/50 backdrop-blur-sm border border-border rounded-2xl p-6"
                 variants={fadeInUp}
               >
@@ -184,7 +153,7 @@ Zur Teilnahme an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtun
         {/* Main Content */}
         <section className="py-16">
           <div className="container mx-auto px-4">
-            <motion.div 
+            <motion.div
               className="max-w-6xl mx-auto"
               variants={staggerContainer}
               initial="initial"
@@ -192,7 +161,7 @@ Zur Teilnahme an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtun
             >
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 {sections.map((section, index) => (
-                  <motion.div 
+                  <motion.div
                     key={index}
                     className="bg-card/50 backdrop-blur-sm border border-border rounded-2xl p-8 space-y-4"
                     variants={fadeInUp}
@@ -213,7 +182,7 @@ Zur Teilnahme an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtun
               </div>
 
               {/* Important Notice */}
-              <motion.div 
+              <motion.div
                 className="mt-12 bg-primary/5 border border-primary/20 rounded-2xl p-8 text-center"
                 variants={fadeInUp}
               >
@@ -225,23 +194,23 @@ Zur Teilnahme an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtun
                   </div>
                   <h3 className="text-xl font-bold text-foreground mb-4">Wichtiger Hinweis für Frischware</h3>
                   <p className="text-muted-foreground leading-relaxed">
-                    Bitte beachten Sie, dass für frische und geräucherte Fischprodukte aufgrund ihrer Verderblichkeit 
-                    besondere Bedingungen gelten. Diese Produkte sind vom Widerrufsrecht ausgeschlossen und müssen 
+                    Bitte beachten Sie, dass für frische und geräucherte Fischprodukte aufgrund ihrer Verderblichkeit
+                    besondere Bedingungen gelten. Diese Produkte sind vom Widerrufsrecht ausgeschlossen und müssen
                     unverzüglich nach Erhalt überprüft werden.
                   </p>
                 </div>
               </motion.div>
 
               {/* Legal Disclaimer */}
-              <motion.div 
+              <motion.div
                 className="mt-8 bg-muted/20 rounded-2xl p-8 text-center"
                 variants={fadeInUp}
               >
                 <div className="max-w-3xl mx-auto">
                   <h3 className="text-lg font-bold text-foreground mb-4">Stand der AGB</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">
-                    Diese Allgemeinen Geschäftsbedingungen sind ab dem {new Date().toLocaleDateString('de-DE')} gültig. 
-                    Wir behalten uns vor, diese Bedingungen bei Bedarf anzupassen. Die jeweils aktuelle Fassung 
+                    Diese Allgemeinen Geschäftsbedingungen sind ab dem {new Date().toLocaleDateString('de-DE')} gültig.
+                    Wir behalten uns vor, diese Bedingungen bei Bedarf anzupassen. Die jeweils aktuelle Fassung
                     finden Sie stets auf unserer Website.
                   </p>
                 </div>

@@ -27,45 +27,14 @@ const Impressum = () => {
             <div className="absolute top-20 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
             <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-secondary/5 rounded-full blur-3xl"></div>
           </div>
-          
+
           <div className="relative container mx-auto px-4">
-            <motion.div 
+            <motion.div
               className="max-w-4xl mx-auto text-center"
               variants={staggerContainer}
               initial="initial"
               animate="animate"
             >
-              {/* Company Logo and Name - Matching Header Style with Decorative Elements */}
-              <motion.div 
-                className="flex items-center justify-center mb-8 w-full max-w-2xl mx-auto"
-                variants={fadeInUp}
-              >
-                {/* Left Decorative Divider */}
-                <div className="flex-1 flex items-center justify-end pr-8">
-                  <div className="w-32 h-px bg-gradient-to-r from-transparent to-primary opacity-60"></div>
-                  <div className="w-2 h-2 bg-primary rounded-full ml-2 opacity-80"></div>
-                </div>
-                
-                {/* Centered Logo */}
-                <div className="flex items-center space-x-2">
-                  <Fish className="h-10 w-10 text-primary" />
-                  <div className="flex flex-col text-center">
-                    <span className="font-serif text-3xl lg:text-4xl font-bold text-foreground leading-tight">
-                      Alpirsbacher
-                    </span>
-                    <span className="font-serif text-lg lg:text-xl text-primary leading-tight opacity-90">
-                      Fischzucht
-                    </span>
-                  </div>
-                </div>
-                
-                {/* Right Decorative Divider */}
-                <div className="flex-1 flex items-center justify-start pl-8">
-                  <div className="w-2 h-2 bg-primary rounded-full mr-2 opacity-80"></div>
-                  <div className="w-32 h-px bg-gradient-to-l from-transparent to-primary opacity-60"></div>
-                </div>
-              </motion.div>
-
               <motion.div variants={fadeInUp} className="space-y-4">
                 <h1 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
                   Impressum
@@ -81,7 +50,7 @@ const Impressum = () => {
         {/* Main Content */}
         <section className="py-16">
           <div className="container mx-auto px-4">
-            <motion.div 
+            <motion.div
               className="max-w-4xl mx-auto"
               variants={staggerContainer}
               initial="initial"
@@ -89,7 +58,7 @@ const Impressum = () => {
             >
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 {/* Company Information */}
-                <motion.div 
+                <motion.div
                   className="bg-card/50 backdrop-blur-sm border border-border rounded-2xl p-8 space-y-6"
                   variants={fadeInUp}
                 >
@@ -130,7 +99,7 @@ const Impressum = () => {
                 </motion.div>
 
                 {/* Contact Information */}
-                <motion.div 
+                <motion.div
                   className="bg-card/50 backdrop-blur-sm border border-border rounded-2xl p-8 space-y-6"
                   variants={fadeInUp}
                 >
@@ -146,8 +115,8 @@ const Impressum = () => {
                       <Phone className="h-5 w-5 text-primary" />
                       <div>
                         <p className="text-foreground font-medium">Telefon</p>
-                        <a 
-                          href="tel:0151-54888979" 
+                        <a
+                          href="tel:0151-54888979"
                           className="text-primary hover:text-primary/80 transition-colors duration-300"
                         >
                           0151-54888979
@@ -159,8 +128,8 @@ const Impressum = () => {
                       <Mail className="h-5 w-5 text-primary" />
                       <div>
                         <p className="text-foreground font-medium">E-Mail</p>
-                        <a 
-                          href="mailto:info@alpirsbacher-fischzucht.de" 
+                        <a
+                          href="mailto:info@alpirsbacher-fischzucht.de"
                           className="text-primary hover:text-primary/80 transition-colors duration-300"
                         >
                           info@alpirsbacher-fischzucht.de
@@ -172,9 +141,9 @@ const Impressum = () => {
                       <Globe className="h-5 w-5 text-primary" />
                       <div>
                         <p className="text-foreground font-medium">Website</p>
-                        <a 
-                          href="https://www.alpirsbacher-fischzucht.de" 
-                          target="_blank" 
+                        <a
+                          href="https://www.alpirsbacher-fischzucht.de"
+                          target="_blank"
                           rel="noopener noreferrer"
                           className="text-primary hover:text-primary/80 transition-colors duration-300"
                         >
@@ -186,7 +155,7 @@ const Impressum = () => {
                 </motion.div>
 
                 {/* Tax Information */}
-                <motion.div 
+                <motion.div
                   className="bg-card/50 backdrop-blur-sm border border-border rounded-2xl p-8 space-y-6"
                   variants={fadeInUp}
                 >
@@ -206,7 +175,7 @@ const Impressum = () => {
                 </motion.div>
 
                 {/* Regulatory Authority */}
-                <motion.div 
+                <motion.div
                   className="bg-card/50 backdrop-blur-sm border border-border rounded-2xl p-8 space-y-6"
                   variants={fadeInUp}
                 >
@@ -230,15 +199,15 @@ const Impressum = () => {
               </div>
 
               {/* Additional Legal Notice */}
-              <motion.div 
+              <motion.div
                 className="mt-12 bg-muted/20 rounded-2xl p-8 text-center"
                 variants={fadeInUp}
               >
                 <div className="max-w-3xl mx-auto">
                   <h3 className="text-xl font-bold text-foreground mb-4">Rechtlicher Hinweis</h3>
                   <p className="text-muted-foreground leading-relaxed">
-                    Die auf dieser Website bereitgestellten Informationen dienen ausschließlich zu Informationszwecken. 
-                    Trotz sorgfältiger Überprüfung übernehmen wir keine Haftung für die Vollständigkeit, Richtigkeit 
+                    Die auf dieser Website bereitgestellten Informationen dienen ausschließlich zu Informationszwecken.
+                    Trotz sorgfältiger Überprüfung übernehmen wir keine Haftung für die Vollständigkeit, Richtigkeit
                     und Aktualität der Inhalte. Alle Angaben erfolgen ohne Gewähr.
                   </p>
                 </div>

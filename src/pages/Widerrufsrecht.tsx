@@ -17,23 +17,6 @@ const Widerrufsrecht = () => {
 
           {/* Header Section */}
           <div className="text-center mb-12 animate-fade-in">
-            {/* Company Logo with Decorative Lines */}
-            <div className="flex items-center justify-center mb-8">
-              <div className="hidden md:block h-px bg-gradient-to-r from-transparent via-border to-border flex-1 max-w-24"></div>
-              <div className="flex items-center space-x-3 mx-4">
-                <Fish className="h-10 w-10 text-primary" />
-                <div className="flex flex-col">
-                  <span className="font-serif text-3xl lg:text-4xl font-bold text-foreground leading-tight">
-                    Alpirsbacher
-                  </span>
-                  <span className="font-serif text-lg lg:text-xl text-primary leading-tight opacity-90">
-                    Fischzucht
-                  </span>
-                </div>
-              </div>
-              <div className="hidden md:block h-px bg-gradient-to-l from-transparent via-border to-border flex-1 max-w-24"></div>
-            </div>
-
             <h1 className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-primary via-primary to-accent bg-clip-text text-transparent mb-4">
               Widerrufsrecht
             </h1>
@@ -180,8 +163,8 @@ const Widerrufsrecht = () => {
                     Sie haben das Recht, binnen 14 Tagen ohne Angabe von Gründen diesen Vertrag zu widerrufen.
                   </p>
                   <p className="text-muted-foreground leading-relaxed mb-4">
-                    Die Widerrufsfrist beträgt 14 Tage ab dem Tag,<br/>
-                    – an dem Sie oder ein von Ihnen benannter Dritter, der nicht der Beförderer ist, die Ware(n) in Besitz genommen haben bzw. hat,<br/>
+                    Die Widerrufsfrist beträgt 14 Tage ab dem Tag,<br />
+                    – an dem Sie oder ein von Ihnen benannter Dritter, der nicht der Beförderer ist, die Ware(n) in Besitz genommen haben bzw. hat,<br />
                     – im Falle einer Teillieferung: an dem Sie oder ein Dritter die letzte Teilsendung erhalten haben.
                   </p>
                   <p className="text-muted-foreground leading-relaxed mb-4">
@@ -240,7 +223,7 @@ const Widerrufsrecht = () => {
                   <p className="text-muted-foreground leading-relaxed">
                     Für einen etwaigen Wertverlust der Waren müssen Sie nur aufkommen, wenn dieser auf einen zur Prüfung der Beschaffenheit, Eigenschaften und Funktionsweise der Waren nicht notwendigen Umgang mit ihnen zurückzuführen ist.
                   </p>
-                  
+
                   <div className="bg-muted/30 rounded-lg p-4 border-l-4 border-primary mt-6">
                     <p className="font-semibold text-foreground mb-2">Hinweis:</p>
                     <p className="text-muted-foreground text-sm leading-relaxed">

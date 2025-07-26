@@ -5,8 +5,16 @@ import { partnersData } from '@/data/partners';
 
 export const PartnersSection: React.FC = () => {
   return (
-    <section className="py-20 bg-gradient-to-br from-[rgb(26,61,59)] via-[rgb(16,43,42)] to-[rgb(12,37,36)]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-20 bg-gradient-to-br from-[rgb(26,61,59)] via-[rgb(16,43,42)] to-[rgb(12,37,36)] relative overflow-hidden">
+      {/* Dotted Background Pattern Overlay */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `radial-gradient(circle at 25% 25%, #ffffff 1px, transparent 1px)`,
+          backgroundSize: '60px 60px'
+        }}></div>
+      </div>
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
