@@ -8,7 +8,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import Home from "./pages/Home";
 import Fischzucht from "./pages/Fischzucht";
 import UeberUns from "./pages/UeberUns";
-import Shop from "./pages/Shop";
+import Shop from "./apps/shop/Shop";
 import Impressum from "./pages/Impressum";
 import AGB from "./pages/AGB";
 import Widerrufsrecht from "./pages/Widerrufsrecht";

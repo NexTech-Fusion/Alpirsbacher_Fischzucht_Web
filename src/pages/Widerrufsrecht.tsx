@@ -9,8 +9,8 @@ const Widerrufsrecht = () => {
       <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/20 relative">
         {/* Decorative Background Elements */}
         <div className="absolute inset-0">
-          <div className="absolute top-20 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-1/4 w-80 h-80 bg-accent/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
+          <div className="hidden md:block absolute top-20 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse"></div>
+          <div className="hidden md:block absolute bottom-20 right-1/4 w-80 h-80 bg-accent/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
         </div>
 
         <div className="relative container mx-auto px-4 py-8 lg:py-16">
@@ -31,7 +31,7 @@ const Widerrufsrecht = () => {
             {/* 14-Day Return Policy */}
             <div className="backdrop-blur-sm bg-card/50 border border-border/50 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] animate-fade-in">
               <div className="flex items-start gap-4 mb-6">
-                <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
+                <div className="hidden md:flex flex-shrink-0 w-12 h-12 bg-primary/10 rounded-xl items-center justify-center">
                   <Clock className="h-6 w-6 text-primary" />
                 </div>
                 <div>
@@ -46,7 +46,7 @@ const Widerrufsrecht = () => {
             {/* Return Conditions */}
             <div className="backdrop-blur-sm bg-card/50 border border-border/50 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] animate-fade-in">
               <div className="flex items-start gap-4 mb-6">
-                <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
+                <div className="hidden md:flex flex-shrink-0 w-12 h-12 bg-primary/10 rounded-xl items-center justify-center">
                   <CheckCircle className="h-6 w-6 text-primary" />
                 </div>
                 <div>
@@ -61,7 +61,7 @@ const Widerrufsrecht = () => {
             {/* How to Initiate Return */}
             <div className="backdrop-blur-sm bg-card/50 border border-border/50 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] animate-fade-in">
               <div className="flex items-start gap-4 mb-6">
-                <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
+                <div className="hidden md:flex flex-shrink-0 w-12 h-12 bg-primary/10 rounded-xl items-center justify-center">
                   <Mail className="h-6 w-6 text-primary" />
                 </div>
                 <div>
@@ -84,7 +84,7 @@ const Widerrufsrecht = () => {
             {/* Damages and Problems */}
             <div className="backdrop-blur-sm bg-card/50 border border-border/50 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] animate-fade-in">
               <div className="flex items-start gap-4 mb-6">
-                <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
+                <div className="hidden md:flex flex-shrink-0 w-12 h-12 bg-primary/10 rounded-xl items-center justify-center">
                   <AlertTriangle className="h-6 w-6 text-primary" />
                 </div>
                 <div>
@@ -102,7 +102,7 @@ const Widerrufsrecht = () => {
             {/* Exceptions */}
             <div className="backdrop-blur-sm bg-card/50 border border-border/50 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] animate-fade-in">
               <div className="flex items-start gap-4 mb-6">
-                <div className="flex-shrink-0 w-12 h-12 bg-destructive/10 rounded-xl flex items-center justify-center">
+                <div className="hidden md:flex flex-shrink-0 w-12 h-12 bg-destructive/10 rounded-xl items-center justify-center">
                   <XCircle className="h-6 w-6 text-destructive" />
                 </div>
                 <div>
@@ -120,7 +120,7 @@ const Widerrufsrecht = () => {
             {/* No Withdrawal Right for Perishable Goods */}
             <div className="backdrop-blur-sm bg-card/50 border border-border/50 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] animate-fade-in">
               <div className="flex items-start gap-4 mb-6">
-                <div className="flex-shrink-0 w-12 h-12 bg-destructive/10 rounded-xl flex items-center justify-center">
+                <div className="hidden md:flex flex-shrink-0 w-12 h-12 bg-destructive/10 rounded-xl items-center justify-center">
                   <Package className="h-6 w-6 text-destructive" />
                 </div>
                 <div>
@@ -138,7 +138,7 @@ const Widerrufsrecht = () => {
             {/* Withdrawal Right for Non-Perishable Goods */}
             <div className="backdrop-blur-sm bg-card/50 border border-border/50 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] animate-fade-in">
               <div className="flex items-start gap-4 mb-6">
-                <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
+                <div className="hidden md:flex flex-shrink-0 w-12 h-12 bg-primary/10 rounded-xl items-center justify-center">
                   <Shield className="h-6 w-6 text-primary" />
                 </div>
                 <div>
@@ -153,7 +153,7 @@ const Widerrufsrecht = () => {
             {/* Withdrawal Instruction */}
             <div className="backdrop-blur-sm bg-card/50 border border-border/50 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] animate-fade-in">
               <div className="flex items-start gap-4 mb-6">
-                <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
+                <div className="hidden md:flex flex-shrink-0 w-12 h-12 bg-primary/10 rounded-xl items-center justify-center">
                   <RefreshCw className="h-6 w-6 text-primary" />
                 </div>
                 <div>
@@ -188,7 +188,7 @@ const Widerrufsrecht = () => {
             {/* Consequences of Withdrawal */}
             <div className="backdrop-blur-sm bg-card/50 border border-border/50 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] animate-fade-in">
               <div className="flex items-start gap-4 mb-6">
-                <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
+                <div className="hidden md:flex flex-shrink-0 w-12 h-12 bg-primary/10 rounded-xl items-center justify-center">
                   <CheckCircle className="h-6 w-6 text-primary" />
                 </div>
                 <div>
@@ -209,7 +209,7 @@ const Widerrufsrecht = () => {
             {/* Return of Goods */}
             <div className="backdrop-blur-sm bg-card/50 border border-border/50 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] animate-fade-in">
               <div className="flex items-start gap-4 mb-6">
-                <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
+                <div className="hidden md:flex flex-shrink-0 w-12 h-12 bg-primary/10 rounded-xl items-center justify-center">
                   <Package className="h-6 w-6 text-primary" />
                 </div>
                 <div>

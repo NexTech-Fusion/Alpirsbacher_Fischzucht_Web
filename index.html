@@ -1,13 +1,13 @@
-
 <!DOCTYPE html>
 <html lang="de">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/src/assets/fish_logo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Alpirsbach Fischzucht - Premium Forellen aus dem Schwarzwald</title>
-    <meta name="description" content="Nachhaltige Fischzucht im Herzen des Schwarzwalds. Premium Forellen in höchster Qualität." />
-    <meta name="author" content="Alpirsbach Fischzucht" />
+
+    <title>Alpirsbacher Fischzucht im Schwarzwald | Forellen online kaufen</title>
+    <meta name="description" content="Frische Regenbogenforelle, Lachsforelle & Saibling direkt vom Erzeuger im Schwarzwald online bestellen. Nachhaltig, Express-Lieferung, höchste Qualität!" />
+    <meta name="author" content="Alpirsbacher Fischzucht" />
 
     <!-- Local Fonts for GDPR Compliance -->
     <link rel="stylesheet" href="/fonts/fonts.css">
@@ -15,13 +15,58 @@
     <!-- Preload critical hero image for better LCP -->
     <link rel="preload" as="image" href="/src/assets/black_forest_dust.webp" fetchpriority="high">
 
-    <meta property="og:title" content="Alpirsbach Fischzucht - Premium Forellen aus dem Schwarzwald" />
-    <meta property="og:description" content="Nachhaltige Fischzucht im Herzen des Schwarzwalds. Premium Forellen in höchster Qualität." />
+    <!-- Open Graph & Social Sharing -->
+    <meta property="og:title" content="Alpirsbacher Fischzucht im Schwarzwald | Forellen online kaufen" />
+    <meta property="og:description" content="Frische Forellen aus nachhaltiger, naturnaher Aquakultur. Keine Zwischenlagerung, direkter Expressversand!" />
     <meta property="og:type" content="website" />
+    <meta property="og:image" content="/src/assets/fish_logo.svg" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Alpirsbacher Fischzucht im Schwarzwald | Forellen online kaufen" />
+    <meta name="twitter:description" content="Nachhaltige Premium Forellen direkt vom Erzeuger – schnelle Express-Lieferung deutschlandweit!" />
+    <meta name="twitter:image" content="/src/assets/fish_logo.svg" />
+
+    <!-- JSON-LD Strukturierte Daten für besseres SEO -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Alpirsbacher Fischzucht",
+        "description": "Nachhaltige Fischzucht im Schwarzwald mit Forellen direkt vom Erzeuger.",
+        "image": "https://www.alpirsbacher-fischzucht.de/src/assets/fish_logo.svg",
+        "url": "https://www.alpirsbacher-fischzucht.de",
+        "telephone": "0151-54888979",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Reinerzauer Talstraße 260",
+          "addressLocality": "Alpirsbach",
+          "postalCode": "72275",
+          "addressRegion": "Baden-Württemberg",
+          "addressCountry": "DE"
+        },
+        "openingHours": "Mo-Fr 09:00-17:00",
+        "priceRange": "€€",
+        "sameAs": [
+          "https://www.instagram.com/alpirsbacherfischzucht"
+        ]
+      }
+    </script>
+
+    <!-- Critical CSS preloading -->
+    <link rel="preload" href="/src/index.css" as="style" />
   </head>
 
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <h1>Frische Forellen direkt von der Quelle – Alpirsbacher Fischzucht</h1>
+      <p>
+        Unsere Forellen wachsen naturnah und nachhaltig in quellfrischem Wasser im Schwarzwald auf –
+        ganz ohne Medikamente und Chemie. Jeder Fisch wird nach Ihrer Bestellung frisch geschlachtet,
+        hygienisch verarbeitet und deutschlandweit per Express geliefert.
+        Entdecken Sie Regenbogenforelle, Lachsforelle, Goldforelle und Saibling in Premium-Qualität direkt vom Erzeuger.
+      </p>
+    </div>
     <script type="module" src="/src/apps/main/main.tsx"></script>
   </body>
 </html>

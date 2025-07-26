@@ -62,7 +62,7 @@ export const HeroSection: React.FC = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
               >
-                <Link to="/shop">
+                <a href="/shop" target="_blank" rel="noopener noreferrer">
                   <motion.div 
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.98 }}
@@ -74,7 +74,7 @@ export const HeroSection: React.FC = () => {
                       <ChevronRight className="w-4 h-4 lg:w-5 lg:h-5 mx-auto mt-2 group-hover:translate-x-1 transition-transform duration-300" />
                     </div>
                   </motion.div>
-                </Link>
+                </a>
               </motion.div>
 
               {/* Secondary Actions */}

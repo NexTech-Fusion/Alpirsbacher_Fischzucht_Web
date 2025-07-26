@@ -29,7 +29,7 @@ const Versand = () => {
             {/* Packaging and Cooling */}
             <div className="backdrop-blur-sm bg-card/50 border border-border/50 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] animate-fade-in">
               <div className="flex items-start gap-4 mb-6">
-                <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
+                <div className="hidden md:flex flex-shrink-0 w-12 h-12 bg-primary/10 rounded-xl items-center justify-center">
                   <Snowflake className="h-6 w-6 text-primary" />
                 </div>
                 <div>
@@ -52,7 +52,7 @@ const Versand = () => {
             {/* Shipping Service and Delivery Times */}
             <div className="backdrop-blur-sm bg-card/50 border border-border/50 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] animate-fade-in">
               <div className="flex items-start gap-4 mb-6">
-                <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
+                <div className="hidden md:flex flex-shrink-0 w-12 h-12 bg-primary/10 rounded-xl items-center justify-center">
                   <Truck className="h-6 w-6 text-primary" />
                 </div>
                 <div>
@@ -82,7 +82,7 @@ const Versand = () => {
             {/* Shipping Costs */}
             <div className="backdrop-blur-sm bg-card/50 border border-border/50 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] animate-fade-in">
               <div className="flex items-start gap-4 mb-6">
-                <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
+                <div className="hidden md:flex flex-shrink-0 w-12 h-12 bg-primary/10 rounded-xl items-center justify-center">
                   <Euro className="h-6 w-6 text-primary" />
                 </div>
                 <div>
@@ -114,7 +114,7 @@ const Versand = () => {
             {/* Minimum Order Value */}
             <div className="backdrop-blur-sm bg-card/50 border border-border/50 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] animate-fade-in">
               <div className="flex items-start gap-4 mb-6">
-                <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
+                <div className="hidden md:flex flex-shrink-0 w-12 h-12 bg-primary/10 rounded-xl items-center justify-center">
                   <Package className="h-6 w-6 text-primary" />
                 </div>
                 <div>
@@ -130,7 +130,7 @@ const Versand = () => {
             {/* Delivery and Acceptance Notes */}
             <div className="backdrop-blur-sm bg-card/50 border border-border/50 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] animate-fade-in">
               <div className="flex items-start gap-4 mb-6">
-                <div className="flex-shrink-0 w-12 h-12 bg-amber-500/10 rounded-xl flex items-center justify-center">
+                <div className="hidden md:flex flex-shrink-0 w-12 h-12 bg-amber-500/10 rounded-xl items-center justify-center">
                   <AlertTriangle className="h-6 w-6 text-amber-500" />
                 </div>
                 <div>
@@ -156,7 +156,7 @@ const Versand = () => {
             {/* Liability Notice */}
             <div className="backdrop-blur-sm bg-destructive/5 border border-destructive/20 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] animate-fade-in">
               <div className="flex items-start gap-4 mb-6">
-                <div className="flex-shrink-0 w-12 h-12 bg-destructive/10 rounded-xl flex items-center justify-center">
+                <div className="hidden md:flex flex-shrink-0 w-12 h-12 bg-destructive/10 rounded-xl items-center justify-center">
                   <AlertTriangle className="h-6 w-6 text-destructive" />
                 </div>
                 <div>

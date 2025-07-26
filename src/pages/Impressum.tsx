@@ -63,7 +63,7 @@ const Impressum = () => {
                   variants={fadeInUp}
                 >
                   <div className="flex items-center space-x-3 mb-6">
-                    <div className="p-3 bg-primary/10 rounded-xl">
+                    <div className="hidden md:block p-3 bg-primary/10 rounded-xl">
                       <FileText className="h-6 w-6 text-primary" />
                     </div>
                     <h2 className="text-2xl font-bold text-foreground">Firmeninformationen</h2>
@@ -104,7 +104,7 @@ const Impressum = () => {
                   variants={fadeInUp}
                 >
                   <div className="flex items-center space-x-3 mb-6">
-                    <div className="p-3 bg-primary/10 rounded-xl">
+                    <div className="hidden md:block p-3 bg-primary/10 rounded-xl">
                       <Phone className="h-6 w-6 text-primary" />
                     </div>
                     <h2 className="text-2xl font-bold text-foreground">Kontakt</h2>
@@ -160,7 +160,7 @@ const Impressum = () => {
                   variants={fadeInUp}
                 >
                   <div className="flex items-center space-x-3 mb-6">
-                    <div className="p-3 bg-primary/10 rounded-xl">
+                    <div className="hidden md:block p-3 bg-primary/10 rounded-xl">
                       <FileText className="h-6 w-6 text-primary" />
                     </div>
                     <h2 className="text-2xl font-bold text-foreground">Steuern</h2>
@@ -180,7 +180,7 @@ const Impressum = () => {
                   variants={fadeInUp}
                 >
                   <div className="flex items-center space-x-3 mb-6">
-                    <div className="p-3 bg-primary/10 rounded-xl">
+                    <div className="hidden md:block p-3 bg-primary/10 rounded-xl">
                       <Shield className="h-6 w-6 text-primary" />
                     </div>
                     <h2 className="text-2xl font-bold text-foreground">Aufsichtsbehörde</h2>

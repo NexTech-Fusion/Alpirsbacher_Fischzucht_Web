@@ -2,7 +2,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Fish, Droplets, Factory, ShoppingCart, Leaf, Heart, Award, Clock, Shield, Truck } from 'lucide-react';
-import { Link } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import troutFarmHeroImg from '@/assets/gallery_2025.webp';
@@ -107,13 +106,15 @@ const Fischzucht = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.9 }}
               >
-                <Link
-                  to="/shop"
+                <a
+                  href="/shop"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-3 bg-primary text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl"
                 >
                   <ShoppingCart className="h-5 w-5" />
                   Jetzt bestellen
-                </Link>
+                </a>
               </motion.div>
             </motion.div>
           </div>
@@ -353,13 +354,15 @@ const Fischzucht = () => {
               Entdecken Sie unsere Auswahl an frischen Forellen und weiteren Spezialitäten
               aus nachhaltiger regionaler Zucht.
             </p>
-            <Link
-              to="/shop"
+            <a
+              href="/shop"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-3 bg-primary text-white px-10 py-5 rounded-xl text-xl font-semibold hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
             >
               <ShoppingCart className="h-6 w-6" />
               Zum Shop
-            </Link>
+            </a>
           </motion.div>
         </div>
       </section>

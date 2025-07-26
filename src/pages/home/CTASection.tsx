@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 
 export const CTASection: React.FC = () => {
@@ -27,13 +26,15 @@ export const CTASection: React.FC = () => {
             Bestellen Sie noch heute unsere frischen Premium-Forellen
             und erleben Sie Qualität, die Sie schmecken können.
           </p>
-          <Link
-            to="/shop"
+          <a
+            href="/shop"
+            target="_blank"
+            rel="noopener noreferrer"
             className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/25 inline-flex items-center gap-2"
           >
             Zum Shop
             <ArrowRight size={20} />
-          </Link>
+          </a>
         </motion.div>
       </div>
     </section>

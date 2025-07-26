@@ -167,7 +167,7 @@ Zur Teilnahme an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtun
                     variants={fadeInUp}
                   >
                     <div className="flex items-start space-x-4">
-                      <div className="p-3 bg-primary/10 rounded-xl flex-shrink-0">
+                      <div className="hidden md:block p-3 bg-primary/10 rounded-xl flex-shrink-0">
                         <section.icon className="h-6 w-6 text-primary" />
                       </div>
                       <div className="space-y-4 flex-1">
@@ -187,7 +187,7 @@ Zur Teilnahme an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtun
                 variants={fadeInUp}
               >
                 <div className="max-w-3xl mx-auto">
-                  <div className="flex items-center justify-center mb-4">
+                  <div className="hidden md:flex items-center justify-center mb-4">
                     <div className="p-3 bg-primary/10 rounded-xl">
                       <Clock className="h-8 w-8 text-primary" />
                     </div>
